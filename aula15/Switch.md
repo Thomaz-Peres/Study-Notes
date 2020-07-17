@@ -1,0 +1,1 @@
+- testa o resultado de uma variavel e compara com os cases, o case que for semelhante tera seu bloco de comando executado.
