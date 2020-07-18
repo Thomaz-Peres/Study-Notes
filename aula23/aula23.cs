@@ -13,7 +13,6 @@ class Aula32
         for (int i = 0; i < vetor1.Length; i++)
         {
             vetor1[i] = random.Next(50);
-
         }
 
         Console.WriteLine("Elementos do vetor1");

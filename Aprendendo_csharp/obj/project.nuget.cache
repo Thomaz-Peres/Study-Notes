@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "+EpHvK0r8IZfIxZpxer5hchKmKxEBpofK9LODQ55dGLfyxzUVnNdOHvclrW+dsU8a+MielcbEZch796tG6bDRQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AlphaPaiN\\Documents\\dev\\C#\\Aprendendo_csharp\\Aprendendo_csharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AlphaPaiN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\AlphaPaiN\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
