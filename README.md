@@ -49,13 +49,13 @@ Aulas com CSharp e anotações (do basico ao avançado)
 
 #### (Argumento PARAMS)
 
-#### (ClassesEObjetos)
+#### (Classes E Objetos)
 
-#### (ConstrutoresDestrutores)
+#### (Construtores Destrutores)
 
-#### (SobrecargaDeConstrutores)
+#### (Sobrecarga De Construtores)
 
-#### (ClasseEMembroStatico)
+#### (Classe E Membro Statico)
 
 #### (This)
 
