@@ -59,3 +59,14 @@ Aulas com CSharp e anotações (do basico ao avançado)
 ### Aula 31 (ClasseEMembroStatico)
 
 ### Aula 32 (This)
+
+### Aula 33 (Public & Private)
+
+### Aula 34 (Herança)
+
+### Aula 35 (Cadeia de herança e Construtor da classe base)
+
+### Aula 36 (Membros Protected)
+
+### Aula 37 (Herança/Ordem de execução dos construtores)
+
