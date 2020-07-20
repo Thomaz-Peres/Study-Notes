@@ -1,11 +1,6 @@
 # AulasCSharp
 Aulas com CSharp e anotações (do basico ao avançado)
 
-Aula 4 | Aula 5 | Aula 6 | Aula 7 | Aula 8 | Aula 9 | Aula 10 | Aula 11 | Aula 12 | Aula 13 | Aula 14 | Aula 15 | Aula 15 | Aula 16 | Aula 17 | Aula 18 | Aula 19 | Aula 20 |
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Aula 21 | Aula 22 | Aula 23 | Aula 24 | Aula 25 | Aula 26 | Aula 27 | Aula 28 | Aula 29
---------------------------------------------------
-
 ### Aula 04 (Escopo e Variaveis)
 
 ### Aula 05 (Operadores e Operações)
