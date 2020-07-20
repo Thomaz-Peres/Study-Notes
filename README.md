@@ -1,71 +1,71 @@
 # AulasCSharp
 Aulas com CSharp e anotações (do basico ao avançado)
 
-### Aula 04 (Escopo e Variaveis)
+#### (Escopo e Variaveis)
 
-### Aula 05 (Operadores e Operações)
+#### (Operadores e Operações)
 
-### Aula 06 (Formatando a saida no console)
+#### (Formatando a saida no console)
 
-### Aula 07 (Constantes em C#)
+#### (Constantes em C#)
 
-### Aula 08 (Lendo Valores do Teclado)
+#### (Lendo Valores do Teclado)
 
-### Aula 09 (Operações de Bitwise)
+#### (Operações de Bitwise)
 
-### Aula 10 (Enumeradores)
+#### (Enumeradores)
 
-### Aula 11 (Conversões de tipo ou TypeCast)
+#### (Conversões de tipo ou TypeCast)
 
-### Aula 12 (IF)
+#### (IF)
 
-### Aula 13 (else if - if else)
+#### (else if - if else)
 
-### Aula 14 (IF aninhado)
+#### (IF aninhado)
 
-### Aula 15 (Switch case)
+#### (Switch case)
 
-### Aula 16 (Comando goto)
+#### (Comando goto)
 
-### Aula 17 (Array / Vetores / Array Unidimensional)
+#### (Array / Vetores / Array Unidimensional)
 
-### Aula 18 (Array / Matriz / Arrai bidimensional)
+#### (Array / Matriz / Arrai bidimensional)
 
-### Aula 19 (loop For)
+#### (loop For)
 
-### Aula 20 (Loop While)
+#### (Loop While)
 
-### Aula 21 (Loop DO-WHILE)
+#### (Loop DO-WHILE)
 
-### Aula 22 (Loop FOREACH)
+#### (Loop FOREACH)
 
-### Aula 23 (Metodos para arrays PARTE 1)
+#### (Metodos para arrays PARTE 1)
 
-### Aula 24 (Metodos)
+#### (Metodos)
 
-### Aula 25 (Passagem de Valor e Referencia por metodos)
+#### (Passagem de Valor e Referencia por metodos)
 
-### Aula 26 (Argumento OUT)
+#### (Argumento OUT)
 
-### Aula 27 (Argumento PARAMS)
+#### (Argumento PARAMS)
 
-### Aula 28 (ClassesEObjetos)
+#### (ClassesEObjetos)
 
-### Aula 29 (ConstrutoresDestrutores)
+#### (ConstrutoresDestrutores)
 
-### Aula 30 (SobrecargaDeConstrutores)
+#### (SobrecargaDeConstrutores)
 
-### Aula 31 (ClasseEMembroStatico)
+#### (ClasseEMembroStatico)
 
-### Aula 32 (This)
+#### (This)
 
-### Aula 33 (Public & Private)
+#### (Public & Private)
 
-### Aula 34 (Herança)
+#### (Herança)
 
-### Aula 35 (Cadeia de herança e Construtor da classe base)
+#### (Cadeia de herança e Construtor da classe base)
 
-### Aula 36 (Membros Protected)
+#### (Membros Protected)
 
-### Aula 37 (Herança/Ordem de execução dos construtores)
+#### (Herança/Ordem de execução dos construtores)
 
