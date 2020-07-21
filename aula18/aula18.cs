@@ -13,8 +13,6 @@ class Aula18
         25 35 45 55 65
         */
 
-
-
         //  coluna 0 seguindo da linha
         n[0, 0] = 10;
         n[0, 1] = 20;

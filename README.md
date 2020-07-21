@@ -1,4 +1,7 @@
 # AulasCSharp
+
+# DA AULA 60 EM DIANTE É NO VISUAL STUDIO.
+
 Este repositório tem como objetivo deixar algumas anotações referente aos meus estudos na tecnologia
 Aulas com CSharp e anotações (do basico ao avançado)
 

@@ -1,0 +1,1 @@
+## Delegate é um objeto que pode fazer referencia a metodo, e não necessariamente a 1 METODO, pode ser usado para fazer referencia a quantos metodos eu quiser
