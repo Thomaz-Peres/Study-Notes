@@ -1,4 +1,3 @@
-# Estudos :book:
 # AulasCSharp
 Este repositório tem como objetivo deixar algumas anotações referente aos meus estudos na tecnologia
 Aulas com CSharp e anotações (do basico ao avançado)
