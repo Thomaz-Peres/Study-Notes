@@ -1,0 +1,1 @@
+## Uma classe SEALED nao pode ser herdada
