@@ -6,7 +6,6 @@ Este repositório tem como objetivo deixar algumas anotações referente aos meu
 Aulas com CSharp e anotações (do basico ao avançado)
 
 #### 04 (Escopo e Variaveis)
-
 #### 05 (Operadores e Operações)
 
 #### 06 (Formatando a saida no console)
@@ -73,3 +72,44 @@ Aulas com CSharp e anotações (do basico ao avançado)
  
 #### 37 (Herança/Ordem de execução dos construtores)
 
+#### 38 (Metodos Virtuais)
+
+#### 39 (Classes e Metodos Abstratos)
+
+#### 40 (Sealed)
+
+#### 41 (Get e Set)
+
+#### 42 (Indexadores)
+
+#### 43 (Interfaces)
+
+#### 44 (Struct)
+
+#### 45 (Array de Estruturas)
+
+#### 46 (Metodos que retornam Objetos)
+
+#### 47 (Sobrecarga de Metodos)
+
+#### 48 (Recursividade)
+
+#### 49 (Metodos e Variaveis Statics)
+
+#### 50 (Delegates)
+
+#### 51 (Argumentos de Entrada do Programa)
+
+#### 52 (Exceção Try Catch PARTE 1)
+
+#### 53 (Exceção Try Catch Finally PARTE 2)
+
+#### 54 (Namespaces)
+
+#### 55 (Dictionary)
+
+#### 56 (LinkeDList)
+
+#### 57 (Coleção List PARTE 1)
+#### 58 (Coleção List PARTE 2)
+#### 59 (Coleção QUEUE)
