@@ -2,71 +2,71 @@
 Este repositório tem como objetivo deixar algumas anotações referente aos meus estudos na tecnologia
 Aulas com CSharp e anotações (do basico ao avançado)
 
-#### (Escopo e Variaveis)
+#### 04 (Escopo e Variaveis)
 
-#### (Operadores e Operações)
+#### 05 (Operadores e Operações)
 
-#### (Formatando a saida no console)
+#### 06 (Formatando a saida no console)
 
-#### (Constantes em C#)
+#### 07 (Constantes em C#)
 
-#### (Lendo Valores do Teclado)
+#### 08 (Lendo Valores do Teclado)
 
-#### (Operações de Bitwise)
+#### 09 (Operações de Bitwise)
 
-#### (Enumeradores)
+#### 10 (Enumeradores)
 
-#### (Conversões de tipo ou TypeCast)
+#### 11 (Conversões de tipo ou TypeCast)
 
-#### (IF)
+#### 12 (IF)
 
-#### (else if - if else)
+#### 13 (else if - if else)
 
-#### (IF aninhado)
+#### 14 (IF aninhado)
 
-#### (Switch case)
+#### 15 (Switch case)
 
-#### (Comando goto)
+#### 16 (Comando goto)
 
-#### (Array / Vetores / Array Unidimensional)
+#### 17 (Array / Vetores / Array Unidimensional)
 
-#### (Array / Matriz / Arrai bidimensional)
+#### 18 (Array / Matriz / Arrai bidimensional)
 
-#### (loop For)
+#### 19 (loop For)
 
-#### (Loop While)
+#### 20 (Loop While)
 
-#### (Loop DO-WHILE)
+#### 21 (Loop DO-WHILE)
 
-#### (Loop FOREACH)
+#### 22 (Loop FOREACH)
 
-#### (Metodos para arrays PARTE 1)
+#### 23 (Metodos para arrays PARTE 1)
 
-#### (Metodos)
+#### 24 (Metodos)
 
-#### (Passagem de Valor e Referencia por metodos)
+#### 25 (Passagem de Valor e Referencia por metodos)
 
-#### (Argumento OUT)
+#### 26 (Argumento OUT)
 
-#### (Argumento PARAMS)
+#### 27 (Argumento PARAMS)
 
-#### (Classes E Objetos)
+#### 28 (Classes E Objetos)
 
-#### (Construtores Destrutores)
+#### 29 (Construtores Destrutores)
 
-#### (Sobrecarga De Construtores)
+#### 30 (Sobrecarga De Construtores)
 
-#### (Classe E Membro Statico)
+#### 31 (Classe E Membro Statico)
 
-#### (This)
+#### 32 (This)
 
-#### (Public & Private)
+#### 33 (Public & Private)
 
-#### (Herança)
+#### 34 (Herança)
 
-#### (Cadeia de herança e Construtor da classe base)
+#### 35 (Cadeia de herança e Construtor da classe base)
 
-#### (Membros Protected)
-
-#### (Herança/Ordem de execução dos construtores)
+#### 36 (Membros Protected)
+ 
+#### 37 (Herança/Ordem de execução dos construtores)
 
