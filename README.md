@@ -1,4 +1,4 @@
-# Estudos :book:
+# Estudos :book: Notes
 
 #### This repository as a purpose, to leave some notes regardin my studies in the technology, in each folder ther will be README explained how to works, and with all classes/notes about the explained.
 
