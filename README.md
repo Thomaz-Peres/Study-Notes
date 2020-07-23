@@ -6,3 +6,4 @@
 
 - [About C#](https://github.com/Thomaz-Peres/Estudos/tree/master/C%23%20aulas)
 - [Visual Studio](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio)
+- [Editor de texto](https://github.com/Thomaz-Peres/Editor-de-Texto)
