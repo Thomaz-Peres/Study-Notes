@@ -42,6 +42,7 @@
             this.comboToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,7 +130,8 @@
             this.checkedListBoxToolStripMenuItem,
             this.comboToolStripMenuItem,
             this.timerToolStripMenuItem,
-            this.linkLabelToolStripMenuItem});
+            this.linkLabelToolStripMenuItem,
+            this.webBrowserToolStripMenuItem});
             this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
             this.componentesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.componentesToolStripMenuItem.Text = "Componentes";
@@ -168,6 +170,13 @@
             this.linkLabelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.linkLabelToolStripMenuItem.Text = "LinkLabel";
             this.linkLabelToolStripMenuItem.Click += new System.EventHandler(this.linkLabelToolStripMenuItem_Click);
+            // 
+            // webBrowserToolStripMenuItem
+            // 
+            this.webBrowserToolStripMenuItem.Name = "webBrowserToolStripMenuItem";
+            this.webBrowserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.webBrowserToolStripMenuItem.Text = "WebBrowser";
+            this.webBrowserToolStripMenuItem.Click += new System.EventHandler(this.webBrowserToolStripMenuItem_Click);
             // 
             // F_Principal
             // 
@@ -211,6 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem comboToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem linkLabelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem webBrowserToolStripMenuItem;
     }
 }
 

@@ -94,6 +94,12 @@
     <Compile Include="F_Veiculos.Designer.cs">
       <DependentUpon>F_Veiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_WebBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_WebBrowser.Designer.cs">
+      <DependentUpon>F_WebBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_Veiculos.resx">
       <DependentUpon>F_Veiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_WebBrowser.resx">
+      <DependentUpon>F_WebBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

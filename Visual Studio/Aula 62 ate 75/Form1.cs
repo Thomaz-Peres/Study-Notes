@@ -85,5 +85,11 @@ namespace Aula62___Componentes
             F_LinkedLabel f_LinkedLabel = new F_LinkedLabel();
             f_LinkedLabel.ShowDialog();
         }
+
+        private void webBrowserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_WebBrowser f_WebBrowser = new F_WebBrowser();
+            f_WebBrowser.ShowDialog();
+        }
     }
 }

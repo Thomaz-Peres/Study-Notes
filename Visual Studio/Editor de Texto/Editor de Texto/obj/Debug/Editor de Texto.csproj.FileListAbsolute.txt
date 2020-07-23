@@ -7,3 +7,7 @@ C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de T
 C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\obj\Debug\Editor de Texto.csproj.GenerateResource.cache
 C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\obj\Debug\Editor de Texto.exe
 C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\obj\Debug\Editor de Texto.pdb
+C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\bin\Debug\Editor de Texto.exe.manifest
+C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\bin\Debug\Editor de Texto.application
+C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\obj\Debug\Editor de Texto.exe.manifest
+C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\Editor de Texto\Editor de Texto\obj\Debug\Editor de Texto.application
