@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor de Texto", "Editor de Texto.csproj", "{2B866231-5232-4133-9D8A-4B2408C12DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B866231-5232-4133-9D8A-4B2408C12DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B866231-5232-4133-9D8A-4B2408C12DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B866231-5232-4133-9D8A-4B2408C12DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B866231-5232-4133-9D8A-4B2408C12DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58134342-C6D2-4954-B110-30136928D2CC}
+	EndGlobalSection
+EndGlobal
