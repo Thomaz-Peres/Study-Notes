@@ -82,7 +82,8 @@ namespace SQLite
             {
                 if (Globais.nivel >= 2)
                 {
-                    //Procedimentos da janela
+                    F_GestaoUsuarios f_GestaoUsuarios = new F_GestaoUsuarios();
+                    f_GestaoUsuarios.ShowDialog();
                 }
                 else
                 {

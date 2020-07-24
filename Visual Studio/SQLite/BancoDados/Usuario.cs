@@ -10,7 +10,7 @@ namespace SQLite.BancoDados
     {
         public Int32 id;
         public string nome;
-        public string usernome;
+        public string username;
         public string senha;
         public string status;
         public Int32 nivel;

@@ -66,7 +66,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDados\Banco.cs" />
+    <Compile Include="BancoDados\Usuario.cs" />
     <Compile Include="Components\Globais.cs" />
+    <Compile Include="F_GestaoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_GestaoUsuarios.Designer.cs">
+      <DependentUpon>F_GestaoUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="F_GestaoUsuarios.resx">
+      <DependentUpon>F_GestaoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Login.resx">
       <DependentUpon>F_Login.cs</DependentUpon>
     </EmbeddedResource>

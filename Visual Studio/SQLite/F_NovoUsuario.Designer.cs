@@ -86,6 +86,7 @@
             // 
             this.tb_senha.Location = new System.Drawing.Point(397, 29);
             this.tb_senha.Name = "tb_senha";
+            this.tb_senha.PasswordChar = '*';
             this.tb_senha.Size = new System.Drawing.Size(119, 20);
             this.tb_senha.TabIndex = 5;
             // 
@@ -188,6 +189,7 @@
             this.btn_fechar.TabIndex = 2;
             this.btn_fechar.Text = "Fechar";
             this.btn_fechar.UseVisualStyleBackColor = true;
+            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
             // btn_cancelar
             // 
@@ -198,6 +200,7 @@
             this.btn_cancelar.TabIndex = 1;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_salvar
             // 
@@ -219,6 +222,7 @@
             this.btn_novo.TabIndex = 0;
             this.btn_novo.Text = "Novo";
             this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // F_NovoUsuario
             // 
