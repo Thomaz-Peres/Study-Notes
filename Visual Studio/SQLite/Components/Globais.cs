@@ -11,5 +11,14 @@ namespace SQLite.Components
         public static string versao = "1.0";
         public static Boolean logado = false;
         public static int nivel = 0;        // 0 - Básico   -  1 Gerente    -   2 Master
+
+        /*
+         N_IDUSUARIAO,
+         T_NOMEUSUARIO,
+         T_USERNAME,
+         T_SENHAUSUARIO,
+         T_STATUSUSUARIO,
+         N_NIVELUSUARIO,
+         */
     }
 }
