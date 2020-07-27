@@ -8,4 +8,4 @@
 - [Visual Studio](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio)
 - [Editor de texto](https://github.com/Thomaz-Peres/Editor-de-Texto)
 - [Aprendendo Banco de Dados e SQLite](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio/SQLite)
-- [Repository Patterns] (...)
+- [Repository Patterns](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Repository.Pattern)
