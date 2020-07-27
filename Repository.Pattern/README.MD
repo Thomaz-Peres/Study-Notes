@@ -9,3 +9,6 @@
 
 ### 4 - Não depender da implementaçao, ja que o resultado dela é o final
 ### 5 - Dependa da abstração.
+### 6 - Não é comum uso de repositorios em Entity(Entidades)
+
+## Os repositorios existem não para serem padronizados, existem para atenderem necessidades.
