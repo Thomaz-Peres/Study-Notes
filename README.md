@@ -9,3 +9,5 @@
 - [Editor de texto](https://github.com/Thomaz-Peres/Editor-de-Texto)
 - [Aprendendo Banco de Dados e SQLite](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio/SQLite)
 - [Repository Patterns](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Repository.Pattern)
+- [Data Driven](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Data%20Driven)
+- [Um pouco mais sobre Back-End](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/7194%20BALTA)
