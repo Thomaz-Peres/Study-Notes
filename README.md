@@ -11,3 +11,5 @@
 - [Repository Patterns](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Repository.Pattern)
 - [Data Driven](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Data%20Driven)
 - [Um pouco mais sobre Back-End](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Pouco%20sobre%20Back-end)
+  - [Async meio "Basico"](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Async.md)
+  - [Entity Framework](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/EntityFramework.md)
