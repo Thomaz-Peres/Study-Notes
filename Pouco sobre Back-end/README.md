@@ -1,3 +1,5 @@
+## VOU ORGANIZAR TUDO CARAIIIIIIII  // brinks, mas vou organizar.
+
 # data notation são anotações colocadas acima da classe
 
 ### é possivel criar DATA NOTATIONS customizados
