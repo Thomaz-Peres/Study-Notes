@@ -1,6 +1,6 @@
-## VOU ORGANIZAR TUDO CARAIIIIIIII  // brinks, mas vou organizar.
+# VOU ORGANIZAR TUDO CARAIIIIIIII  // brinks, mas vou organizar.
 
-# data notation são anotações colocadas acima da classe
+## data notation são anotações colocadas acima da classe
 
 ### é possivel criar DATA NOTATIONS customizados
 ### além dele projetar na forma correta no banco de dados, ele aplica as validações. 
