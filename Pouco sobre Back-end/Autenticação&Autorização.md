@@ -31,3 +31,9 @@ namespace Shop
         public static string Secret = "NarutaoTheBrabo123456798";
     }
 }
+
+## Segurança de controllers
+
+[AllowAnonymous] = pode deixar o acesso anonimo.
+[Authorize] (sem roles) = qualquer pessoa **LOGADA**
+[Authorize(Roles = "exployee")] (com roles) = defini qual perfil pode ver e mudar os negocio.
