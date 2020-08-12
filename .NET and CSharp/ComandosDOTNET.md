@@ -5,6 +5,7 @@
 
 - dotnet build
     - Compila a aplicação
+    - Cria a pasta **BIN**
 
 - dotnet clean
     - Limpa as compilações anteriores
