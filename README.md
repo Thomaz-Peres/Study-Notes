@@ -28,7 +28,3 @@
 - [Authentication and Authorization](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Autenticação%26Autorização.md)
 
 </details>
-
-
-
-
