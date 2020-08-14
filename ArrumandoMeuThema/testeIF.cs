@@ -25,11 +25,6 @@ namespace Shop.Controllers
                 .ToListAsync();
             return products;
         }
-        
-        // dasdasdsad
-        /*
-            dasdas
-        */
 
         [HttpGet]
         [Route("{id:int}")]

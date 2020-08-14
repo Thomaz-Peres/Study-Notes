@@ -1,13 +1,21 @@
 using System;
 
-class aula03
+namespace Seila
 {
-    int num = 10;
-    string nome = "Thomaz";
-    public void Main()
+    class aula03
     {
-        Console.WriteLine(num);
-        Console.WriteLine($"Nome{nome}  idade {num}");
-        Console.WriteLine(num + num);
+        static void Main()
+        {
+            int name = 10;
+        }
+        int num = 10;
+        string nome = "Thomaz";
+        public void Main()
+        {
+            Console.WriteLine(num);
+            Console.WriteLine($"Nome{nome}  idade {num}");
+            Console.WriteLine(num + num);
+        }
     }
+    
 }
