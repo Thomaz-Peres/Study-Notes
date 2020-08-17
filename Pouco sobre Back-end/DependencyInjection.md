@@ -1,19 +1,4 @@
-# entity framework, pode ser considerado um banco de dados
-
-## Data context, é a representação do banco de dados em memoria.
-
-## ele permite a orientação em relação ao banco de dados
-
-### se o DBContext é a representação do banco de dados em memoria, o DbSet, é a representação das tabelas em memoria
-
-- Sempre que tiver um (DbSet<Products> Products), ele busca no banco essa tabela chamada (Products)
-
-## recomendavel sempre começar primiero por Models
-
-### DbSet são os responsaveis por permitir a utilizar o CRUD, e responsaveis pelas ações que tomamos no banco
-
-
-## Depois de ter um DataContext criado, é necessario informar para o programa, como ela vai encontra, abaixo mostro como utilizalo
+## Depois de ter um DataContext criado, é necessario informar para o programa, como ela vai encontra, abaixo mostro como utiliza-lo
 
 - Na seção Startup (pelomenos em .NET CORE, ASP.NET CORE (que eu conheço))
 
@@ -31,3 +16,7 @@ public void ConfigureServices(IServiceCollection services)
 
     (AddScoped garante que eu so vou ter um DataContext por requisição).
 }
+
+## Como fazer o Data context chegar para o *Controller*
+
+- 
