@@ -19,12 +19,13 @@
 <details>
   <summary>Backend</summary>
   
-- [Learning DataBase (*Banco de Dados*)](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio/SQLite)
+- [Learning DataBase (*Banco de Dados SQL*)](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio/SQLite)
 - [A little bit about Back-End](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Pouco%20sobre%20Back-end)
-- [A little bit about async and await](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Async.md)
-- [Entity Framework](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/EntityFramework.md)
-- [Azure](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/LearningAzure.md)
+- [A little bit about async await and Tasks](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/AsyncTaskActionResult.md)
+- [Entity Framework DbSet](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/BancoDeDadosEF6.md)
+- [Azure](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Azure.md)
 - [Get Post Put Delete](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/GetPutPostDelete.md)
+- [Routes](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Rotas.md)
 - [Authentication and Authorization](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Autenticação%26Autorização.md)
 
 </details>
