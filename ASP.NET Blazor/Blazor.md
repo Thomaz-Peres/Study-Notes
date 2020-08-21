@@ -1,9 +1,9 @@
 # Blazor
-- [O que é o **Blazor**](Blazor)
+- [O que é o **Blazor**](#Blazor)
 - [Blazor Web Assembly]()
-- [Iniciando um projeto e principais comandos e o que significam](Project)
-- [Quais arquivos foram criados para que servem e o que fazem](Files)
-- [Componentes](Components)
+- [Iniciando um projeto e principais comandos e o que significam](#Project)
+- [Quais arquivos foram criados para que servem e o que fazem](#Files)
+- [Componentes](#Components)
 
 ## <a name="Blazor"></a> Blazor é uma estrutura para a criação de interface do usuário da Web interativa do lado do cliente com o .NET:
 
@@ -59,7 +59,7 @@ Ao contrário de páginas Razor e MVC, que são criadas em um modelo de solicita
 
 #### A marcação Razor a seguir demonstra um componente (Dialog.razor), que pode ser aninhado dentro de outro componente:
 
-```html
+```razor
 <div>
     <h1>@Title</h1>
 
@@ -67,8 +67,7 @@ Ao contrário de páginas Razor e MVC, que são criadas em um modelo de solicita
 
     <button @onclick="OnYes">Yes!</button>
 </div>
-```
-```csharp
+
 @code {
     [Parameter]
     public string Title { get; set; }
@@ -89,7 +88,7 @@ Blazor usa marcas HTML naturais para composição da interface do usuário. Os e
 
 ### No exemplo a seguir, o componente Index usa o componente Dialog. ChildContent e Title são definidos pelos atributos e pelo conteúdo do elemento <Dialog>. **Pages/Index.razor:**
 
-```csharp
+```razor
 @page "/"
 
 <h1>Hello, world!</h1>
