@@ -1,9 +1,13 @@
 # Blazor
+
 - [O que é o **Blazor**](#Blazor)
 - [Blazor Web Assembly]()
+- [Blazor Server]()
 - [Iniciando um projeto e principais comandos e o que significam](#Project)
 - [Quais arquivos foram criados para que servem e o que fazem](#Files)
 - [Componentes](#Components)
+- [Interoperabilidade do JavaScript](#JavaScript)
+- [Compartilhamento de código e o .NET Standard.](#CompartilhamentodeCodigo)
 
 ## <a name="Blazor"></a> Blazor é uma estrutura para a criação de interface do usuário da Web interativa do lado do cliente com o .NET:
 
@@ -105,3 +109,18 @@ Componente da caixa de diálogo renderizada no navegador
 
 Quando esse componente é usado no aplicativo, o IntelliSense no Visual Studio e no Visual Studio Code acelera o desenvolvimento com o preenchimento de sintaxe e de parâmetro.
 Os componentes são renderizados em uma representação na memória do Modelo de Objeto do Documento (DOM) do navegador chamada árvore de renderização, que é usada para atualizar a interface do usuário de maneira flexível e eficiente.
+
+## <a name="JavaScript"></a> Interoperabilidade do JavaScript.
+
+Para aplicativos que exigem bibliotecas JavaScript e acesso a APIs do navegador de terceiros, os componentes interoperam com o JavaScript. Os componentes são capazes de usar qualquer biblioteca ou API que o JavaScript possa usar. O código C# pode chamar o código JavaScript, e o código JavaScript pode chamar o código C#. Para obter mais informações, consulte os seguintes artigos:
+
+- [Chamar funções JavaScript de métodos .NET no ASP.NET Core Blazor](https://docs.microsoft.com/pt-br/aspnet/core/blazor/call-javascript-from-dotnet?view=aspnetcore-3.1)
+- [Chamar métodos .NET de funções JavaScript no ASP.NET Core Blazor](https://docs.microsoft.com/pt-br/aspnet/core/blazor/call-dotnet-from-javascript?view=aspnetcore-3.1)
+
+## <a name="CompartilhamentodeCodigo"></a> Compartilhamento de código e o .NET Standard.
+
+Blazor implementa .NET Standard 2,1, que permite que os Blazor projetos referenciem bibliotecas que estão em conformidade com as especificações .net Standard 2,1 ou anteriores. O .NET Standard é uma especificação formal das APIs do .NET que são comuns entre as implementações do .NET.
+
+As bibliotecas de classe do .NET Standard podem ser compartilhadas entre diferentes plataformas .NET: **como Blazor, .NET Framework, .NET Core, Xamarin, mono e Unity**.
+
+As APIs que não são aplicáveis em um navegador da Web (por exemplo, para acessar o sistema de arquivos, abrir um soquete e threading) geram a [PlatformNotSupportedException](https://docs.microsoft.com/pt-br/dotnet/api/system.platformnotsupportedexception?view=netcore-3.1).

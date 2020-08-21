@@ -21,6 +21,6 @@ O código .NET executado por meio da WebAssembly no navegador é executado na á
 
 ### O tamanho do aplicativo publicado, seu tamanho de payload, é um fator de desempenho crítico para a utilidade do aplicativo. Um aplicativo grande leva um tempo relativamente longo para baixar para um navegador, o que afeta a experiência do usuário. Blazor WebAssembly otimiza o tamanho da carga para reduzir os tempos de download:
 
-- O código não utilizado é retirado do aplicativo quando publicado pelo Vinculador de linguagem intermediária (IL).
+- [O código não utilizado é retirado do aplicativo quando publicado pelo Vinculador de linguagem intermediária (IL)](https://docs.microsoft.com/pt-br/aspnet/core/blazor/host-and-deploy/configure-linker?view=aspnetcore-3.1)
 - As respostas HTTP são compactadas.
 - O runtime do .NET e os *Assemblyes* são armazenados em cache no navegador.
