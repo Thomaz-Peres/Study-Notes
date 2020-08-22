@@ -1,6 +1,7 @@
-# Blazor
+# Blazor (introdução basica)
 
 - [O que é o **Blazor**](#Blazor)
+- [Modelos do ASP.NET Core Blazor](#Typesprojects)
 - [Blazor Web Assembly]()
 - [Blazor Server]()
 - [Iniciando um projeto e principais comandos e o que significam](#Project)
@@ -22,6 +23,18 @@
 - Beneficie-se com o desempenho, confiabilidade e segurança do .NET.
 - Mantenha-se produtivo com o Visual Studio no Windows, Linux e macOS.
 - Crie um conjunto comum de linguagens, estruturas e ferramentas que são estáveis, com recursos avançados e fáceis de usar.
+
+## <a name="Typesprojects"></a> Modelos do ASP.NET Core Blazor
+
+Blazor o é uma estrutura da Web criada para executar o lado do cliente no navegador em um tempo de execução .NET baseado em WebAssembly( Blazor WebAssembly ) ou no lado do servidor em ASP.NET Core ( Blazor Server ). Independentemente do modelo de hospedagem, os modelos de aplicativo e componente são os mesmos.
+
+A Blazor estrutura fornece modelos para desenvolver aplicativos para cada um dos Blazor modelos de hospedagem:
+
+- Blazor WebAssembly (blazorwasm)
+- Blazor Server (blazorserver)
+
+Para obter mais informações sobre os Blazor modelos de hospedagem do, consulte [Modelos de hospedagem Blazor no ASP.NET Core](https://docs.microsoft.com/pt-br/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1).
+As opções de modelo estão disponíveis passando a --help opção para o dotnet new comando da CLI:
 
 ## <a name="Project"></a> Iniciando um projeto e principais comandos e o que significam.
 
