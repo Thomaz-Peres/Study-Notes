@@ -14,7 +14,7 @@
 - [Visual Studio](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Visual%20Studio)
 - [Editor de texto](https://github.com/Thomaz-Peres/Editor-de-Texto)
 - [Repository Patterns](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Repository.Pattern)
-- [Data Driven](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Data%20Driven)
+- [Data Driven / orientado a dados](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/Data%20Driven)
 
 <details>
   <summary>Backend</summary>
