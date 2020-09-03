@@ -2,6 +2,7 @@
 
 - Na seção Startup (pelomenos em .NET CORE, ASP.NET CORE (que eu conheço))
 
+```Csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllers();
@@ -16,6 +17,7 @@ public void ConfigureServices(IServiceCollection services)
 
     (AddScoped garante que eu so vou ter um DataContext por requisição).
 }
+```
 
 ## Como fazer o Data context chegar para o *Controller*
 

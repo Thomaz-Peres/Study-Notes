@@ -1,9 +1,9 @@
 # Get post put delete
 
-*GET* = o **GET** le a categoria
-*POST* = o **POST** cria a categoria
-*PUT* = o **PUT** atualiza a categoria
-*DELETE* =  o **DELETE** deleta a categoria
+- *GET* = o **GET** le a categoria
+- *POST* = o **POST** cria a categoria
+- *PUT* = o **PUT** atualiza a categoria
+- *DELETE* =  o **DELETE** deleta a categoria
 
 ## Gerando o JSON para o POST dentro do codigo
 
@@ -15,9 +15,11 @@
 
 - o [FromBody], que quer dizer que vai vir/receber um produto do CORPO da requisição.
 
+```Csharp
 [HttpPost]
 [Route("")]
 public Product Post([FromBody]Product model)
 {
    return model;
 }
+```

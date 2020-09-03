@@ -18,3 +18,5 @@ ORM(Object Relation Maping, mapeamento de objeto relacional).
 - o **Data Context** é um arquivo q o **Entity Framework** precisa para funcionar, é onde é criado e definido todas as entidades dentro do *Models*, é definido quais vão para o banco e como sera mapeado.
 
 - é a partir da pasta Data => arquivo StoreDataContext => que herdamos o DbContext, e que chegamos: [Banco de dados, Entity framework e DB SETs]()
+
+# NUNCA INSTANCIE O DATA CONTEXT COMO NEW, POIS TODA VEZ QUE INICIA UM DATA CONTEXT CRIA UMA NOVA CONEXAO NO BANCO, ENTAO USE **PRIVATE READONLY** PARA GARANTIR QUE SO AJA UM DATA CONTEXT

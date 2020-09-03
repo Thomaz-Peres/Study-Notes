@@ -1,1 +1,1 @@
-# A Pasta models, é quem "enteragi" com o banco de dados, é como uma Referencia.
+# A Pasta models, é quem "enterage" com o banco de dados, é como uma Referencia.
