@@ -20,3 +20,17 @@ ORM(Object Relation Maping, mapeamento de objeto relacional).
 - é a partir da pasta Data => arquivo StoreDataContext => que herdamos o DbContext, e que chegamos: [Banco de dados, Entity framework e DB SETs]()
 
 # NUNCA INSTANCIE O DATA CONTEXT COMO NEW, POIS TODA VEZ QUE INICIA UM DATA CONTEXT CRIA UMA NOVA CONEXAO NO BANCO, ENTAO USE **PRIVATE READONLY** PARA GARANTIR QUE SO AJA UM DATA CONTEXT
+
+## Salvando um item no banco de dados com EF (Entity Framework)
+
+```Csharp
+[Route("v1/categories")]
+[HttpPost]
+public Category Post([FromBod y]Category category)
+{
+    _context.Categories.Add(category);
+    _context.SaveChanges();
+
+    return category;
+}
+```
