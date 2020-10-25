@@ -89,6 +89,29 @@ A diferença é que o usando o RabbitMQ teremos uma camada a mais, que são as f
 
 As mensagem são alocadas nas filas, e lidas pelo server quando ele estiver disponível. Quando usamos HTTP, caso a aplicação no server tenha algum problema de comunicação, o cliente recebe um erro de timeout, por exemplo.
 
+## Uma nota sobre rpc
+Embora a RPC seja um padrão bastante comum na computação, é frequentemente criticada. Os problemas surgem quando um programador não está ciente se uma chamada de função é local ou se é um RPC lento. Confusões como essa resultam em um sistema imprevisível e adicionam complexidade desnecessária à depuração. Em vez de simplificar o software, o RPC mal utilizado pode resultar em código de espaguete inacompatível.
+
+Tendo isso em mente, considere o seguinte conselho:
+
+Certifique-se de que é óbvio qual chamada de função é local e que é remota.
+Documente seu sistema. Limpe as dependências entre os componentes.
+Manuseie casos de erro. Como o cliente deve reagir quando o servidor RPC está desligado por um longo tempo?
+Quando em dúvida evite rpc. Se você puder, você deve usar um pipeline assíncroto - em vez de bloqueio semelhante ao RPC, os resultados são assincronamente empurrados para um próximo estágio de computação.
+
+Propriedades da mensagem
+O protocolo AMQP 0-9-1 predefini um conjunto de 14 propriedades que vão com uma mensagem. A maioria das propriedades raramente são utilizadas, com exceção das seguintes:
+
+**Persistente**: Marca uma mensagem como persistente (com um valor de 2) ou transitória (qualquer outro valor). Dê uma olhada no segundo tutorial.
+
+**DeliveryMode**: aqueles familiarizados com o protocolo podem optar por usar esta propriedade em vez de Persistente. Eles controlam a mesma coisa.
+
+**ContentType**: Usado para descrever o tipo de mímica da codificação. Por exemplo, para a codificação JSON frequentemente usada é uma boa prática para definir esta propriedade para: aplicativo/json.
+
+**RespostaTo**: Comumente usado para nomear uma fila de retorno de chamada.
+
+**Correlação** :Útil para correlacionar respostas RPC com solicitações.
+
 Exemplos de uso: **persistência de aplicação.**
 
 ![](https://static.imasters.com.br/wp-content/uploads/2019/05/27153112/0_zdrX1PGhbm1D-TvB.png)
