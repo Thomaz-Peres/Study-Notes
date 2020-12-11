@@ -22,5 +22,5 @@ Tratamento(mapear) usando uma configuração do *ModelBuilder* como nos exemplos
 ![image](https://user-images.githubusercontent.com/58439854/101818834-2ebcd500-3b03-11eb-8138-2a902be69154.png)
 
 
-- Chamando isso no DataContext da aplicação
+## Chamando isso no DataContext da aplicação
 ![image](https://user-images.githubusercontent.com/58439854/101818907-4e53fd80-3b03-11eb-9a63-01f22ce4361f.png)
