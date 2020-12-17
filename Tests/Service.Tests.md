@@ -11,4 +11,4 @@
 
 # Fazendo a implementação
 
-(mockar = imitar a classe que ele esta chamando, e copiar os metodos dentro dela)
+(mockar = imitar a classe que ele esta chamando, e copiar os metodos dentro dela).
