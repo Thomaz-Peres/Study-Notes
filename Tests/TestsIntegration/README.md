@@ -1,0 +1,3 @@
+# Testes de integração é o teste feito quando a API esta pronta, e nele é realizado uma simulação, como se fosse um *postman* dentro da aplicação, logo, a propria aplicação, testa ela mesmo.
+
+## O teste de integração ele vai testar todos os endpoints de uma vez, ao inves de ficar entrando no postman e pedindo requisição por requisição, ja faz de uma vez (coloca o teste pra rodar e ele ja roda o sistema como um todo)
