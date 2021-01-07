@@ -6,6 +6,7 @@
 ### além dele projetar na forma correta no banco de dados, ele aplica as validações. 
 
 
+```Csharp
 # Rotas = [Route]
 - com as rotas voce diz, o que vai aparecer na URL, por exemplo, 
 [Route("Banana")]
@@ -23,6 +24,7 @@ public class CategoryController : ControllerBase
         return "Olá mundo!";
     }
 }
+```
 
 ## Os padroes de API Rest tem sempre a mesma rota, so muda o verbo e q é utilizada como CRUD (Create, Read, Update, Delete)
 
