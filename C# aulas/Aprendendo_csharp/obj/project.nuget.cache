@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+EpHvK0r8IZfIxZpxer5hchKmKxEBpofK9LODQ55dGLfyxzUVnNdOHvclrW+dsU8a+MielcbEZch796tG6bDRQ==",
+  "dgSpecHash": "rzDBrsYAohRAia6cAwqd7gj13/fjhqOxYc3cXQ5+6N118VquZHqcUyFDMEqx3vw/JxX8Ga3YDcfFEckI9KsL3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AlphaPaiN\\Documents\\dev\\C#\\Aprendendo_csharp\\Aprendendo_csharp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\AlphaPaiN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
-    "C:\\Users\\AlphaPaiN\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\thoma\\dev\\Estudos-Notes\\C# aulas\\Aprendendo_csharp\\Aprendendo_csharp.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
