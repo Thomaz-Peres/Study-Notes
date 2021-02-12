@@ -2,7 +2,7 @@
 
 DDL = Data Definition Language = Linguagem de definição de dados
 
-Dentro do DDL, temos os comandos, *Create, alter, drop*, são comandos para a criação e manipulação do banco de dados, onde criamos e definimos opções do banco de dados
+Na categoria de DDL, temos os comandos, *Create, alter, drop*, são comandos para a criação e manipulação do banco de dados, onde criamos e definimos opções do banco de dados
 
 ## Create
 O create pode ser usado para criar, banco de dados, tabelas, views, procedures, etc. Sempre que for criar algo, utiliza o comando ***CREATE***
