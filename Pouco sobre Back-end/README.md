@@ -7,17 +7,17 @@
 
 
 ```Csharp
-# Rotas = [Route]
+// Rotas = [Route]
 - com as rotas voce diz, o que vai aparecer na URL, por exemplo, 
 [Route("Banana")]
 - no https://localhost:5001/banana
-## se utilizar a Route vazia ex ([Route("")]), ela continua a mesma
-## exemplo abaixo
+// se utilizar a Route vazia ex ([Route("")]), ela continua a mesma
+// exemplo abaixo
 
 [Route("categories")]
 public class CategoryController : ControllerBase
 {
-    https://localhost:5001/categories
+    // https://localhost:5001/categories
     [Route("")]
     public string MeuMetodo()
     {

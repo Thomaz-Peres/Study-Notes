@@ -16,7 +16,7 @@ Permite criar uma fila anonima na medidca que esta criando uma fila e nao da um 
 
 O rabbit vai gerar uma fila com um nome aleatorio, parecido com o geo id, com isso voce pode associar uma fila a um exchange qualquer, e permite que um certo worker tenha uma fila exclusiva
 
-![](https://user-images.githubusercontent.com/58439854/97094980-67c2e800-1630-11eb-8d39-652fd66fb49a.png)
+![image](https://user-images.githubusercontent.com/58439854/97094980-67c2e800-1630-11eb-8d39-652fd66fb49a.png)
 
 ## RPC
 
