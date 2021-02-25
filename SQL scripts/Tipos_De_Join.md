@@ -25,7 +25,7 @@ from cliente
 
 # **Left Join**
 
-O *left join* ele retorna o que é comum entre as duas tabelas, e todo o conteudo da *primeira tabela/tabela principal*
+O *left join* ele retorna o que é comum entre as duas tabelas mas nao como prioridade, e todo o conteudo da *primeira tabela/tabela principal*
 
 # **Right Join**
 
