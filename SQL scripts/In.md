@@ -12,7 +12,7 @@ Exemplo:
 select * from cliente where right(CPF, 1) in (0,1,2);
 
 -- Nessa segunda consulta, quero receber todos CPFs que os 3 ultimos digitos possam ser com '000,001 ou 002'
-select * from cliente where right(CPF, 3) inf (000, 001, 002);
+select * from cliente where right(CPF, 3) in (000, 001, 002);
 ```
 
 Tambem é possivel utilizar um *sub-select* dentro do *IN*
