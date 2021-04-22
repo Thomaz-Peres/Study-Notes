@@ -59,7 +59,7 @@ void exibirLista(LISTA* l)
     
     while(end != NULL)
     {
-        printf("%i ", end -> ennd->reg.chave);
+        printf("%i ", end -> end->reg.chave);
         end = end->prox;
     }
     printf("\"\n");
