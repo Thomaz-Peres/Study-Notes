@@ -105,18 +105,3 @@ void reinicializarPilha(PILHA* p)
     }
     p->topo = NULL;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

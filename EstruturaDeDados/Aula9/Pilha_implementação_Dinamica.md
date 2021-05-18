@@ -16,3 +16,4 @@ Como fariamos para adicionar um elemento ?
 Como fariamos para excluir um elemento ? 
 
     - R:Por ser uma pilha, excluira sempre o topo da lista, então o topo aponta para o proximo do antigo topo, e limpa o antigo da memoria
+
