@@ -1,0 +1,1 @@
+# Salvando uns problemas que resolvo/resolvi do uri judge, e vendo quando eu fiz, quantos dias sem mexer, etc
