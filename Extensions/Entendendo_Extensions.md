@@ -6,4 +6,6 @@ Os métodos de extesão permitem que você "adicione" tipos existentes sem criar
 
 ## Resumidamente
 
-O extension methods, nada mais é que objetos/métodos criados, para manter os ja existentes, e fazer um novo e reutilizar sem precisar recriar o objeto. Podemos pensar de uma forma **Não sei a implementação dele, porém preciso de uma implementação dele de uma seguinte forma**
+**resumo 1** = Metodo para complementar uma biblioteca de codigo ja existente, exemplo no Linq, onde temos, media de um numero, max, min, porém nao temos uma mediana por exemplo, e pretendo cria-la.
+
+**resumo 2** = O extension methods, nada mais é que objetos/métodos criados, para manter os ja existentes, e fazer um novo e reutilizar sem precisar recriar o objeto. Podemos pensar de uma forma **Não sei a implementação dele, porém preciso de uma implementação dele de uma seguinte forma**
