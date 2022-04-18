@@ -6,6 +6,7 @@
 ### e para sobreescrever o metodo, é necessario utilizar a palavra OVERRIDE
 ## exemplo abaixo.
 
+```csharp
 class Base
 {
     virtual public void Info()
@@ -20,3 +21,4 @@ class Derivada1 : Base
         Console.WriteLine("Derivada1");
     }
 }
+```
