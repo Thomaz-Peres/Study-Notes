@@ -138,5 +138,3 @@ using (var connection = factory.CreateConnection())
 ```
 
 ### Para ver os resultado,s execute primeiramente o consumer e logo em seguida o publisher. O resultado deverá ser o seguinte:
-
-![](https://blog.cedrotech.com/wp-content/uploads/2018/02/rabbit9.jpg)

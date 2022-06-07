@@ -4,7 +4,7 @@
 
 ![image](https://user-images.githubusercontent.com/58439854/101837065-3db08100-3b1d-11eb-858c-2deff3abf692.png)
 
-## Exemplos de OnDelte 1:N
+## Exemplos de OnDelete 1:N
 
 - Nao posso excluir uma escola se ela tiver alunos, logo **:**
 
@@ -12,7 +12,7 @@
 .OnDelete(DeleteBehavior.Restrict);
 ```
 
-## Exemplos de OnDelte 1:1
+## Exemplos de OnDelete 1:1
 
 - Nao posso excluir uma escola se ela tiver alunos, logo **:**
 

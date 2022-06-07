@@ -7,7 +7,7 @@
 <details>
   <summary>Languages / Linguagens</summary>
   
-- [C#](https://github.com/Thomaz-Peres/Estudos-Notes/tree/master/C%23%20aulas) 
+- [C#](/C%23%20aulas/README.md)
 
 </details>
 
@@ -27,5 +27,13 @@
 - [Get Post Put Delete](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/GetPutPostDelete.md)
 - [Routes](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Rotas.md)
 - [Authentication and Authorization](https://github.com/Thomaz-Peres/Estudos-Notes/blob/master/Pouco%20sobre%20Back-end/Autenticação%26Autorização.md)
+
+</details>
+
+
+<details>
+  <summary>Estrutura de dados com C</summary>
+  
+- [Estrutura de dados com C](/EstruturaDeDados/README.md)
 
 </details>
