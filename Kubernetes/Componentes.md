@@ -5,7 +5,6 @@ temos alguns componentes a mais.
 * kubernet architeture diagram
 ![image](https://user-images.githubusercontent.com/95287311/174889079-56c03e8a-4c64-4dc5-8e4c-13de8805e21d.png)
 
-
 - [ETCD]()
 
 - API SERVER
@@ -75,6 +74,42 @@ além disso ele precisa de varios NODES no cluster que podemos chamar de Kubelet
 - Usa o API server para se comunicar com o cluster.
 
 ### ***CONTROLLERS***:
+
 ![image](https://user-images.githubusercontent.com/58439854/174905387-6a3280a9-2136-4186-a75a-03e603da5eac.png)
 
-- 
+OBS: a imagem é bem parecida com a primeira mas funcionam de maneiras diferentes, antes era a Master Cluster, agora temos a Master Controller Plane
+
+- Cada controller tem um processo diferente.
+- Para reduzir complexidade, são compilados em um único binário e em um único processo.
+
+- ***Node controller:***
+    - Responsável por notificar e responder quando os Nodes caem.
+
+- ***Replication controller:***
+    - Responsável por manter o número correto de PODs para cada objeto de controller e replicação do sistema.
+
+- ***Endpoints Controllers:***
+    - Fazem a junção do serviços e PODs.
+
+- ***Service Controller:*** (ou service account e token controller)
+    - Cria contas padrões e tokens de acesso a API para novos ingressantes.
+
+- ***Kube Controller Manager:***
+    - O  kube controller manager é o componente do master que roda os controladores.
+    
+- ***Clound Controller Manager:***
+    - Permite o código do fornecedor de CLOUD e código de Kubernetes possa evoluir independente um do outro.
+
+#### Kube-api-server    
+    - Servidor de API.
+    - Componente da master do kubernetes que expoem a API.
+    - Pode ser dimensionado horizontalmente (dimensionado com a implantação de mais instancias).
+    - Pode executar variás instancias do Kube-Api-Server e equilibrar o trafégo entre elas.
+
+#### Kube-Scheduler
+
+- Componentes da master que observa os PODs recém criado e sem nenhum NODE atribuito e seleciona um NODE para executa-los.
+- Leva em conta os requisitos de recursos individuais e coletivos, restrições de Hardware, Software e pólitica, além de especificações de afinidade e anti-afinidade, localidade de dados, interferencia entre cargas de trabalho e seus prazos.
+
+#### KubeCTL
+- Ferramenta de linha de código para se comunicar com o servidor Kubernetes API.
