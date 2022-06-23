@@ -20,5 +20,3 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ## Como fazer o Data context chegar para o *Controller*
-
-- 

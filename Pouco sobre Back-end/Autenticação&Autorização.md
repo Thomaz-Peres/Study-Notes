@@ -17,13 +17,16 @@
 
 ## Gerando uma chava assimetrica.
 
+``` Csharp
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
 (transforma a chave em BITS).
+``` 
 
 ## Gerando um codigo de settings para guardar a chave.
 
 - Quando é feita essa chave nos SETTINGS, é para nao precisar ficar colocando a chave toda hora, entao ele carrega a chave. (e é um item que se mudar a chave, invalida todos tokens da aplicação)
 
+``` Csharp
 namespace Shop
 {
     public static class Settings
@@ -31,7 +34,7 @@ namespace Shop
         public static string Secret = "NarutaoTheBrabo123456798";
     }
 }
-
+```
 ## Segurança de controllers
 
 [AllowAnonymous] = pode deixar o acesso anonimo.

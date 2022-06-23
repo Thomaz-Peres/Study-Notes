@@ -1,6 +1,8 @@
 # Task junto do async, é uma programação paralela, no C# utiliza-se da seguinte forma
+``` CSharp
 public async Task<ActionResult> Get()
 {}
+```
 
 - **ActionResult**
     - Tras um resultado no formato que a tela espera(resumidamente,é um estilo de tratamento de erros (202, 404, 403, 400, 500))
