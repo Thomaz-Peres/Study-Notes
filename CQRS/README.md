@@ -12,7 +12,7 @@ O **CQRS** são
 ### EX:
 
 1. AumentarSalarioFuncionarioCommand
-    - Se vai aumentar o salario, existe um comando, para coloca-lo de ferias, existe um comando.
+    - Se vai aumentar o salario, existe um comando. Para coloca-lo de ferias, existe um comando.
 
     - Ou seja, ele tem um função bem definida, e provoca uma mudança no estado.
 

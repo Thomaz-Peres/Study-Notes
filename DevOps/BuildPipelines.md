@@ -8,7 +8,7 @@
 
     - Código passa pelo PR, roda o build
     - Durante o Build gera o Pipeline
-    - feito a entrega da Release, onde é feita a Entrega Continua para o servidos 
+    - feito a entrega da Release, onde é feita a Entrega Continua para o servidor
 
 ## Existem duas formas de criar o Pipeline
 
