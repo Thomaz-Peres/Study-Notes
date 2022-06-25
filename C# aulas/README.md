@@ -2,34 +2,34 @@
 
 # DA AULA 60 EM DIANTE É NO VISUAL STUDIO.
 
-#### 04 (Escopo e Variaveis)
-#### 05 (Operadores e Operações)
+#### [04 Escopo e Variaveis](./aula04/)
+#### [05 Operadores e Operações](./aula05/)
 
-#### 06 (Formatando a saida no console)
+#### [06 Formatando a saida no console](./aula06/)
 
-#### 07 (Constantes em C#)
+#### [07 Constantes em C#](./aula07/)
 
-#### 08 (Lendo Valores do Teclado)
+#### [08 Lendo Valores do Teclado](./aula08/)
 
-#### 09 (Operações de Bitwise)
+#### [09 Operações de Bitwise](./aula09/)
 
-#### 10 (Enumeradores)
+#### [10 Enumeradores](./aula10/)
 
-#### 11 (Conversões de tipo ou TypeCast)
+#### [11 Conversões de tipo ou TypeCast](./aula11/)
 
-#### 12 (IF)
+#### [12 IF](./aula12/)
 
-#### 13 (else if - if else)
+#### [13 else if - if else](./aula13/)
 
-#### 14 (IF aninhado)
+#### [14 IF aninhado](./aula14/)
 
-#### 15 (Switch case)
+#### [15 Switch case](./aula15/)
 
-#### 16 (Comando goto)
+#### [16 Comando goto](./aula16/)
 
-#### 17 (Array / Vetores / Array Unidimensional)
+#### [17 Array / Vetores / Array Unidimensional](./aula17/)
 
-#### 18 (Array / Matriz / Arrai bidimensional)
+#### [18 (Array / Matriz / Arrai bidimensional)](./aula18/)
 
 #### 19 (loop For)
 
