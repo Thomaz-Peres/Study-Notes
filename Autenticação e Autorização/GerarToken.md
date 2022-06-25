@@ -6,6 +6,7 @@
 
 ## Gerando o token na pasta SERVICES.
 
+```Csharp
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -37,3 +38,4 @@ return tokenHandler.WriteToken(token);  //  ele gera a string do token.
         }
     }
 }
+```

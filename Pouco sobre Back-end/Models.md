@@ -1,1 +1,0 @@
-# A Pasta models, é quem "interagi" com o banco de dados, é como uma Referencia.

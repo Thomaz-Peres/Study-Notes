@@ -1,1 +1,0 @@
-Seila mano
