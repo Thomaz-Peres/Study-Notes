@@ -1,0 +1,1 @@
+Quantidade de corrente elétrica
