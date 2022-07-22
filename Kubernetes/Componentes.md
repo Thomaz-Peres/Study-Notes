@@ -1,27 +1,42 @@
-# Dentro disso tudo em [```Arquitetura do Kubernetes se divide em 4 pontos principais```](/Kubernetes/Kubernetes.md/#arquitetura-do-kubernetes-se-divide-em-4-pontos-principais)
+# Componentes do Kubernetes
 
-temos alguns componentes a mais.
+1. Cluster
+    - Ao implantar o Kubernetes, você obtém um Cluster.
+
+    - O cluster é um conjunto de servidores de processamento, chamado de ***Nodes (um node é uma maquina de trabalho no Kubernetes)***, que executam aplicações containerizadas.
+    
+    - Todo cluster possui ao menos um servidor de processamento ([worker node](#worker-node))
+    
+- Representação de um "cluster" na imagem a seguir.
+![image](https://user-images.githubusercontent.com/95287311/174880236-1145982f-8a2b-4729-99d6-18634b64b630.png)
+
+- **Master** : é a maquina mestre que recebe as configurações decalaradas no arquivo ```.YAML``` e gerencia os ```NODES```. Pode gerenciar 1 ou mais ```NODES```
+
+- **Node** : é uma maquina ativa, dentro do node ficam os serviços necessarios para rodar os PODs, e entre eles temos o proprio ```Docker. o kubernet e o kuberproxy```. Pode conter 1 ou mais ```PODs```
+
+- **Pod** : menor unidade implantada que podemos criar, escalar e manusear, funcionam como uma coleção ótica de container que pertecem a sua aplicação. Pode conter e gerenciar 1 ou mais containers, mas o ideal é sempre 1 container por POD principalmente pelo acoplamento, precisamos manter um container por POD para manter o isolamento entre containers.
 
 * kubernet architeture diagram
 ![image](https://user-images.githubusercontent.com/95287311/174889079-56c03e8a-4c64-4dc5-8e4c-13de8805e21d.png)
 
-- [ETCD]()
+- [ETCD](#etcd)
 
-- API SERVER
+- [KubeLet](#kubelets)
 
-- Controller Manager
+- [Worker node](#worker-node)
 
-- Workers
+- [Kube Proxy](#kube-proxy)
 
-- Scheduler
+- [PODs](#pod)
 
-- KubeCTL
+- [API SERVER](#api-server)
 
-- KubeLet
+- [KubeCTL](#kubectl)
 
-- Kube Proxy
+- [Controller Manager (Replication Controller, Node Controller, Endpoint Controller, Service Controller)](#controllers)
 
-- Controller Manager (Replication Controller, Node Controller, Endpoint Controller, Service Controller)
+- [Scheduler](#kube-scheduler)
+
 
 ## Detalhamento dos componentes a mais
 
@@ -54,11 +69,11 @@ além disso ele precisa de varios NODES no cluster que podemos chamar de Kubelet
 - Encaminha trafego para os containers, com base no endereçamento dos IPs e nos números das portas da solicitação processada.
 
 ### ***POD***:
+- Ele é a menor unidade do Cluster Kubernetes, ja que rodamos o nosso container nela. 
 - Nele que rodamos o nosso container *(podemos rodar mais de 1, porém o ideal é rodar apenas 1)*.
 - Consiste em um grupo de container implantados em um único ```Worker Node```.
 - Conceito crucial no Kubernetes.
 - Ponto onde os devs interagem.
-- Ele é a menor unidade do Cluster Kubernetes, ja que rodamos o nosso container nela.
 - Compartilhar recursos em instruções sobre como executar o container.
 - Podem se conectar dentro do Cluster, usando o IP de serviço.
 - ```PODs``` possuem vida limitada, e ao reduzir a escala ou atualizar para uma nova versão, o POD pode morrer.
