@@ -5,3 +5,7 @@
 
 
 # [Componentes do Kubernetes](/Kubernetes/Componentes.md)
+
+# [Nomes de objetos e IDs](/Kubernetes/Objetos%20do%20kubernetes/Nomes%20de%20objetos%20e%20IDs.md)
+
+# [Intensivo Full Cycle](/Kubernetes/Intensivo%20Full%20Cycle/README.md)
