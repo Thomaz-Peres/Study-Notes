@@ -1,1 +1,5 @@
-# Salvando uns problemas que resolvo/resolvi do uri judge, e vendo quando eu fiz, quantos dias sem mexer, etc
+# Salvando uns problemas que resolvo/resolvi do uri judge
+
+## [Exercicios com CSharp (C#)](./CSharp/)
+
+## [Exercicio com C](./C/)
