@@ -1,4 +1,4 @@
-## This is as course in coursera (https://www.coursera.org/learn/programming-languages/home/week/2)
+## This is a course in coursera (https://www.coursera.org/learn/programming-languages/home/week/2)
 
 #### About languages: (i go need to revisit to update and separete better)
 
