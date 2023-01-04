@@ -1,10 +1,10 @@
 ## This is a course in coursera (https://www.coursera.org/learn/programming-languages/home/week/2)
 
+
 #### About languages: (i go need to revisit to update and separete better)
 
 ##### Week 2 Video lectures video 1
 - **Syntax** is just how you write something
-
 - **Semantics** is what that somethings means
    - Type-checking (before program runs) 
    - Evaluation (as program runs)

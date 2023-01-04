@@ -5,7 +5,7 @@ class URI {
 
     static void Main(string[] args) { 
 
-        string[] linha = Console.ReadLine().Split(' ');
+            string[] linha = Console.ReadLine().Split(' ');
 
             double a = double.Parse(linha[0], CultureInfo.InvariantCulture);
             double b = double.Parse(linha[1], CultureInfo.InvariantCulture);
