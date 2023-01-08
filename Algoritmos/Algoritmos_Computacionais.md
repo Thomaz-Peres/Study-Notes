@@ -28,6 +28,3 @@ Para representar a logica de programação, pode ser utilizado varias ferramenta
 2. Diagrama de Nassi Shneiderman(ou diagrama de shapam) = Representa a logica do programa, atraves de blocos
 
 ![image](https://user-images.githubusercontent.com/58439854/114791315-ae320d80-9d5c-11eb-9214-d0ef8b32b220.png)
-
-
-3. Portugol

@@ -3,4 +3,4 @@
 - **App.xaml** = representa a aplicação em tudo
 - o *xmlns* representa em qual formulario ele esta sendo baseado
 - *xmlns:x* 
-- *x:Class* defini qual as caracteristicas representam o xamarin
+- *x:Class* define qual as caracteristicas representam o xamarin
