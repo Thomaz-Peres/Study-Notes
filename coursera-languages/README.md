@@ -16,6 +16,11 @@
 
 ##### Week 2 Video lectures video 2
 
+### Variables rules
+
+val x = 34;
+val x = "teste";
+
 #### Rules for expressions
 
 Every kind a expression ask your selfies the same three questions:

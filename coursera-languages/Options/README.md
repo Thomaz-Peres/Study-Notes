@@ -37,7 +37,7 @@ Better version level 1: (in this version always check the list is empty (NONE))
 ```sml
  fun max1 (xs : int list) =
 	 if null xs
-	 the NONE
+	 then NONE
 	 else
 		let val tl_and = max1(tl xs)
 		in if isSome tl_ans andalso valOf tl_ans > hd xs

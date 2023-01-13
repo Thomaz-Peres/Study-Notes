@@ -24,4 +24,4 @@ These are 5 separete issues
 
 Explicando certas coisas:
 
-3 - Semantics = is take the functions you have and make auxiliars functions, It is represent and recognizing typical patterns of use for certain features.
+3 - idioms = is take the functions you have and make auxiliars functions, It is represent and recognizing typical patterns of use for certain features.

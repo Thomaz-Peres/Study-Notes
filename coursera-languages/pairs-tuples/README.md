@@ -15,4 +15,4 @@ tuples: we're can generalize the pairs ideas, a pair is only a two tuple.
 
 - ![image](https://user-images.githubusercontent.com/58439854/210444151-4a377108-08db-40aa-94b7-ce4804653b03.png)
 
-
+- ![image](https://user-images.githubusercontent.com/95287311/212408810-2595af35-7140-44b2-b4ee-047fdac92456.png)
