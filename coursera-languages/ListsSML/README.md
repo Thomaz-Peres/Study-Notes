@@ -2,9 +2,13 @@
 
 To reate a list in SML = val it = [1, 2, 3];
 
-To put a constant in list, use x :: 1
+To put a value in list, use 1 :: x
+(you put the value 1 in the begging of a list)
 
-To take the first value in **it** = hd it;
+To put an value in a final of list z @ [1];
+(a list into a list 1 it the final of a list) https://stackoverflow.com/questions/42148055/sml-how-to-append-an-element-to-a-list-in-sml
+
+To take the first value in an list = hd it;
 
 you can use tl too, like = hd (tl it2) = 2
 

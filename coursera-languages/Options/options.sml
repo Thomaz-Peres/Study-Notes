@@ -23,5 +23,5 @@ fun max2 (xs : int list) =
 				else tl_ans
 			end
 		in
-			SOME (max_nonempty xs)
+			SOME (max_nonempty(xs))
 		end

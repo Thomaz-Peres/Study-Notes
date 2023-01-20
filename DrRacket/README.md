@@ -15,8 +15,7 @@ Number -> Number
 in this case I consume a Number and produce a Number
 
 
-***Purpose*** is to give me a succinct description of what the function produces given waht it consumes (uma descrição sucinta
-do que a função produz dado o que ela consome.)
+***Purpose*** is to give me a succinct description of what the function produces given waht it consumes (uma descrição sucinta do que a função produz dado o que ela consome.)
 
 
 ***Stub*** is like a piece of scalffolding that we're going to put in place for a short period of time. (implementado por um curto período de tempo.)
