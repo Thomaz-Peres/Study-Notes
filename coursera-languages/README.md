@@ -3,7 +3,7 @@
 
 #### About languages: (i go need to revisit to update and separete better)
 
-##### Week 2 Video lectures video 1
+# Week 2
 - **Syntax** is just how you write something
 - **Semantics** is what that somethings means
    - Type-checking (before program runs) 
@@ -13,8 +13,6 @@
    - Type-check expressions and extend static environment
    - Evaluate expression and extend dynamic environment
 
-
-##### Week 2 Video lectures video 2
 
 ### Variables rules
 
@@ -53,3 +51,7 @@ Shadowing é quando uma váriavel que já esta no código, vira uma váriavel de
 
 Functions is a like methods in OOP, receive value and return a value.
 
+
+
+
+# Week 3
