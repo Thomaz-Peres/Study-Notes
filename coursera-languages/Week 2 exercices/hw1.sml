@@ -11,15 +11,13 @@ fun is_older (pr : (int*int*int) * (int*int*int)) =
     else
     false
 
-
-
 (* [int * int * int] list * int -> int *)
 (* year, month, day *)
 (* test 2 *)
 fun number_in_month (xs : (int * int * int) list, m : int) =
     if null xs then 0
     else let
-            val y = 0 : int
+            val y = 1 : int
         in
         if #2 (hd xs) = m then (y + 1) + number_in_month(tl xs, m)
         else
