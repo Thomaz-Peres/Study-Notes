@@ -4,6 +4,8 @@ Records and tuples are very similar and they are bioth "each-of" type.
 
 The only real difference is records are "by name" and tuples are "by positions"
 
+Tuples is not more not less then records with particular field names.
+
 This is the first of many examples we will see of syntactic sugar. We say, “tuples are just syntactic sugar
 for records with fields named 1, 2, ..., n.”
 
