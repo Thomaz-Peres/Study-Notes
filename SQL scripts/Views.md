@@ -31,3 +31,10 @@ select * from NomeCPF;
 create view NiverMesAtual as
 select ClientID, Nome, day(Nascimento) as 'Dia Aniversario' from cliente where month(Nascimento) = month(curdate());
 ```
+
+
+## Useful Scenarios
+
+- Needing to quickly create query-able objects over source data without explicitly stating schema
+- When source data is partitioned and is large enough that partition pruning is required
+- When only a specific set of columns are required to be exposed from the data source

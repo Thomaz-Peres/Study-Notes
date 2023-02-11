@@ -15,4 +15,14 @@ Example:
         : {bar : int * bool, baz : bool * int, foo : int}
 
 
-The order of fields never matter. (The SML language use alphabetic order)
+The order of fields never matter. (The SML language always alphabetizes order)
+
+To access their records:
+
+
+```sml
+val x = {bar = (1+2,true andalso true), foo = 3+4, baz = (false,9) };
+
+access:
+#foo;
+        Result = 7
