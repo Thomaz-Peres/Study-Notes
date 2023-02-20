@@ -17,3 +17,6 @@ More precisely, the example above adds four things to the environment:
 A constructor is two different things. First, it is either a function for creating values of the new type (if the variant has of t for some type t) or it is actually a value of the new type (otherwise). In our example, `TwoInts is a function of type int*int -> mytype`, `Str is a function of type string -> mytype` and `Pizza is a value of type mytype`. Second, we use constructors in case-expressions as described further below.
 
 ![image](https://user-images.githubusercontent.com/58439854/218908319-898ad7db-0020-435a-a251-e6898ba05ddb.png)
+
+# Using this datypes and access the values (How ML Does Not Provide Access to Datatype Values)
+
