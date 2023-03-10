@@ -4,18 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "83cf91dfaa8b7f48",
+        "id": "ed61f135e0141e7d",
         "type": "tabs",
         "children": [
           {
-            "id": "40d1648ff64a6b92",
+            "id": "e2ff9d06b93e5e8c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c47d866c32bfeda2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md"
+              }
             }
           }
         ]
@@ -138,8 +159,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "40d1648ff64a6b92",
+  "active": "c47d866c32bfeda2",
   "lastOpenFiles": [
+    "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Pattern Matching So Far/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes",
+    "Programming Languages - Coursera/Part A/Week 3/Type Synonyms/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Case Expressions/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Datatype Bindings/README.md",
+    "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes",
+    "Pasted image 20230108154553.png",
+    "Pasted image 20230108154608.png",
+    "Pasted image 20230108155934.png",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "README.md",
+    "C.md",
     "coursera-languages/Options/README.md",
     "coursera-languages/Let expressions/README.md",
     "coursera-languages/Nested Functions/README.md",
@@ -147,7 +183,6 @@
     "Programming Paradigms/README.md",
     "Kubectl_Commands.md",
     "Evitar_Excesso_de_Postagem.md",
-    "2023-01-07.md",
-    "C.md"
+    "2023-01-07.md"
   ]
 }
