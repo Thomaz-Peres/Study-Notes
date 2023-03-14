@@ -1,6 +1,12 @@
 # Digression: Type inference
 
-ing eneral, inference type read as `'a`
+Resumo rapido em PT (I will translate that after, or not k): Inferencia apenas resume a função pra fazer o que ela precisa, um exemplo e a sum_triple abaixo, a gente sabe que ela quer somar tres numeros:
+```sml
+fun sum_triple(x,y,z) =
+	x + y + z
+```
+
+`OBS: That can lead to surprisingly general types.`
 
 By using pattern to access values of tuples and records rathe than `#foo`, you will find it is no longer necessary to write types on your function arguments.
 
