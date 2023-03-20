@@ -51,4 +51,12 @@ fun unzip3 lst =
 				(a::l1,b::l2, c::l3)
 			end
 ```
-	
+
+
+```sml
+fun nondescreassing xs = (* int list -> bool *)
+	case xs of
+		[] => true
+	  | _::[] => true
+	  | head::(neck::rest) => head <= neck andalso nondecreasing (neck::rest)   
+```
