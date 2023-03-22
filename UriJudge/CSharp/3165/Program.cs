@@ -3,7 +3,7 @@
 int x = int.Parse(Console.ReadLine());
 int y = 0;
 
-if ((x >= 5 && x <= 1000))
+if (x >= 5 && x <= 1000)
 {
     while (x % 3 == 0)
     {
