@@ -1,3 +1,17 @@
+Algoritmos em CS50
+
+Algorithms is our step-by-step instructions for solving problems
+
+No room for ambiguidade in computers. When implementing by machines, they really have to be, not only correct, but precise
+
+
+
+
+
+
+
+
+
 # O que são algoritmos
 
 Segundo o livro *Algoritmos Logica para desenvolvimento de programação de computadores*, algoritmos são conjuntos de passos finitos e organizados que, quando executados, resolvem um determinado problema.

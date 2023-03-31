@@ -11,7 +11,6 @@
 
 </details>
 
-#
 <details>
   <summary>Estrutura de dados com C</summary>
   
@@ -24,7 +23,6 @@
 - [Uri Judge](/UriJudge/)
 </details>
 
-#
 - [DevOps](/DevOps/)
 
 - [Kubernetes](/Kubernetes/)

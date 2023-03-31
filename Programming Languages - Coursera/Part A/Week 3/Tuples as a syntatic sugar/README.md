@@ -1,5 +1,12 @@
 # By Name vs. By Position, Syntactic Sugar and The Truth About Tuples.
 
+**OBS:** Syntactic sugar is usually a shorthand for a common operation that could also be expressed in an alternate, more verbose, form
+
+
+Abstractly, an array reference is a procedure of two arguments: an array and a subscript vector, which could be expressed as `get_array(Array, vector(i,j))`. Instead, many languages provide syntax such as `Array[i,j]`
+
+_____________________________________
+
 Records and tuples are very similar and they are bioth "each-of" type.
 
 The only real difference is records are "by name" and tuples are "by positions" 
