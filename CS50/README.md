@@ -70,3 +70,34 @@ And so the convetion humans decided on years ago  is that if you want to make cl
 
 OBS: It's just a human convention of putting `0x` to imply, here comes hexadecimal.
 ![image](https://user-images.githubusercontent.com/58439854/233754629-84314d0c-3e2c-44d1-9b56-284ed49533f2.png)
+
+### Pointers
+
+A pointer is an address of something in the computer's memory.
+
+Ampersand = &
+
+& = He is going to allow us to get the address of a piece of data in memory, example:
+```c
+int main (void)
+{
+        int x = 50;
+        printf("%p\n", &x);
+}
+```
+OBS: this is a ***example*** `Result is x01A`
+
+and the `*` do the opposite, like "go there"
+
+## Strings
+
+How string works, with aátring is array os chars ?
+
+Only take the first address of the first letter, and when the `NUL (\0)` comming, you know that all of those characters are apparently part of the same string.
+
+Like an example, when we do that `string s = "hi!";`
+
+![image](https://user-images.githubusercontent.com/58439854/233808409-98573d09-1af0-4166-b420-43df24711fe9.png)
+![image](https://user-images.githubusercontent.com/58439854/233808420-2493f0bb-6944-4146-a038-704b5dfe2646.png)
+
+So, string is a pointer to a char, like `char * s = "HI!"`;
