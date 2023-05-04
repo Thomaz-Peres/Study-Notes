@@ -1,5 +1,8 @@
 # This is a course of Harvard for free "CS50 Introdution to Computer Sciece"
 
+NUL = '\0'
+NULL = is technically a pointer
+
 ## Bit and bytes 
 
 bit = 0 or 1 (binary digits)
@@ -25,6 +28,8 @@ string = ? bytes
 ## Bitmap
 
 Bitmap is a type of a image
+
+`Why do image files need metadata?`
 
 ![image](https://user-images.githubusercontent.com/58439854/233751887-77bcabf6-7fa3-4616-b515-3a0911620fa0.png)
 
@@ -101,3 +106,88 @@ Like an example, when we do that `string s = "hi!";`
 ![image](https://user-images.githubusercontent.com/58439854/233808420-2493f0bb-6944-4146-a038-704b5dfe2646.png)
 
 So, string is a pointer to a char, like `char * s = "HI!"`;
+
+## Copying
+
+1. malloc = malloc is for memory allocation.
+
+It is a function that you can use to ask operation system for some number of bytes, 1 byte, 100 bytes, a gigabyte of memory.
+
+You can ask malloc for however much memory you want in advance. It will return to you the address of the first byte of memory, that it found free for you `unlike a string, it is not NUL termianted`
+
+##### OBS: Malloc is just going to give you some memory and it's up to you to manage it.
+
+2. Free does the opposite.
+
+When you're done with some chunk of memory, you can free it by passing in that same address and just hand it back. You can let me use this for something else later.
+
+____________________________________________________________________________
+
+In this case it is a manual way of asking for enough memory for an array:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *x = malloc(3 * sizeof(int));
+
+    int[0] = 72;
+    int[1] = 73;
+    int[2] = 33;
+}
+```
+
+Why this happend ? Remember an int use 4 bytes ? So that is, this code `int *x = malloc(3 * sizeof(int));` is `give me an array 3 * however big an int is`
+
+And the malloc whill return the address of the first byte you get back.
+
+### Valgrind
+
+It is a program to taka problem with memory, for example the last code above you can compile and run it, but he does not use **free** or **return** to free memory.
+
+### Swap in C
+
+If we try something like that (only function)
+
+```c
+void swap(int a, int b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+```
+
+This not will changed the value, because swap only changed this local variable not swapt the variable in memory.
+
+The correst form in C is:
+
+***OBS: to call this function you need to call this with ampersand (&) example `swap(&x, &y);`***
+
+```c
+void swap(int *a, int *b) // here in parameters means we want to receive a address of variables
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+```
+
+
+### ScanF
+
+ We uso a ampersand in a float, a double, a long, a bool, a char.
+
+ Why we not need to use in string case ? 
+
+        Because the strings is already an address. String is always a address
+
+
+In the string case, ir harder because we need understand and use malloc for each letter the user used
+
+`REMBER FOR ME, TO REMEMBER TO LEARNING ABOUT THAT IN SOME TIME`
+
+
+### Stacks and Queues (abstract data types)
