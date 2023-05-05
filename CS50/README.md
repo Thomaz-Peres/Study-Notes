@@ -191,3 +191,21 @@ In the string case, ir harder because we need understand and use malloc for each
 
 
 ### Stacks and Queues (abstract data types)
+
+Push = adding things to a stack
+
+Pop = removing something also from the top of the stack.
+
+Implementing the data structure itself.
+
+- Struct means here comes a structure, A.K.A a data structure of one or more vaiables within
+```c
+typedef struct
+{
+    // Just estipulate the struct person already exists, is only example
+    // And capacity means a const variable
+    person people[CAPACITY]
+    int size;
+}
+stack;
+```
