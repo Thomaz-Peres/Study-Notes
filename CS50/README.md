@@ -80,7 +80,7 @@ OBS: It's just a human convention of putting `0x` to imply, here comes hexadecim
 
 A pointer is an address of something in the computer's memory.
 
-Ampersand = &
+Ampersand = `&`
 
 & = He is going to allow us to get the address of a piece of data in memory, example:
 ```c
@@ -92,7 +92,9 @@ int main (void)
 ```
 OBS: this is a ***example*** `Result is x01A`
 
-and the `*` do the opposite, like "go there"
+and the `*` do the opposite, like "go there" , declare pointers and for dereference pointer.
+
+OBS: If you prematurely change a variable to point not at the old chunk but the new chunk at that point no one's pointing at the old chunk, you lost that part of memory
 
 ## Strings
 
@@ -107,7 +109,7 @@ Like an example, when we do that `string s = "hi!";`
 
 So, string is a pointer to a char, like `char * s = "HI!"`;
 
-## Copying
+## Copying strings
 
 1. malloc = malloc is for memory allocation.
 
@@ -115,7 +117,10 @@ It is a function that you can use to ask operation system for some number of byt
 
 You can ask malloc for however much memory you want in advance. It will return to you the address of the first byte of memory, that it found free for you `unlike a string, it is not NUL termianted`
 
-##### OBS: Malloc is just going to give you some memory and it's up to you to manage it.
+        OBS1: Malloc is just going to give you some memory and it's up to you to manage it.
+
+        OBS2: Malloc can return null if the computer is out of memory.
+
 
 2. Free does the opposite.
 
@@ -198,7 +203,7 @@ Pop = removing something also from the top of the stack.
 
 Implementing the data structure itself.
 
-- Struct means here comes a structure, A.K.A a data structure of one or more vaiables within
+- Struct means here comes a structure, A.K.A a data structure of one or more vaiables within.
 ```c
 typedef struct
 {
@@ -209,3 +214,65 @@ typedef struct
 }
 stack;
 ```
+
+
+### Resizing arrays
+
+In the file [list](./list.c), instead of using malloc for the second time on line 18, we can use **realloc**
+
+**Realloc** works different of malloc, we need two arguments.
+        
+        The first one is what is the chunk of memory that we want to try to grow or shrink, that is, reallocate to be a different size.
+
+        The second we specify what size you would want.
+
+**Realloc** will copy everything.
+
+**Realloc** automatically frees the previous memory for you.
+
+So, the new code on [list](./list.c) will gonna be like this:
+
+```c
+int main(void)
+{
+    int *list = malloc(3 * sizeof(int));
+    if (list == NULL)
+    {
+        return 1;
+    }
+
+    list[0] = 1;
+    list[1] = 2;
+    list[2] = 3;
+
+    // Creating and improve the range of list
+
+    int *tmp = realloc(list, 4 * sizeof(int));
+    if(tmp == NULL)
+    {
+        free(list);
+        return 1;
+    }
+
+    list = tmp;
+
+    list[3] = 4;
+
+
+    for(int i = 0; i < 3; i++)
+    {
+        printf("%i\n", list[i]);
+    }
+
+    free(list);
+    return 0;
+}
+```
+
+### Linked lists
+
+The arrow `->` go to the struct and take the address of these value on the struct
+
+Linked lists is create a struct for have a number and a place to show the address of memory the next number
+
+![image](https://user-images.githubusercontent.com/58439854/236974609-0a41867f-8f4c-4a6a-aaf3-ebc0ab29402c.png)
