@@ -76,7 +76,9 @@ And so the convetion humans decided on years ago  is that if you want to make cl
 OBS: It's just a human convention of putting `0x` to imply, here comes hexadecimal.
 ![image](https://user-images.githubusercontent.com/58439854/233754629-84314d0c-3e2c-44d1-9b56-284ed49533f2.png)
 
-### Pointers
+## Pointers
+
+***IMPORTANT OBSERVATION: A POINTER USE 8 BYTES OF MEMORY ***
 
 A pointer is an address of something in the computer's memory.
 
@@ -148,11 +150,11 @@ Why this happend ? Remember an int use 4 bytes ? So that is, this code `int *x =
 
 And the malloc whill return the address of the first byte you get back.
 
-### Valgrind
+## Valgrind
 
 It is a program to taka problem with memory, for example the last code above you can compile and run it, but he does not use **free** or **return** to free memory.
 
-### Swap in C
+## Swap in C
 
 If we try something like that (only function)
 
@@ -181,7 +183,7 @@ void swap(int *a, int *b) // here in parameters means we want to receive a addre
 ```
 
 
-### ScanF
+## ScanF
 
  We uso a ampersand in a float, a double, a long, a bool, a char.
 
@@ -195,7 +197,7 @@ In the string case, ir harder because we need understand and use malloc for each
 `REMBER FOR ME, TO REMEMBER TO LEARNING ABOUT THAT IN SOME TIME`
 
 
-### Stacks and Queues (abstract data types)
+## Stacks and Queues (abstract data types)
 
 Push = adding things to a stack
 
@@ -216,7 +218,7 @@ stack;
 ```
 
 
-### Resizing arrays
+## Resizing arrays
 
 In the file [list](./list.c), instead of using malloc for the second time on line 18, we can use **realloc**
 
@@ -269,10 +271,153 @@ int main(void)
 }
 ```
 
-### Linked lists
+## Linked lists
 
 The arrow `->` go to the struct and take the address of these value on the struct
 
 Linked lists is create a struct for have a number and a place to show the address of memory the next number
 
 ![image](https://user-images.githubusercontent.com/58439854/236974609-0a41867f-8f4c-4a6a-aaf3-ebc0ab29402c.png)
+
+creating a struct in `C` for this list
+
+```c
+typedef struct
+{
+    int number;
+    node *next;
+}
+node;
+```
+
+This code below, give error, we need create a self-reference like this in `C`
+
+```c
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+```
+After we create that we need use them
+
+1. Create a list
+
+        node *list = NULL;
+
+2. Allocate the first number
+
+        node *n = malloc(sizeof(node));
+
+3. Adding a number in `N`
+
+    OBS: We have used (*n) to preserved the operation 
+
+        (*n).number = 1;
+
+4. A better syntax to not use `(*n).number` is:
+
+        n->number = 1;
+
+5. Adding next like `NULL` because at this point, doesn't have next number
+
+        n->next = NULL;
+
+6. For the first number, i can do that:
+
+        list = n;
+
+7. For adding the number 2 now, we do the same steps below, BUT we need to link the variable `NEXT` in number `1` with the address of number `2`.
+    So here, I do that:
+
+        n->next = list;
+
+something like this: ![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/ac4c5e20-3e0a-40f2-b0de-54fd3d34d469)
+
+8. And after that, I can do `list = n`
+
+    Like this: ![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/a3322490-2334-4efd-9909-e30e32386cf1)
+
+
+With linked list we have this dynamism now where we can grow and shrink our chunks of memory without over-allocating or accidentally under-allocating as in the world of an array.
+
+## Trees
+
+the downside of a tree is use lot of memory
+
+`Tree` take the best of both words the dynamism of a linked list with speed of binary search, somenthing logarithmic.
+
+The code for a `tree` is not very different for the code of a linked list.
+
+How looks like a node in a image:
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/4a2fa53f-3215-4d71-8aaa-6b85c49e0885)
+
+```c
+typedef struct node
+{
+    int number;
+    struct node *left;
+    struct node *right;
+}
+node;
+```
+
+creating a tree search example:
+
+```c
+bool search(node *tree, int number)
+{
+    if (tree == NULL)
+        return false;
+    else if (number < tree->number)
+        return search(tree->left, number);
+    else if (number > tree->number)
+        return search(tree->right, number);
+    else
+        return true;
+}
+```
+
+## Dictionaries
+
+dictionary is an array with `key` and `value`, like this:
+
+ key | value
+---- | -----
+name | number
+
+## Hashing
+
+Hash is a `O(1)` data structure
+
+`Hashing` is all about taking as input some value and outputting a simpler version thereof.
+
+Converting something bigger to something smaller to this indeed finite range of values.
+
+The hash has a certain thing, for example, if I search to a name with `Z` I go to the 25 and take `Z`
+
+the example of hash in an image:
+
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/9548136b-bb2f-4012-897c-4982041171c4)
+
+## Tries
+
+The `tries` looks like a `tree` with a `hash table`. The image will show how it's work
+
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/755ffa8b-c1c9-450f-a3e6-eec4e94e3984)
+
+And we need to say what is the final, is this case is D of `Hagrid`, so when we arrive to `D` we return a true or something to say `Is the final`, example:
+
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/a6cc1fc3-6f75-4916-b74d-5c08ff0196f5) 
+
+What do each of these nodes look like in a tri
+
+```c
+typedef struct node
+{
+    char *number;
+    struct node *children[26];
+}
+node;
+```
