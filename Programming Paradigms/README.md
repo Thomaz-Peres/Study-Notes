@@ -54,6 +54,8 @@ Here is a list of languages that I like and know that could teach you about prog
 -   Python
 -   Scala
 
+Good example I have seen this days, it is in OOP, the class can have functions (a.k.a methods) inside him, different a `struct` in C when only can have a data types
+
 ## Imperative
 
 -   C
@@ -66,3 +68,7 @@ ___
 All programming paradigms have their benefits to both education and ability. Functional languages historically have been very notable in the world of scientific computing. Of course, taking a list of the most popular languages for scientific computing today, it would be obvious that they are all multi-paradigm. Object-oriented languages also have their fair share of great applications. Software development, game development, and graphics programming are all great examples of where object-oriented programming is a great approach to take.
 
 The biggest note one can take from all of this information is that the future of software and programming language is multi-paradigm. It is unlikely that anyone will be creating a purely functional or object-oriented programming language anytime soon. If you ask me, this isn’t such a bad thing, as there are weaknesses and strengths to every programming approach that you take, and a lot of true optimization is performing tests to see which methodology is more efficient or better than the other overall. This also puts a bigger thumbtack into the idea that everyone should know multiple languages from multiple paradigms. With the paradigms merging using the power of generics, it is never known when one might run into a programming concept from an entirely different programming language!
+
+## In the CS50 harvard course.
+
+They said `Up until now, in C, we've been focusing on what's called, really, procedural programming.` We write procedures, we write fuunction, top to bottom, left to right.
