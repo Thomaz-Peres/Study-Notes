@@ -12,3 +12,17 @@ for i in [0, 1, 2]:
 for i in range(3):
     print("hello, world")
 ```
+
+
+
+### Swap in python
+
+```python
+x = 1
+y = 2
+
+print(f"x is {x}, y is {y}")
+# we can do this
+x, y = y, x
+print(f"x is {x}, y is {y}")
+```
