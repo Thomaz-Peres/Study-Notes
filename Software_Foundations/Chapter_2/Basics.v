@@ -30,7 +30,7 @@ Example test_next_weekday:
   (next_weekday (next_weekday saturday)) = tuesday.
 
 Proof. simpl. reflexivity. Qed.
-
+(* The details are not important just now, but essentially this can be read as (The assertion we've just made can be proved by observing that both sides of the equality evaluate to the same thing.) *)
 
 From Coq Require Export String.
 (* ------------------------------------------------------------------------ *)
@@ -96,3 +96,91 @@ Definition orb' (b1:bool) (b2:bool) : bool :=
   if b1 then true
   else b2.
 
+
+(* ------------------------------------------------------------------------ *)
+(* Types *)
+
+(* Every expression in Coq has a type, describing what sort of thing it computes.
+The Check command asks Coq to print the type of an expression. *)
+Check true.
+(* ===> true : bool *)
+Check 2.
+(* ===> 2 : nat *)
+
+(* If the expression after Check is followed by a colon and a type,
+Coq will verify that the type of the expression matches the given type
+and halt with an error if not. *)
+Check true
+  : bool.
+Check (negb true)
+  : bool.
+
+(* Functions like negb itself are also data values, just like true and false.
+Their types are called function types, and they are written with arrows. *)
+Check negb.
+(* : bool -> bool *)
+
+
+(* ------------------------------------------------------------------------ *)
+(* New Types from Old *)
+
+(* The types we have defined so far are examples of "enumerated types": their
+definitions explicitly enumerate a finite set of elements, called constructors *)
+
+(* Here is a more interesting type definition,
+where one of the constructors takes an argument: *)
+Inductive rgb : Type :=
+  | red
+  | green
+  | blue.
+Inductive color : Type :=
+  | black
+  | white
+  | primary (p : rgb).
+
+  (* An Inductive definition does two things: *)
+(* It defines a set of new constructors. E.g., red, primary, true, false, monday, etc. are constructors. *)
+(* It groups them into a new named type, like bool, rgb, or color. *)
+
+(* if p is a constructor expression belonging to the set rgb,
+then primary p (pronounced "the constructor primary applied to the argument p")
+is a constructor expression belonging to the set color *)
+
+(* We can define functions on colors using pattern matching just as we did for day and bool. *)
+
+Definition monochrome (c : color) : bool :=
+  match c with
+  | black => true
+  | white => true
+  | primary p => false
+  end.
+
+(* Since the primary constructor takes an argument,
+a pattern matching primary should include either a variable
+(as above -- note that we can choose its name freely) 
+or a constant of appropriate type (as below). *)
+
+Definition isred (c : color) : bool :=
+  match c with
+  | black => false
+  | white => false
+  | primary red => true
+  | primary _ => false
+  end.
+
+(* The pattern "primary _" here is shorthand for
+"the constructor primary applied to any rgb constructor except red."
+(The wildcard pattern _ has the same effect as the dummy pattern variable p
+in the definition of monochrome.) *)
+
+(* Explication to myself (to escrevendo isso que e a mesma coisa acima, porem no dia
+eu tava meio burro).
+
+The "primary _" says the blue and green is false.
+Por que como vemos no tipo color, primary recebe um tipo RGB na variavel P, seria
+como se eu fizesse isto aqui.
+primary (_) => false
+
+Ou seja, eu poderia fazer isso aqui (ou qualquer coisa de p tambem):
+primary p => false (alterando o (_)
+*)
