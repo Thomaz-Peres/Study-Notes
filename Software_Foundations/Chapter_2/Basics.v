@@ -189,3 +189,16 @@ primary p => false (alterando o (_)
 (* Modules *)
 
 (* Coq provides a module system to aid in organizing large developments *)
+
+(* If we enclose a collection of declarations between Module X and End X markers, then,
+in the remainder of the file after the End,
+these definitions are referred to by names like X.foo instead of just foo *)
+
+Module Playground.
+  Definition b : rgb := blue.
+End Playground.
+
+Definition b : bool := true.
+Check Playground.b : rgb.
+Check b : bool.
+
