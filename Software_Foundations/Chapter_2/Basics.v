@@ -184,3 +184,8 @@ primary (_) => false
 Ou seja, eu poderia fazer isso aqui (ou qualquer coisa de p tambem):
 primary p => false (alterando o (_)
 *)
+
+(* ------------------------------------------------------------------------ *)
+(* Modules *)
+
+(* Coq provides a module system to aid in organizing large developments *)
