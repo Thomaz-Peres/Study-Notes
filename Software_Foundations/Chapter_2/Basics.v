@@ -306,6 +306,48 @@ Definition pred (n : nat) : nat :=
   | S n' => n'
   end.
 
-
 (* The following End command closes the current module, so nat will refer back to the type from the standard library. *)
 End NatPlayground.
+
+(* Because natural numbers are such a pervasive form of data, Coq provides a tiny bit of built-in magic for parsing and printing them: ordinary decimal numerals can be used as an alternative to the "unary" notation defined by the constructors S and O. Coq prints numbers in decimal form by default *)
+
+(* Pred sempre me retorna um numero a menos do que eu to enviado *)
+Compute (pred (S (S (S (S O))))).
+(* ==> 3 : nat *)
+
+Compute (S (S (S (S O)))).
+
+Check (S (S (S (S O)))).
+
+Definition minustwo (n : nat) : nat :=
+  match n with
+  | O => O
+  | S O => O
+  | S (S n') => n'
+  end.
+
+Compute (minustwo 4).
+(* ===> 2 : nat *)
+Check S : nat -> nat.
+Check pred : nat -> nat.
+Check minustwo : nat -> nat.
+
+(* However, there is a fundamental difference between S and the other two: functions like pred and minustwo are defined by giving computation rules -- e.g., the definition of pred says that pred 2 can be simplified to 1 -- while the definition of S has no such behavior attached *)
+
+(* For most interesting computations involving numbers, simple pattern matching is not enough: we also need recursion 
+For example, to check that a number n is even, we may need to recursively check whether n-2 is even. Such functions are introduced with the keyword Fixpoint instead of Definition*)
+
+Fixpoint even (n : nat) : bool :=
+  match n with
+  | O => true
+  | S O => true
+  | S (S n') => even n'
+  end.
+
+Definition odd (n:nat) : bool :=
+  negb (even n).
+
+Example test_odd1: odd 1 = true.
+Proof. simpl. reflexivity. Qed.
+Example test_odd2: odd 4 = false.
+Proof. simpl. reflexivity. Qed.
