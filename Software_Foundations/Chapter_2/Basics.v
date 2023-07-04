@@ -351,3 +351,62 @@ Example test_odd1: odd 1 = true.
 Proof. simpl. reflexivity. Qed.
 Example test_odd2: odd 4 = false.
 Proof. simpl. reflexivity. Qed.
+
+(* You may notice if you step through these proofs that simpl actually has no effect on the goal -- all of the work is done by reflexivity. We'll discuss why that is shortly. *)
+
+(* Naturally, we can also define multi-argument functions by recursion. *)
+Module NatPlayground2.
+
+Fixpoint plus (n : nat) (m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus n' m)
+  end.
+
+Compute (plus 3 2).
+(* ===> 5 : nat *)
+
+(* The steps of simplification that Coq performs can be visualized as follows: *)
+(*      plus 3 2
+   i.e. plus (S (S (S O))) (S (S O))
+    ==> S (plus (S (S O)) (S (S O)))
+          by the second clause of the match
+    ==> S (S (plus (S O) (S (S O))))
+          by the second clause of the match
+    ==> S (S (S (plus O (S (S O)))))
+          by the second clause of the match
+    ==> S (S (S (S (S O))))
+          by the first clause of the match
+   i.e. 5  *)
+
+(* As a notational convenience, if two or more arguments have the same type,
+they can be written together.
+In the following definition,
+(n m : nat) means just the same as if we had written (n : nat) (m : nat). *)
+Fixpoint mult (n m : nat) : nat :=
+  match n with
+  | O => O
+  | S n' => plus m (mult n' m)
+  end.
+
+Example test_mult1: (mult 3 3) = 9.
+Proof. simpl. reflexivity. Qed.
+
+(* You can match two expressions at once by putting a comma between them: *)
+Fixpoint minus (n m:nat) : nat :=
+  match n, m with
+  | O , _ => O
+  | S _ , O => n
+  | S n', S m' => minus n' m'
+  end.
+End NatPlayground2.
+Fixpoint exp (base power : nat) : nat :=
+  match power with
+  | O => S O
+  | S p => mult base (exp base p)
+  end.
+
+Example exp1: (exp 3 5) = 243.
+Proof. simpl. reflexivity. Qed.
+
+(* Exp in this case, do exponentiation i Do 3^5 *)
