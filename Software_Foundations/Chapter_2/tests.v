@@ -14,6 +14,8 @@ End NatPlayground.
 
 Check (S (S (S (S O)))).
 Check O.
+Check S.
+Check S O.
 
 Definition minustwo (n : nat) : nat :=
   match n with

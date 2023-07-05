@@ -64,7 +64,7 @@ Definition orb (b1:bool) (b2:bool) : bool :=
   (* (Although we are rolling our own booleans here for the sake of building up everything from scratch, Coq does, of course, provide a default implementation of the booleans, together with a multitude of useful functions and lemmas. Whenever possible, we'll name our own definitions and theorems so that they exactly coincide with the ones in the standard library.)
 The last two of these illustrate Coq's syntax for multi-argument function definitions. The corresponding multi-argument application syntax is illustrated by the following "unit tests," which constitute a complete specification -- a truth table -- for the orb function *)
 
-Example test_orb1:  (orb true  false) = true.
+Example test_orb1:  (orb true false) = true.
 Proof. simpl. reflexivity. Qed.
 Example test_orb2: (orb false false) = false.
 Proof. simpl. reflexivity. Qed.
@@ -347,7 +347,7 @@ Fixpoint even (n : nat) : bool :=
 Definition odd (n:nat) : bool :=
   negb (even n).
 
-Example test_odd1: odd 1 = true.
+Example test_odd1: odd 1 = false.
 Proof. simpl. reflexivity. Qed.
 Example test_odd2: odd 4 = false.
 Proof. simpl. reflexivity. Qed.
@@ -408,5 +408,125 @@ Fixpoint exp (base power : nat) : nat :=
 
 Example exp1: (exp 3 5) = 243.
 Proof. simpl. reflexivity. Qed.
+Example exp2: (exp 0 0) = 1.
+Proof. simpl. reflexivity. Qed.
 
 (* Exp in this case, do exponentiation i Do 3^5 *)
+
+(* Exercise: 1 star, standard (factorial) *)
+Fixpoint factorial (n:nat) : nat :=
+  match n with
+  | O => S O
+  | S z => mult n (factorial z)
+  end .
+
+Example test_factorial1: (factorial 3) = 6.
+Proof. simpl. reflexivity. Qed.
+Example test_factorial2: (factorial 5) = (mult 10 12).
+Proof. simpl. reflexivity. Qed.
+(* Stack overflow kkkkkkk
+Example test_factorial3: (factorial 10) = 3628800.
+Proof. simpl. reflexivity. Qed. *)
+Example test_factorial3: (factorial 6) = 720.
+Proof. simpl. reflexivity. Qed.
+
+(* Again, we can make numerical expressions easier to read and
+write by introducing notations for addition, multiplication, and subtraction. *)
+Notation "x + y" := (plus x y)
+                      (at level 50, left associativity)
+                       : nat_scope.
+Notation "x - y" := (minus x y)
+                      (at level 50, left associativity)
+                       : nat_scope.
+Notation "x * y" := (mult x y)
+                      (at level 40, left associativity)
+                       : nat_scope.
+Notation "x ^" := (factorial x)
+                      (at level 6, left associativity)
+                       : nat_scope.
+
+Check ((0 + 1) + 1) : nat.
+Compute (3 ^).
+(* ===> 12 -> nat *)
+
+
+(* The level, associativity, and nat_scope annotations control how these notations
+are treated by Coq's parser. The details are not important for present purposes,
+but interested readers can refer to the "More on Notation" section at the end of this chapter. *)
+
+
+(* When we say that Coq comes with almost nothing built-in, we really mean it:
+even equality testing is a user-defined operation!
+Here is a function eqb, which tests natural numbers for equality,
+yielding a boolean. Note the use of nested matches
+(we could also have used a simultaneous match, as we did in minus.) *)
+
+Fixpoint eqb (n m : nat) : bool :=
+  match n with
+  | O => match m with
+         | O => true
+         | S m' => false
+         end
+  | S n' => match m with
+            | O => false
+            | S m' => eqb n' m'
+            end
+  end.
+
+Example test_eqb1: eqb 2 2 = true.
+Proof. simpl. reflexivity. Qed.
+Example test_eqb2: eqb 2 4 = false.
+Proof. simpl. reflexivity. Qed.
+Example test_eqb3: eqb 4 2 = false.
+Proof. simpl. reflexivity. Qed.
+
+Fixpoint leb (n m : nat) : bool :=
+  match n with
+  | O => true
+  | S n' =>
+      match m with
+      | O => false
+      | S m' => leb n' m'
+      end
+  end.
+
+Example test_leb1: leb 2 2 = true.
+Proof. simpl. reflexivity. Qed.
+Example test_leb2: leb 2 4 = true.
+Proof. simpl. reflexivity. Qed.
+Example test_leb3: leb 4 2 = false.
+Proof. simpl. reflexivity. Qed.
+
+(* We'll be using these (especially eqb) a lot, so let's give them infix notations. *)
+Notation "x =? y" := (eqb x y) (at level 70) : nat_scope.
+Notation "x <=? y" := (leb x y) (at level 70) : nat_scope.
+Example test_leb3': (4 <=? 2) = false.
+Proof. simpl. reflexivity. Qed.
+
+(* We now have two symbols that look like equality: = and =?.
+We'll have much more to say about the differences and similarities between
+them later. For now, the main thing
+to notice is that x = y is a logical claim -- a "proposition" --
+that we can try to prove, while x =? y is an expression whose value
+(either true or false) we can compute. *)
+
+(* Exercise: 1 star, standard (ltb) *)
+Definition ltb (n m : nat) : bool :=
+  match n with
+  | O => match m with
+        | O => false
+        | S m' => true
+        end
+  | S n' => match m with
+        | O => false
+        | S m' => ltb n' m'
+        end
+  end.
+  
+Notation "x <? y" := (ltb x y) (at level 70) : nat_scope.
+Example test_ltb1: (ltb 2 2) = false.
+(* FILL IN HERE *) Admitted.
+Example test_ltb2: (ltb 2 4) = true.
+(* FILL IN HERE *) Admitted.
+Example test_ltb3: (ltb 4 2) = false.
+(* FILL IN HERE *) Admitted.
