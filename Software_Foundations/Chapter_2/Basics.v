@@ -511,22 +511,24 @@ that we can try to prove, while x =? y is an expression whose value
 (either true or false) we can compute. *)
 
 (* Exercise: 1 star, standard (ltb) *)
-Definition ltb (n m : nat) : bool :=
+Fixpoint ltb (n m : nat) : bool :=
   match n with
-  | O => match m with
+  | O => 
+        match m with
         | O => false
         | S m' => true
         end
-  | S n' => match m with
+  | S n' => 
+        match m with
         | O => false
         | S m' => ltb n' m'
         end
   end.
-  
+
 Notation "x <? y" := (ltb x y) (at level 70) : nat_scope.
 Example test_ltb1: (ltb 2 2) = false.
-(* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
 Example test_ltb2: (ltb 2 4) = true.
-(* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
 Example test_ltb3: (ltb 4 2) = false.
-(* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.

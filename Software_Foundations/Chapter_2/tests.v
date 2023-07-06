@@ -62,6 +62,7 @@ Fixpoint minus (n m:nat) : nat :=
   | S n', S m' => minus n' m'
   end.
 End NatPlayground2.
+
 Fixpoint exp (base power : nat) : nat :=
   match power with
   | O => S O
