@@ -597,7 +597,7 @@ Proof.
 (* ------------------------------------------------------------------------ *)
 (* That it is me, tryint (and with succesfull I guess) creating a notation to [forall] *)
 Notation "∀ n , P" := (forall n, P) (at level 200, n ident).
-Theorem plus_O_n_test_me : ∀ n, (0 + n = n).
+Theorem plus_O_n_test_me : ∀ n, 0 + n = n.
 Proof.
   intros m. reflexivity. Qed.
 (* ------------------------------------------------------------------------ *)
@@ -611,18 +611,61 @@ Proof.
 
 (** Other similar theorems can be proved with the same pattern. *)
 
-Theorem plus_1_l : ∀ n, (1 + n = S n).
+Theorem plus_1_l : forall n : nat, 1 + n = S n.
 Proof.
   intros n. reflexivity. Qed.
-Theorem mult_0_l : ∀ n, (0 * n = 0).
+Theorem mult_0_l : forall n : nat, 0 * n = 0.
 Proof.
   intros n. reflexivity. Qed.
 
 (* The [_l] suffix in the names of these theorems is pronounced "on the left." *)
 
 
-
 (* ------------------------------------------------------------------------ *)
 (* ------------------------------------------------------------------------ *)
 (* Proof by Rewriting *)
 
+(* The following theorem is a bit more interesting than the ones we've seen: *)
+Theorem plus_id_example : forall n m : nat,
+  n = m ->
+  n + n = m + m.
+
+(* Instead of making a universal claim about all numbers n and m,
+it talks about a more specialized property that only holds when n = m.
+The arrow symbol is pronounced "implies."
+As before, we need to be able to reason by assuming we are given such numbers n and m.
+We also need to assume the hypothesis n = m. *)
+
+(* Since n and m are arbitrary numbers, we can't just use simplification
+to prove this theorem. Instead, we prove it by observing that,
+if we are assuming n = m, then we can replace n with m in the goal
+statement and obtain an equality with the same expression on both sides.
+The tactic that tells Coq to perform this replacement is called rewrite *)
+Proof.
+  (* move both quantifiers into the context: (We can use any letter here) *)
+  intros n m.
+  (* move the hypothesis into the context: (hyphotesis is the first part before the arrow) *)
+  intros H.
+  (* rewrite the goal using the hypothesis: (i take the hyphotesis, and rewrite the "implies" after the arrow) *)
+  rewrite -> H.
+  reflexivity. Qed.
+
+(* The first line of the proof moves the universally quantified variables n and m into the context.
+
+The second moves the hypothesis n = m into the context and gives it the name H.
+
+The third tells Coq to rewrite the current goal (n + n = m + m) by replacing the left side
+of the equality hypothesis H with the right side. *)
+
+(* (The arrow symbol in the rewrite has nothing to do with implication: it tells Coq to
+apply the rewrite from left to right. In fact, you can omit the arrow, and Coq will default
+to rewriting in this direction. To rewrite from right to left, you can use rewrite <-.
+Try making this change in the above proof and see what difference it makes.) *)
+
+(* Proof.
+  intros n m.
+  intros H.
+  rewrite -> H.
+  reflexivity. Qed. *)
+
+  (* Exercise: 1 star, standard (plus_id_exercise) *)
