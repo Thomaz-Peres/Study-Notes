@@ -59,6 +59,11 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
+# .V files created to run some CLI argument.
+.*.glob
+*.glob
+.*.aux
+
 # StyleCop
 StyleCopReport.xml
 

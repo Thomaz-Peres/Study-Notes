@@ -1,4 +1,4 @@
-Inductive bool : Type :=
+(* Inductive bool : Type :=
   | true
   | false.
 
@@ -122,3 +122,28 @@ Example test_ltb2: (ltb 2 4) = true.
 Proof. simpl. reflexivity. Qed.
 Example test_ltb3: (ltb 4 2) = false.
 Proof. simpl. reflexivity. Qed.
+
+ *)
+
+ (*
+  Prove the following claim, marking cases (and subcases) with bullets when you use destruct.
+  Hint: You will eventually need to destruct both Booleans, as in the theorems above. But, delay introducing the hypothesis until after you have an opportunity to simplify it.
+  Hint 2: When you reach contradiction in the hypotheses, focus on how to rewrite with that contradiction.
+*)
+
+Theorem andb_true_elim2 : forall b c : bool,
+ andb b c = true -> c = true.
+Proof.
+ intros b c. destruct c eqn:E.
+ - destruct b eqn:Eb.
+   { destruct c eqn:Ec.
+      { reflexivity. }
+      { reflexivity. }
+    }
+   { reflexivity. }
+ - destruct b eqn:Eb.
+   { destruct c eqn:Ec.
+       { reflexivity. }
+       { reflexivity. }
+  }
+Qed.
