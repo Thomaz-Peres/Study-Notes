@@ -16,3 +16,9 @@ Example:
 ### Admitteds
 
 Admitteds can be used as a placeholder for an incomplete proof.
+
+_____________________________________________________________________
+The arrow is receive bool, another bool, and return bool (bool -> bool -> bool)
+
+
+![image](https://github.com/Thomaz-Peres/Thomaz-Peres/assets/58439854/e00fbddd-3911-4853-bd69-1e5437526819)

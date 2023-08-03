@@ -96,6 +96,8 @@ Definition orb' (b1:bool) (b2:bool) : bool :=
   if b1 then true
   else b2.
 
+Check orb'.
+
 
 (* ------------------------------------------------------------------------ *)
 (* Types *)
@@ -399,6 +401,7 @@ Fixpoint minus (n m:nat) : nat :=
   | S _ , O => n
   | S n', S m' => minus n' m'
   end.
+
 End NatPlayground2.
 Fixpoint exp (base power : nat) : nat :=
   match power with
@@ -852,12 +855,9 @@ Qed.
   Hint 2: When you reach contradiction in the hypotheses, focus on how to rewrite with that contradiction.
 *)
 
-Theorem plus_1_neq_0' : forall n : nat,
-  (n + 1) =? 0 = false.
-Proof.
-  intros n. destruct n as [ | n'] eqn:E.
-  - reflexivity.
-  - reflexivity. Qed.
+(* FOR THIS EXERCISE I TRIED MANY TIMES (yes, i'm not read the rest of the exercise, I only started doing xd, I'm stupid sry)
+  BUT, READING SOME THINGS AND SOME SOLUTIONS ON THE INTERNET, I DONE, THE FIRST IT IS ME TRYING ALONE
+  AND THE THIRD IT IS ME AFTER READING THE AND SE THE SECOND SOLUTION I FOUND. *)
 
 Theorem andb_true_elim2 : forall b c : bool,
   andb b c = true -> c = true.
@@ -866,7 +866,172 @@ Proof.
   - destruct b eqn:Eb.
     { reflexivity. }
     { reflexivity. }
-  - destruct c eqn:Ec.
-    { destruct c eqn:Eb.
-        { reflexivity.}}
+  - destruct b eqn:Eb.
+    { discriminate. }
+    { discriminate. }
 Qed.
+
+Theorem andb_true_elim2' : forall b c : bool,
+ andb b c = true -> c = true.
+Proof.
+ intros [] [].
+  - reflexivity.
+  - intros H.
+    rewrite <- H.
+    reflexivity.
+  - reflexivity.
+  - intro H.
+    rewrite <- H.
+    reflexivity.
+Qed.
+
+Theorem andb_true_elim2'' : forall b c : bool,
+ andb b c = true -> c = true.
+Proof.
+  intros b c. destruct c eqn:E.
+  - destruct b eqn:Eb.
+    { reflexivity. }
+    { reflexivity. }
+  - destruct b eqn:Eb.
+    { intros H.
+      { rewrite <- H. reflexivity. }
+    }
+    { intros H.
+      { rewrite <- H. reflexivity. }
+    }
+Qed.
+
+Theorem andb_true_elim2''' : forall b c : bool,
+  andb b c = true -> c = true.
+Proof.
+  intros b c.
+  destruct c eqn:EqnC.
+  - reflexivity.
+  - intros H. rewrite <- H. destruct b eqn: EqnB.
+    + simpl. reflexivity.
+    + simpl. reflexivity.
+  Qed.
+
+(* As you may have noticed, many proofs perform case analysis on a variable right after introducing it:
+       intros x y. destruct y as [|y] eqn:E.
+This pattern is so common that Coq provides a shorthand for it: we can perform case analysis on a variable
+when introducing it by using an intro pattern instead of a variable name. For instance, here is a shorter proof
+of the plus_1_neq_0 theorem above.
+
+(You'll also note one downside of this shorthand: we lose the equation recording the assumption we are making in
+each subgoal, which we previously got from the eqn:E annotation.) *)
+
+Theorem plus_1_neq_0' : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros [ |n].
+  - reflexivity.
+  - reflexivity.
+Qed.
+
+(* If there are no constructor arguments that need names, we can just write [] to get the case analysis. *)
+Theorem andb_commutative''' :
+  forall b c, andb b c = andb c b.
+Proof.
+  intros [] [].
+  - reflexivity.
+  - reflexivity.
+  - reflexivity.
+  - reflexivity.
+Qed.
+
+(* Exercise: 1 star, standard (zero_nbeq_plus_1) *)
+Theorem zero_nbeq_plus_1 : forall n : nat,
+  0 =? (n + 1) = false.
+Proof.
+  intros [ | n].
+  - reflexivity.
+  - simpl. reflexivity.
+Qed.
+
+(* ------------------------------------------------------------------------ *)
+(* ------------------------------------------------------------------------ *)
+(* More on Notation (Optional) *)
+
+(* Recall the notation definitions for infix plus and times: *)
+Notation "x + y" := (plus x y)
+                       (at level 50, left associativity)
+                       : nat_scope.
+Notation "x * y" := (mult x y)
+                       (at level 40, left associativity)
+                       : nat_scope.
+
+(* For each notation symbol in Coq, we can specify its precedence level and its associativity. The precedence level n is
+specified by writing at level n; this helps Coq parse compound expressions. The associativity setting helps to
+disambiguate expressions containing multiple occurrences of the same symbol. For example, the parameters
+specified above for + and × say that the expression 1+2*3*4 is shorthand for (1+((2*3)*4)). Coq uses precedence
+levels from 0 to 100, and left, right, or no associativity. We will see more examples of this later, e.g., in the Lists chapter.*)
+
+(* Each notation symbol is also associated with a notation scope. Coq tries to guess what scope is meant from context,
+so when it sees S(O×O) it guesses nat_scope, but when it sees the product type bool×bool (which we'll see in later chapters)
+it guesses type_scope. Occasionally, it is necessary to help it out with percent-notation by writing (x×y)%nat,
+and sometimes in what Coq prints it will use %nat to indicate what scope a notation is in *)
+
+(* Notation scopes also apply to numeral notation (3, 4, 5, 42, etc.), so you may sometimes see 0%nat,
+which means O (the natural number 0 that we're using in this chapter), or 0%Z, which means the integer zero
+(which comes from a different part of the standard library). *)
+
+(* Pro tip: Coq's notation mechanism is not especially powerful. Don't expect too much from it. *)
+
+
+(* ------------------------------------------------------------------------ *)
+(* ------------------------------------------------------------------------ *)
+(* Fixpoints and Structural Recursion (Optional) *)
+Fixpoint plus' (n : nat) (m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus' n' m)
+  end.
+  (* intros b c. destruct c eqn:E. *)
+(* More Exercises *)
+(* Exercise: 1 star, standard (identity_fn_applied_twice) *)
+Theorem identity_fn_applied_twice :
+  forall (f : bool -> bool),
+  (forall (x : bool), f x = x) ->
+  forall (b : bool), f (f b) = b.
+Proof.
+  intros f x b.
+  rewrite x.
+  rewrite x.
+  reflexivity.
+Qed.
+
+(* Exercise: 1 star, standard (negation_fn_applied_twice) *)
+
+Theorem negation_fn_applied_twice :
+  forall (f : bool -> bool),
+  (forall (x : bool), f x = negb x) ->
+  forall (b : bool), f (f b) = b.
+Proof.
+  intros f x b.
+  rewrite x.
+  rewrite x.
+  destruct b eqn:Eb.
+    * simpl. reflexivity.
+    * simpl. reflexivity.
+Qed.
+
+(* Do not modify the following line: *)
+Definition manual_grade_for_negation_fn_applied_twice : option (nat*string) := None.
+
+(* (The last definition is used by the autograder.) ☐ *)
+
+(* Exercise: 3 stars, standard, optional (andb_eq_orb) *)
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c.
+  intros x.
+  destruct x eqn:Ex.
+    - destruct b eqn:Eb.
+      -- destruct c eqn:Ec.
+        *** rewrite Ex.
+            **** simpl. reflexivity.
+        
