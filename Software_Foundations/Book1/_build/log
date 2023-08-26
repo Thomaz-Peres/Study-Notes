@@ -1,8 +1,8 @@
-# dune build -p coq-stdlib -j 1
+# dune build -p coq-stdlib -j 1 @install
 # OCAMLPARAM: unset
 # Shared cache: disabled
-# Workspace root: /home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2
-$ /usr/sbin/ocamlc.opt -config > /tmp/dune_5f9e33_output
+# Workspace root: /home/tomenos/dev/Study-Notes/Software_Foundations/Book1
+$ /usr/sbin/ocamlc.opt -config > /opam-tmp/dune_469062_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -23,15 +23,15 @@ $ /usr/sbin/ocamlc.opt -config > /tmp/dune_5f9e33_output
 #            "/usr/lib/ocaml:/home/tomenos/.opam/default/lib"
 #        ; "DUNE_OCAML_STDLIB" : "/usr/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" :
-#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2"
+#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Book1"
 #        ; "INSIDE_DUNE" :
-#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2/_build/default"
+#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Book1/_build/default"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2/_build/install/default/lib"
+#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Book1/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2/_build/install/default/lib"
+#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Book1/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Chapter_2/_build/install/default/lib/toplevel"
+#            "/home/tomenos/dev/Study-Notes/Software_Foundations/Book1/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }

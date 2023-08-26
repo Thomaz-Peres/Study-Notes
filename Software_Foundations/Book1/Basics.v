@@ -490,7 +490,6 @@ Fixpoint leb (n m : nat) : bool :=
       match m with
       | O => false
       | S m' => leb n' m'
-
       end
   end.
 
@@ -514,7 +513,16 @@ that we can try to prove, while x =? y is an expression whose value
 (either true or false) we can compute. *)
 
 (* Exercise: 1 star, standard (ltb) *)
-Fixpoint ltb (n m : nat) : bool :=
+
+(* I learned to make this to another way rereading the book
+  Because I'm doing it in a group, and I like what I did  *)
+
+(* The new *)
+Definition ltb (n m : nat) : bool :=
+  leb n m && negb (n =? m).
+
+(* The old  *)
+Fixpoint ltb_old (n m : nat) : bool :=
   match n with
   | O => 
         match m with
@@ -524,7 +532,7 @@ Fixpoint ltb (n m : nat) : bool :=
   | S n' => 
         match m with
         | O => false
-        | S m' => ltb n' m'
+        | S m' => ltb_old n' m'
         end
   end.
 
@@ -871,6 +879,7 @@ Proof.
     { discriminate. }
 Qed.
 
+(* explication of that above *)
 Theorem andb_true_elim2' : forall b c : bool,
  andb b c = true -> c = true.
 Proof.
@@ -906,7 +915,7 @@ Theorem andb_true_elim2''' : forall b c : bool,
 Proof.
   intros b c.
   destruct c eqn:EqnC.
-  - reflexivity.
+  - simpl. reflexivity.
   - intros H. rewrite <- H. destruct b eqn: EqnB.
     + simpl. reflexivity.
     + simpl. reflexivity.
@@ -1022,7 +1031,7 @@ Definition manual_grade_for_negation_fn_applied_twice : option (nat*string) := N
 (* (The last definition is used by the autograder.) ☐ *)
 
 (* Exercise: 3 stars, standard, optional (andb_eq_orb) *)
-Theorem andb_eq_orb :
+(* Theorem andb_eq_orb :
   forall (b c : bool),
   (andb b c = orb b c) ->
   b = c.
@@ -1033,5 +1042,136 @@ Proof.
     - destruct b eqn:Eb.
       -- destruct c eqn:Ec.
         *** rewrite Ex.
-            **** simpl. reflexivity.
-        
+            **** simpl. reflexivity. *)
+
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c [].
+    - destruct b eqn:Eb.
+      * destruct c eqn:Ec.
+          + reflexivity.
+          + Admitted.
+
+Theorem andb_eq_orb' :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c [].
+    - destruct b eqn:Eb.
+      * destruct c eqn:Ec.
+          + Admitted.
+          (* + rewrite <- andb_true_elim2'. *)
+
+(*  I cant finish andb_eq_orb, I'm dumb *)
+
+(* ------------------------------------------------------------------------ *)
+(* ------------------------------------------------------------------------ *)
+(* Exercise: 3 stars, standard (binary) *)
+(*
+      We can generalize our unary representation of natural numbers to the more efficient
+      binary representation by treating a binary number as a sequence of constructors B0 and B1
+      (representing 0s and 1s), terminated by a Z. For comparison, in the unary representation,
+      a number is a sequence of S constructors terminated by an O.
+*)
+
+(* 
+    For example:
+        decimal               binary                          unary
+           0                       Z                              O
+           1                   B1 Z                            S O
+           2                B0 (B1 Z)                        S (S O)
+           3                B1 (B1 Z)                     S (S (S O))
+           4            B0 (B0 (B1 Z))                 S (S (S (S O)))
+           5            B1 (B0 (B1 Z))              S (S (S (S (S O))))
+           6            B0 (B1 (B1 Z))           S (S (S (S (S (S O)))))
+           7            B1 (B1 (B1 Z))        S (S (S (S (S (S (S O))))))
+           8        B0 (B0 (B0 (B1 Z)))    S (S (S (S (S (S (S (S O)))))))
+*)
+
+(* No exemplo acima, lemos de maneira ao contrario
+  Exemplo: 8 = 1000
+  e na tabela vemos que ele conta como se fosse 0001 *)
+
+(* Note that the low-order bit is on the left and the high-order bit is on the right
+-- the opposite of the way binary numbers are usually written. This choice makes them
+easier to manipulate. *)
+
+Inductive bin : Type :=
+  | Z
+  | B0 (n : bin)
+  | B1 (n : bin).
+
+  (* Fixpoint plus' (n : nat) (m : nat) : nat :=
+    match n with
+    | O => m
+    | S n' => S (plus' n' m)
+    end. *)
+
+  (* The steps of simplification that Coq performs can be visualized as follows: *)
+(*      plus 3 2
+   i.e. plus (S (S (S O))) (S (S O))
+    ==> S (plus (S (S O)) (S (S O)))
+          by the second clause of the match
+    ==> S (S (plus (S O) (S (S O))))
+          by the second clause of the match
+    ==> S (S (S (plus O (S (S O)))))
+          by the second clause of the match
+    ==> S (S (S (S (S O))))
+          by the first clause of the match
+   i.e. 5  *)
+
+
+(* Complete the definitions below of an increment function incr for binary numbers,
+and a function bin_to_nat to convert binary numbers to unary numbers. *)
+Fixpoint incr (m:bin) : bin :=
+  match m with
+  | Z => B1 Z
+  | B0 m' => B1 m'
+  | B1 m' => B0 (incr m')
+  end.
+
+  (* This is my first try *)
+(* Fixpoint bin_to_nat (m:bin) : nat :=
+  match m with
+  | Z => O
+  | B1 m' => S O
+  | B0 m' => S (bin_to_nat m')
+  end. *)
+
+  (* After I seeign the answer (The answer on second match use 2 * instead the S i have used ) *) 
+Fixpoint bin_to_nat (m:bin) : nat :=
+  match m with
+  | Z => O
+  | B0 m' => S (bin_to_nat m')
+  | B1 m' => 1 + 2 * (bin_to_nat m')
+  end.
+
+Example test_bin_incr1 : (incr (B1 Z)) = B0 (B1 Z).
+Proof. simpl. reflexivity. Qed.
+
+Example test_bin_incr2 : (incr (B0 (B1 Z))) = B1 (B1 Z).
+Proof. simpl. reflexivity. Qed.
+
+Example test_bin_incr3 : (incr (B1 (B1 Z))) = B0 (B0 (B1 Z)).
+Proof. simpl. reflexivity. Qed.
+
+Example test_bin_incr4 : bin_to_nat (incr (B1 Z)) = 2.
+Proof. simpl. reflexivity. Qed.
+
+Example test_bin_incr5 :
+        bin_to_nat (incr (B1 Z)) = 1 + bin_to_nat (B1 Z).
+Proof. simpl. reflexivity. Qed.
+
+Example teste1 : incr (incr (B1 Z)) =  B1 (B1 Z).
+Proof. simpl. reflexivity. Qed.
+
+Example test2 : bin_to_nat(incr(incr (B1 Z))) = 3.
+Proof. simpl. reflexivity. Qed.
+
+Example test_bin_incr6 :
+        bin_to_nat (incr (incr (B1 Z))) = 2 + bin_to_nat (B1 Z).
+Proof. simpl. reflexivity. Qed.

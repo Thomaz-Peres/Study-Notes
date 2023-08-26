@@ -1,13 +1,17 @@
-class Marmore {
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-    public void Main(string[] args) 
+public class Marmore
+{
+    public static void Main(string[] args) 
     {
         int cont = 0;
         int n = 0;
         int q = 0;
         do
         {
-            string[] linha = Console.ReadLine().Split(' ');
+            string[] linha = Console.ReadLine().Split(new char[] { ' ' });
 
             n = Convert.ToInt32(linha[0]);
             q = Convert.ToInt32(linha[1]);

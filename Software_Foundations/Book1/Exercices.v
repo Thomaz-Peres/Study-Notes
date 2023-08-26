@@ -173,11 +173,71 @@ Proof.
     }
 Qed. *)
 
-Theorem identity_fn_applied_twice :
+(* Theorem identity_fn_applied_twice :
   forall (f : bool -> bool), (forall (x : bool), f x = x) -> forall (b : bool), f (f b) = b.
 Proof.
   intros f x b.
   rewrite x.
   rewrite x.
   reflexivity.
+Qed. *)
+
+(* 
+      I CANT FINISH THAT *)
+(* ------------------------------------------------------------------------------- *)
+(* Exercise: 3 stars, standard, optional (andb_eq_orb) *)
+
+(* Prove the following theorem. (Hint: This one can be a bit tricky, depending on how you approach it. You will probably need both destruct and rewrite, but destructing everything in sight is not the best way.) *)
+(* Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c x.
+  destruct b eqn:Eb.
+    - destruct c eqn:Ec.
+      * reflexivity.
+      * Admitted. *)
+
+(* Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c [].
+  destruct c.
+    - destruct b.
+      ** reflexivity.
+      ** reflexivity.
+
+Theorem andb_true_elim2' : forall b c : bool,
+ andb b c = true -> c = true.
+Proof.
+ intros [] [].
+  - reflexivity.
+  - intros H.
+    rewrite <- H.
+    reflexivity.
+  - reflexivity.
+  - intro H.
+    rewrite <- H.
+    reflexivity.
 Qed.
+
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c x. *)
+
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c.
+  destruct b.
+  simpl. intros x. rewrite x. reflexivity.
+  simpl. intros x. rewrite x. reflexivity.
+(* ------------------------------------------------------------------------------- *)
