@@ -8,6 +8,8 @@
   <summary>Languages / Linguagens</summary>
   
 - [C#](/C%23%20aulas/README.md)
+- [Rust](/Rust/)
+- [C](/C%20aulas/)
 
 </details>
 
