@@ -11,8 +11,12 @@
             "id": "8bb5ab1bf73f275f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Rust/README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -60,12 +64,21 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "86ff319f9e724637",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -81,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Rust/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Rust/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Rust/README.md"
+              }
             }
           }
         ]
@@ -140,6 +157,17 @@
   },
   "active": "8bb5ab1bf73f275f",
   "lastOpenFiles": [
+    "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.3.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.1.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.5.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.2.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.7.rcgu.o",
+    "Rust/testes3.4shg305tzr00vlgx.rcgu.o",
+    "Rust/testes3",
+    "Rust/testes3.rs",
     "Xamarin.Forms/Entendendo_O_Projeto.md",
     "Evitar_Excesso_de_Postagem.md",
     "Orchestrator.md",
@@ -147,24 +175,18 @@
     "README.md",
     "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/Useful_Example_Of_Nested_Patterns.md",
     "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Untitled",
     "Programming Languages - Coursera/Part A/Week 3/Digression - Polymorphic Types and Equality Types/README.md",
     "Programming Languages - Coursera/Part A/Week 2/ListsSML/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Nested Patterns",
     "Programming Languages - Coursera/Part A/Week 3/Digressions - Type inference/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digression - Polymorphic Types and Equality Types",
     "Programming Paradigms/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Pattern-Matching for Each-Of Types/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digressions - Type inference",
     "Programming Languages - Coursera/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Pattern Matching So Far/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes",
     "Programming Languages - Coursera/Part A/Week 3/Type Synonyms/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Case Expressions/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Datatype Bindings/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Pasted image 20230108155934.png",

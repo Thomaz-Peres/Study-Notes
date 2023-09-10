@@ -490,3 +490,51 @@ We can do like in Coq, SML, or some functional language, like this:
     let six = plus_one(five);
     let none = plus_one(None);
 ```
+
+### Vectors
+
+```rust
+    let v: Vec<i32> = Vec::new();
+```
+
+For now, know that the `Vec<T>` type provided by the standard library can hold any type. When we create a vector to hold a specific type, we can specify the type within angle brackets
+##### Updating a Vector
+
+```rust
+ let mut v = Vec::new();
+
+    v.push(5);
+    v.push(6);
+    v.push(7);
+    v.push(8);
+```
+
+As with any variable, if we want to be able to change its value, we need to make it mutable
+
+##### Reading Elements of Vector
+```rust
+    let v = vec![1, 2, 3, 4, 5];
+
+    let third: &i32 = &v[2];
+    println!("The third element is {third}");
+
+    let third: Option<&i32> = v.get(2);
+    match third {
+        Some(third) => println!("The third element is {third}"),
+        None => println!("There is no third element."),
+    }
+```
+
+Using & and [] gives us a reference to the element at the index value
+
+
+We can also iterate over mutable references to each element in a mutable vector in order
+to make changes to all the elements. The `for loop` in will add 50 to each.
+
+```rust
+    let mut v = vec![100, 32, 57];
+    for i in &mut v {
+        *i += 50;
+    }
+```
+
