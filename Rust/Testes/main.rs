@@ -49,19 +49,73 @@
 //     println!("{x} * {y} = {}", multiply(x.into(), y));
 // }
 
-fn takes_u32(x: u32) {
-    println!("u32: {x}");
+// fn takes_u32(x: u32) {
+//     println!("u32: {x}");
+// }
+
+// fn takes_i8(y: i8) {
+//     println!("i8: {y}");
+// }
+
+// fn main() {
+//     let x = 10;
+//     let y = 20;
+
+//     takes_u32(x);
+//     takes_i8(y);
+//     // takes_u32(y);
+// }
+
+// const DIGEST_SIZE: usize = 3;
+// const ZERO: Option<u8> = Some(42);
+
+// fn compute_digest(text: &str) -> [u8; DIGEST_SIZE] {
+//     let mut digest = [ZERO.unwrap_or(0); DIGEST_SIZE];
+//     for (idx, &b) in text.as_bytes().iter().enumerate() {
+//         digest[idx % DIGEST_SIZE] = digest[idx % DIGEST_SIZE].wrapping_add(b);
+//     }
+//     digest
+// }
+
+// fn main() {
+//     let digest = compute_digest("Hello");
+//     println!("Digest: {digest:?}");
+// }
+
+// use std::any::type_name;
+// use std::mem::{align_of, size_of};
+
+// fn dbg_size<T>() {
+//     println!("{}: size {} bytes, align: {} bytes",
+//         type_name::<T>(), size_of::<T>(), align_of::<T>());
+// }
+
+// enum Foo {
+//     A,
+//     B,
+// }
+
+// fn main() {
+//     dbg_size::<Foo>();
+// }
+
+enum Result {
+    Ok(i32),
+    Err(String),
 }
 
-fn takes_i8(y: i8) {
-    println!("i8: {y}");
+fn divide_in_two(n: i32) -> Result {
+    if n % 2 == 0 {
+        Result::Ok(n / 2)
+    } else {
+        Result::Err(format!("cannot divide {n} into two equal parts"))
+    }
 }
 
 fn main() {
-    let x = 10;
-    let y = 20;
-
-    takes_u32(x);
-    takes_i8(y);
-    // takes_u32(y);
+    let n = 75;
+    match divide_in_two(n) {
+        Result::Ok(half) => println!("{n} divided in two is {half}"),
+        Result::Err(msg) => println!("sorry, an error happened: {msg}"),
+    }
 }
