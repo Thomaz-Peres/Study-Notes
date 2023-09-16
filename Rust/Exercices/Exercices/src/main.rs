@@ -4,7 +4,7 @@ pub fn luhn(cc_number: &str) -> bool {
     // unimplemented!();
 
     let without_spaces = cc_number.replace(" ", "");
-    if without_spaces.len() <= 2 || cc_number.is_empty() {
+    if without_spaces.len() < 2 || cc_number.is_empty() {
         return false;
     }
 
@@ -15,7 +15,7 @@ pub fn luhn(cc_number: &str) -> bool {
     let mut x = without_spaces.parse::<i64>().unwrap();
 
     let mut last_number: i64 = 0;
-    let mut second_last_number: i64 = 0;
+    let mut second_last_number: i64;
     let mut second_last_sum: i64 = 0;
     let sum;
 
@@ -66,7 +66,7 @@ fn test_single_digit_cc_number() {
 
 #[test]
 fn test_two_digit_cc_number() {
-    assert!(!luhn(" 0 0 "));
+    assert!(luhn(" 0 0 "));
 }
 
 #[test]
@@ -85,6 +85,6 @@ fn test_invalid_cc_number() {
 
 #[allow(dead_code)]
 fn main() {
-    println!("{}", luhn("4263 9826 4026 9299"));
+    println!("{}", luhn(" 0 0 "));
     // test_invalid_cc_number();
 }
