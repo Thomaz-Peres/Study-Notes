@@ -2,8 +2,6 @@ videos do canal [Manual do codigo](https://www.youtube.com/playlist?list=PLLFRf_
 
 Por que hexadecimais
 
-compiladores: converter um codigo para codigo de maquina (0 ou 1)
-
 ______________________________________
 
 Computar em bits tem algumas vantagens para o computador, em particular contas que dividem por 2 ou multiplicam por 2 (isso de maneira simplificada, pesquise mais a fundo).

@@ -54,6 +54,7 @@ var mut z = String::from("Hello"); // this a String, of course
 ```
 
 ## Memory and Allocation
+
 In the case of a string literal, we know the contents at compile time, so the text is hardcoded directly into the final executable. This is why string literals are fast and efficient. But these properties only come from the string literal’s immutability. Unfortunately, we can’t put a blob of memory into the binary for each piece of text whose size is unknown at compile time and whose size might change while running the program.
 
 With the String type, in order to support a mutable, growable piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents. This means:
@@ -131,8 +132,13 @@ So, what types implement the `Copy` trait?
 - All the floating-point types, such as f64.
 - The character type, char.
 - Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
+
+
 _______________________________________
+
+
 ### Reference 
+
 ```rust
 // Here I can called s1 again, because I passed a reference to the value,
 // not the value to a neww variabel
@@ -141,7 +147,6 @@ fn main() {
 
     let (s2, len) = calculate_length(&s1);
     println!("{s1}");
-
 
     println!("The length of '{}' is {}.", s2, len);
 }
@@ -230,7 +235,9 @@ Note that a reference’s scope starts from where it is introduced and continues
     let r3 = &mut s; // no problem
     println!("{}", r3);
 ```
+
 ## The Slice Type
+
 Slices let you reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership.
 
 Here’s a small programming problem: write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.
@@ -242,6 +249,7 @@ fn first_word(s : &String) -> ?
 ```
 
 The `first_word` function has a `&String` as a parameter. We don’t want ownership, so this is fine. But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as show below.
+
 ```rust
 fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes();
@@ -283,7 +291,7 @@ This program compiles without any errors and would also do so if we used `word` 
 fn main() {
     let mut s = String::from("hello world");
 
-	s.clear(); // this empties the String, making it equal to ""
+    s.clear(); // this empties the String, making it equal to ""
 
     let word = first_word(&s); // word will get the value 0
 }
@@ -358,6 +366,7 @@ Note: String slice range indices must occur at valid UTF-8 character boundaries.
 Now when we call `first_word`, we get back a single value that is tied to the underlying data. The value is made up of a reference to the starting point of the slice and the number of elements in the slice.
 
 ## Method syntax
+
 Methods are similar to functions: we declare them with the `fn` keyword and a name, they can have parameters and a return value, and they contain some code that’s run when the method is called from somewhere else. Unlike functions, methods are defined within the context of a struct (or an enum or a trait object, which we cover in `Chapter 6` and `Chapter 17`, respectively), and their first parameter is always `self`, which represents the instance of the struct the method is being called on.
 
 ```rust
