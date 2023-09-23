@@ -26,3 +26,16 @@ In a image representation: ![image](https://github.com/Thomaz-Peres/Study-Notes/
 
 - Linguagens híbridas:
     - Java: Compilada para um código intermediario/virtual (bytecodes), que, por sua vez, é interpretado (virtual machine)
+
+
+## Gramáticas
+
+Hierarquia de Chomsky:
+    - Classificação de gramáticas formais descritas e 1959 pelo linguista Noam Chomsky;
+    - Possui 4 niveis;
+    - Começa pelo tipo 0 com maior nivel de liberdade em suas regras e aumentam as restrições até o tipo 3;
+    - Niveis 2 e 3 são utilizados na descrição de linguagem de programação e na implementação de interpretadores e compiladores.
+    - Nivel 2
+        - Análise sintática
+    - Nivel 3
+        - Analise lexica
