@@ -1,3 +1,8 @@
+Watching the [playlist](https://www.youtube.com/playlist?list=PLjcmNukBom6--0we1zrpoUE2GuRD-Me6W)
+
+# Pass all this things to english
+
+
 compilers: convert code in a language A to the computer language (translate a source program into machine language)
 
 interpretadores: translator processes and executes the source program without translating it into machine language first
@@ -22,11 +27,11 @@ In a image representation: ![image](https://github.com/Thomaz-Peres/Study-Notes/
             submeter o programa para esse processo de compilação, porém conseguimos
             identificar erros mais previamente, seja sintatico ou semantico.
     - Tempo de execucao menor
-    - C, pascal
+    - C, pascal, c++
 
 - Linguagens híbridas:
     - Java: Compilada para um código intermediario/virtual (bytecodes), que, por sua vez, é interpretado (virtual machine)
-
+    - C#
 
 ## Gramáticas
 
