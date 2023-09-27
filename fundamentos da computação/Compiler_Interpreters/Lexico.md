@@ -71,3 +71,27 @@ ______________________
 
 
 ![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/39e5461b-a871-4cea-95af-62948e5f79e7)
+
+______________________
+
+## Automatos (vou repassar e escrever aqui depois)
+
+Ler sobre [automatos](https://en.wikipedia.org/wiki/Automaton)
+
+______________________
+
+## Tratamento de erros
+
+- Algumas opçôes:
+    - Associar tratamento de erros individuais a cada estado do autômato, de forma que haja uma relação unívoca entréo estado e o erro possível:
+    - Vantage: autômato mais compacto
+- Exemplo: autômato para números reais
+
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/70d8a003-13ec-493a-80cf-5312c0f5b90d)
+
+E quanto mais estados/tratativas extras nos automatos, melhor, tendo erros individuais
+(`um para cada tipo de erro`).
+
+Uma vantagem disso seria maior clareza dos erros/codigo.
+
+![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/c248929f-2edf-4cd9-8948-2e690e6252d0)

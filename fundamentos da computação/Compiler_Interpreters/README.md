@@ -44,3 +44,5 @@ Hierarquia de Chomsky:
         - Análise sintática
     - Nivel 3
         - Analise lexica
+
+Ler sobre [automatos](https://en.wikipedia.org/wiki/Automaton)
