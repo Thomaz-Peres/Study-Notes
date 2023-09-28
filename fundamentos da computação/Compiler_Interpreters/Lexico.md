@@ -7,7 +7,7 @@
     - identificar os tokens correspondentes;
     - Relatar erros.
 
-- Exemplo de tokens:
+- Exemplo de tokens/kind:
     - Identificadores
     - palavras reservadas e simbolos especiais;
     - Numeros
