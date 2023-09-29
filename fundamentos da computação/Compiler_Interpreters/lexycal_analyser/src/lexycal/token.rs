@@ -1,10 +1,10 @@
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct Token {
-    tyype: i32,
+    token_id: TokenEnum,
     text: String,
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum TokenEnum {
     Tk_identifier,
     Tk_number,
