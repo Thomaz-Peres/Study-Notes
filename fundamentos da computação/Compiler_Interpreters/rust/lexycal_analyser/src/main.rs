@@ -1,6 +1,7 @@
-use scanner::{ scanner, next_token };
+// use Scanner;
 // use std::env;
 use std::fs;
+use scanner::Scanner;
 use token::Token;
 
 #[path = "lexycal/scanner.rs"] mod scanner;
@@ -9,11 +10,11 @@ use token::Token;
 
 fn main() {
     let filename = fs::read_to_string("../input.isi").expect("Fail to read the file");
-    let scan = scanner(filename);
+    let scanner = Scanner::new(&filename);
 
     let token: Option<Token> = None;
 
-    while token.is_none() {
-        token = 
-    }
+    // while token.is_none() {
+    //     token = scanner.next_token(content)
+    // }
 }
