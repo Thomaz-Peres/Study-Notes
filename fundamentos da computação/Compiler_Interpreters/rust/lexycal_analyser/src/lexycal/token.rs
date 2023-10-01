@@ -14,7 +14,6 @@ pub enum TokenEnum {
 }
 
 impl Token {
-
     pub fn set_type(token_id: TokenEnum) -> Self {
         Token {
             token_id,

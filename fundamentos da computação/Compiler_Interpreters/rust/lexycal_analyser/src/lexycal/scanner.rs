@@ -12,6 +12,7 @@ use std::fs;
 pub struct Scanner {
     content: Vec<char>,
     estado: i32,
+    pos: usize,
 }
 
 impl Scanner {
@@ -20,18 +21,18 @@ impl Scanner {
         let mut txt_content = String::from_utf8_lossy(&binding);
         let content: Vec<char> = txt_content.chars().collect();
 
-        Scanner { content: content, estado: 0 }
+        Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    pub fn next_token(&self, content: String) -> Option<token::Token> {
+    pub fn next_token(&self) -> Option<token::Token> {
         let mut estado: i32 = 0;
         let mut pos = 0;
 
-        if self.is_end(&content, pos) {
+        if self.is_end() {
             return None;
         }
 
-        let current_char = self.next_char(content, pos);
+        let current_char = self.next_char();
 
         let mut in_while: bool = true;
         while in_while == true {
@@ -85,16 +86,16 @@ impl Scanner {
         c == ' ' || c == '\t' || c == '\n' || c == '\r'
     }
 
-    pub fn next_char(&self, content: String, mut pos: i32) -> char {
-        pos -= 1;
-        content.chars().nth(pos as usize).unwrap()
+    pub fn next_char(&self) -> char {
+        self.pos += 1;
+        *self.content.get(self.pos).unwrap()
     }
 
-    pub fn is_end(&self, content: &String, pos: i32) -> bool {
-        pos == (content.len() as i32)
+    pub fn is_end(&self) -> bool {
+        self.pos == self.content.len()
     }
 
-    pub fn back(&self, mut pos: i32) {
-        pos -= 1;
+    pub fn back(&self) {
+        self.pos -= 1;
     }
 }

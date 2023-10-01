@@ -10,11 +10,15 @@ use token::Token;
 
 fn main() {
     let filename = fs::read_to_string("../input.isi").expect("Fail to read the file");
+    println!("{:?}", filename);
     let scanner = Scanner::new(&filename);
 
-    let token: Option<Token> = None;
+    let mut token: Option<token::Token> = None;
 
-    // while token.is_none() {
-    //     token = scanner.next_token(content)
-    // }
+    while token.is_none() {
+        token = scanner.next_token();
+        if !token.is_none() {
+            println!("{:?}" ,token);
+        }
+    }
 }
