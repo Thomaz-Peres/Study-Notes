@@ -1,14 +1,6 @@
 mod token;
 use std::fs;
 
-// pub fn scanner(filename: String) {
-//     let mut content: char;
-
-//     let mut txtContent = filename.as_bytes();
-
-//     // content = txtContent.to_string();
-// }
-
 pub struct Scanner {
     content: Vec<char>,
     estado: i32,
@@ -16,48 +8,52 @@ pub struct Scanner {
 }
 
 impl Scanner {
-    pub fn new(filename: &String) -> Self {
-        let binding = &fs::read(&filename).expect("Unable to read the file");
-        let mut txt_content = String::from_utf8_lossy(&binding);
+    pub fn new(filename: String) -> Self {
+        println!("{filename}");
+        let binding = &fs::read("input.isi").expect("Unable to read the file");
+        println!("DEBUG--------------");
+        let txt_content = String::from_utf8_lossy(&binding);
+        println!("----------------------------");
         let content: Vec<char> = txt_content.chars().collect();
+        println!("{:?}", content);
 
         Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    pub fn next_token(&self) -> Option<token::Token> {
-        let mut estado: i32 = 0;
-        let mut pos = 0;
-
+    pub fn next_token(&mut self) -> Option<token::Token> {
         if self.is_end() {
             return None;
         }
 
-        let current_char = self.next_char();
+        self.estado = 0;
+        self.pos = 0;
 
-        let mut in_while: bool = true;
+        let in_while: bool = true;
         while in_while == true {
-            match estado {
+            let current_char = self.next_char();
+            match self.estado {
                 0 => {
                     if self.is_char(current_char) {
-                        estado = 1;
+                        self.estado = 1;
                     } else if self.is_digit(current_char) {
-                        estado = 3;
+                        self.estado = 3;
                     } else if self.is_space(current_char) {
-                        estado = 0;
+                        self.estado = 0;
                     } else if self.is_operator(current_char) {
-                        estado = 5;
+                        self.estado = 5;
                     } else {
                         return None;
                     }
                 }
                 1 => {
                     if self.is_char(current_char) || self.is_digit(current_char) {
-                        estado = 1;
+                        self.estado = 1;
                     } else {
-                        estado = 2;
+                        self.estado = 2;
                     }
                 }
                 2 => {
+                    self.back();
                     let token = token::Token::set_type(token::TokenEnum::TkIdentifier);
                     return Some(token);
                 }
@@ -66,7 +62,6 @@ impl Scanner {
                 }
             }
         }
-
         None
     }
 
@@ -86,7 +81,7 @@ impl Scanner {
         c == ' ' || c == '\t' || c == '\n' || c == '\r'
     }
 
-    pub fn next_char(&self) -> char {
+    pub fn next_char(&mut self) -> char {
         self.pos += 1;
         *self.content.get(self.pos).unwrap()
     }
@@ -95,7 +90,8 @@ impl Scanner {
         self.pos == self.content.len()
     }
 
-    pub fn back(&self) {
+    #[warn(dead_code)]
+    pub fn back(&mut self) {
         self.pos -= 1;
     }
 }

@@ -27,4 +27,8 @@ impl Token {
             string
         }
     }
+
+    pub fn set_text(&mut self, string : String) {
+        self.string = string;
+    }
 }
