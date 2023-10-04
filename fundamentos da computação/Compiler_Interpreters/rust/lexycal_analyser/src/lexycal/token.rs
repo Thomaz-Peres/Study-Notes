@@ -14,6 +14,14 @@ pub enum TokenEnum {
 }
 
 impl Token {
+    pub fn new_token(token_id: TokenEnum, string: String) -> Self {
+        Token { token_id: token_id, string: string}
+    }
+
+    pub fn teste_new_token() -> Self {
+        Token { token_id: TokenEnum::TkAssign, string: String::from("") }
+    }
+
     pub fn set_type(token_id: TokenEnum) -> Self {
         Token {
             token_id,
