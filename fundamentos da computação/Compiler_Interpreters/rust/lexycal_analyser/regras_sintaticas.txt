@@ -1,0 +1,21 @@
+Dada a gramática G
+
+G = (Vn, Vt, P, S)
+
+Vn (não terminais) = E, T, OP
+Vt (terminais)     = id, num, +, -, *, /
+
+1. E  -> E OP T | T
+2. T  -> id | num
+3. OP -> + | - | * | /
+
+* Precisamo reescrever a regra 1, transformando-a em:
+
+1a. E -> T E'
+1b. E' -> OP T E' | &
+2.  T -> id | num
+3.  OP -> + | - | * | /
+
+
+reference image (done in app.diagrams.net): ![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/bf2d1e8f-187c-4d0a-ab19-87cd76f51bcc)
+

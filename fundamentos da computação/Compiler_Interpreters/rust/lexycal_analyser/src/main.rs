@@ -16,7 +16,7 @@ fn main() {
     while some_while == false {
         let token = scanner.next_token();
         if !token.is_none() {
-            println!("{:?}" ,token.unwrap());
+            println!("{:?}" ,token);
         } else if token.is_none() {
             some_while = true;
         }
