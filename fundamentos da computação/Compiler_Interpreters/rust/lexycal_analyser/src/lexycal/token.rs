@@ -1,10 +1,12 @@
+use std::fmt::{self, write};
+
 #[derive(Debug)]
 pub struct Token {
     token_id: TokenEnum,
     string: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum TokenEnum {
     TkIdentifier,
     TkNumber,
@@ -36,7 +38,19 @@ impl Token {
         }
     }
 
+    pub fn get_type(&self) -> &TokenEnum {
+        &self.token_id
+    }
+
     pub fn set_text(&mut self, string : String) {
         self.string = string;
     }
 }
+
+// impl fmt::Display for TokenEnum {
+//     fn fmt(&self, tk: &mut fmt::Formatter<'_>) -> fmt::Result {
+//         match self {
+//             TokenEnum::TkIdentifier => write(f, args)
+//         }
+//     }
+// }

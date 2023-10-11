@@ -5,6 +5,7 @@ use scanner::Scanner;
 
 #[path = "lexycal/scanner.rs"] mod scanner;
 #[path = "lexycal/token.rs"] mod token;
+#[path = "parser/parser.rs"] mod parser;
 
 
 fn main() {

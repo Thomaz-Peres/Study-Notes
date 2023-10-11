@@ -1,5 +1,6 @@
-mod token;
 use std::fs;
+
+use crate::token;
 
 pub struct Scanner {
     content: Vec<char>,
@@ -113,7 +114,6 @@ impl Scanner {
         self.pos == self.content.len()
     }
 
-    #[warn(dead_code)]
     pub fn back(&mut self) {
         self.estado = 0;
         self.pos -= 1;
