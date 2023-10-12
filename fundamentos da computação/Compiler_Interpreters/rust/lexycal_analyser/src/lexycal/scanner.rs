@@ -19,7 +19,7 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
     
-    pub fn next_token(&mut self) -> Option<token::Token> {
+    pub fn next_token(mut self) -> Option<token::Token> {
         if self.is_end() {
             return None;
         }
