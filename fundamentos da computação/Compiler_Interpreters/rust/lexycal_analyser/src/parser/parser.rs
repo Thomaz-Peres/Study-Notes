@@ -13,22 +13,22 @@ impl Parser {
         Parser { scanner: scanner, current_token: token }
     }
 
-    pub fn E(&mut self) {
+    pub fn E(mut self) {
         self.T();
-        self.EL();
+        // self.EL();
     }
 
-    pub fn EL(&self) {}
+    pub fn EL(mut self) {}
 
-    pub fn T(&self) {
+    pub fn T(mut self) {
         // if let Some(scanner) = &self.scanner.take() {
         //     let token = scanner.next_token().unwrap();
         //     // Use token here
         // }
 
-        let mut token = self.scanner.as_ref().unwrap().next_token();
+        let mut token = self.scanner.unwrap().next_token();
 
-        if token.unwrap().get_type() != &TokenEnum::TkIdentifier || token.unwrap().get_type() != &TokenEnum::TkIdentifier {
+        if token.as_ref().unwrap().get_type() != &TokenEnum::TkIdentifier || token.as_ref().unwrap().get_type() != &TokenEnum::TkIdentifier {
             
         }
     }
