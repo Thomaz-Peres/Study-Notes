@@ -19,16 +19,15 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
     
-    pub fn next_token(mut self) -> Option<token::Token> {
+    pub fn next_token(&mut self) -> Option<token::Token> {
         if self.is_end() {
             return None;
         }
 
         let mut token = token::Token::new_token(token::TokenEnum::TkAssign, "".to_string());
-
         let mut term = String::from("");
-        let in_while: bool = true;
-        while in_while == true {
+
+        loop {
             let current_char = self.next_char();
             self.pos += 1;
             match self.estado {
