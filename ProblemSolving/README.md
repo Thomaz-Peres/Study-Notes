@@ -3,3 +3,5 @@
 ## [Exercicios com CSharp (C#)](./CSharp/)
 
 ## [Exercicio com C](./C/)
+
+## [Exercicio com Rust](./Rust/)

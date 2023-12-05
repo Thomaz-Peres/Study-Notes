@@ -57,7 +57,6 @@ class URI
             AUX2 = mf - mi;
             Console.WriteLine("O JOGO DUROU {0} HORA(S) E {1} MINUTO(S)", AUX1, AUX2);
         }
-
     }
 
 }
