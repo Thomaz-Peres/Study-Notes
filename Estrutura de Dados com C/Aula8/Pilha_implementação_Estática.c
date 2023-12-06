@@ -49,7 +49,7 @@ void exibirPilha(PILHA* p)
     printf("Lista: \" ");
     
     int i;  //  posição que estamos
-    for(i = p->topo; i => 0; i--)   //  Começamos pelo topo
+    for(i = p->topo; i >= 0; i--)   //  Começamos pelo topo
     {
         printf("%i ", p->A[i].chave);
     }
@@ -64,7 +64,7 @@ void exibirPilha(PILHA* p)
 
 bool inserirElementoPilha(PILHA* p, REGISTRO reg)
 {
-    if(p->topo => MAX - 1) return false;
+    if(p->topo >= MAX - 1) return false;
     p->topo = p->topo + 1;
     p->A[p->topo] = reg;
     return true;
