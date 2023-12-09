@@ -1,9 +1,0 @@
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\bin\Debug\aula60.exe.config
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\bin\Debug\aula60.exe
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\bin\Debug\aula60.pdb
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.csprojAssemblyReference.cache
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.Form1.resources
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.Properties.Resources.resources
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.csproj.GenerateResource.cache
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.exe
-C:\Users\AlphaPaiN\Documents\dev\Notes\Visual Studio\aula60\obj\Debug\aula60.pdb
