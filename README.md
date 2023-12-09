@@ -1,6 +1,6 @@
 # Notes
 
-###### OBS: few things, I really don't feel change something in my career, but whatever, many things was here yet, and have some things I deleted because no make sense, or not correct, but have the branch "excluded things" if for some reason, someone found this and want to see.
+###### OBS: For few things, I really don't feel has change something in my career, but whatever, many things was here, and have some things I deleted because no make sense, or not correct, but have the branch "excluded things" if for some reason, someone found this and want to see.
 
 #### This repository as a purpose, to leave some notes regardin my studies in the technology, in each folder ther will be README explained how to works, and with all classes/notes about the explained. Oh, and can safe somethings I forget, but a few days I started to use more the github gist.
 

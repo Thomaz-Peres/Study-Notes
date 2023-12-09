@@ -48,11 +48,9 @@ Better version level 1: (in this version always check the list is empty (NONE))
 
 ![image](https://user-images.githubusercontent.com/58439854/211212865-d34a9bc1-cb49-4826-a3e5-66f8e7df636c.png)
 
-![[Pasted image 20230108154435.png]]\
-
-![[Pasted image 20230108154553.png]]
-
-![[Pasted image 20230108154608.png]]
+![](../../../../Imgs/Pasted%20image%2020230108154435.png)
+![](../../../../Imgs/Pasted%20image%2020230108154553.png)
+![](../../../../Imgs/Pasted%20image%2020230108154608.png)
 
 Better version level 2: (in this case, when the list is almost empty only returns the value)
 `int list -> int`
@@ -73,4 +71,5 @@ fun max2 (xs : int list) =
 			SOME (max_nonempty xs)
 		end
  ```
-![[Pasted image 20230108155934.png]]
+
+![](../../../../Imgs/Pasted%20image%2020230108155934.png)
