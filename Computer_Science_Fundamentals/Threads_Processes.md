@@ -39,6 +39,10 @@ This independence of processes is valuable because the operating system tries it
 
 ## How Threads Work
 
+Thread is simple a SO event loop.
+
+He use the scheduler of the SO to create the separation, and when finish the timer, he stop de computation and starting another.
+
 ![image](https://github.com/Thomaz-Peres/Study-Notes/assets/58439854/4828789e-fe11-4d92-b5b0-9f85849c75ef)
 
 When a process starts, it is assigned memory and resources.
