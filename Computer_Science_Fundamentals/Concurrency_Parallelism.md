@@ -1,6 +1,7 @@
 ## Concurrency and Parallelism
 
 TODO: read more about.
+TODO: read about time slice
 
 In a system with a single processor, it is not possible to have
 processes or threads truly executing at the same time. In this case,
