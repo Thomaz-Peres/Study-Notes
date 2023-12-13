@@ -1,16 +1,5 @@
-# Tudo isso sobre Estrutura de dados, no canal do youtube da [UNIVESP](https://www.youtube.com/playlist?list=PLxI8Can9yAHf8k8LrUePyj0y3lLpigGcl)
+Some studies about Data Structures
 
+The folder [UnivespClasses](./UnivespClasses/README.md) is a class in youtube, read in the README inside the folder.
 
-## [Funções de gerenciamento](./Funções_De_Gerenciamentos.md)
-
-As funções de gerenciamento é utilizada em grande parte das estruturas desenvolvidas ao longo desse curso
-
-- Implementaremos funções para:
-    - Inicializar a Estrutura
-    - Retornar a quantidade de elementos válidos
-    - Exibir os elementos da estrutura
-    - Buscar por um elemento na estrutura
-    - Inserir elementos na estrutura
-    - Excluir elementos da estrutura
-    - Reinicializar a estrutura (quando terminamos de utiliza-la, mas queremos reutiliza-la para um novo conjunto de elementos)
-
+The file [Data Structures](./Data.Structures), is a resume (until now) on [Wikipedia](https://en.wikipedia.org/wiki/Data_structure).
