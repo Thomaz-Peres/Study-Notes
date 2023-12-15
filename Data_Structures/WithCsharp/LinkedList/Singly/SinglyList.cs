@@ -103,6 +103,18 @@ public class SinglyList<T>
 
     public bool DeleteElement(T delete)
     {
-        if (_singlyList)
+        if (_singlyList == null)
+            return false;
+
+        var tempElement = _singlyList;
+
+        while (tempElement != null)
+        {
+            if (tempElement.Data != null && tempElement.Data.Equals(delete))
+            {
+                tempElement = tempElement.Next;
+                _singlyList = tempElement;
+            }
+        }
     }
 }
