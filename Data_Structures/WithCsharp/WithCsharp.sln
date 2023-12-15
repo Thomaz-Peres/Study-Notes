@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WithCsharp", "WithCsharp.csproj", "{CBB0DC05-AB77-4672-BB3E-8B455D0718B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructure", "DataStructure\DataStructure.csproj", "{CBB0DC05-AB77-4672-BB3E-8B455D0718B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{5C81D135-7AB7-40BA-A640-F9D335F9CAED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CBB0DC05-AB77-4672-BB3E-8B455D0718B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBB0DC05-AB77-4672-BB3E-8B455D0718B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBB0DC05-AB77-4672-BB3E-8B455D0718B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C81D135-7AB7-40BA-A640-F9D335F9CAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C81D135-7AB7-40BA-A640-F9D335F9CAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C81D135-7AB7-40BA-A640-F9D335F9CAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C81D135-7AB7-40BA-A640-F9D335F9CAED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
