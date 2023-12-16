@@ -103,16 +103,26 @@ namespace DataStructure.LinkedList.Singly
                 return false;
 
             var currentElement = Head;
+            var tempElement = Head;
 
             while (currentElement != null)
             {
                 if (currentElement.Data != null && currentElement.Data.Equals(delete))
                 {
-                    currentElement = currentElement.Next;
-                    Head = currentElement;
-                    return true;
+                    if (currentElement.Equals(Head))
+                    {
+                        Head = Head.Next;
+                        return true;
+                    }
+                    
+                    if (tempElement != null)
+                    {
+                        tempElement.Next = currentElement.Next;
+                        return true;
+                    }
                 }
 
+                tempElement = currentElement;
                 currentElement = currentElement.Next;
             }
 
