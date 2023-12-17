@@ -91,7 +91,7 @@ public static class DoublyListTests
         // Assert
         Assert.Equal(6, newList.GetIndex(5));
         Assert.Equal(10, newList.GetIndex(9));
-        Assert.Equal(20, newList.GetIndex(19));
+        Assert.Equal(20, newList.GetIndex(19)); 
     }
 }
  
