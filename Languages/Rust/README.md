@@ -1,4 +1,7 @@
-I will improving this in some time, like I said with all this notations (😅).
+This thinks in here, I'm learned from the [own rust book](https://doc.rust-lang.org/book/ch12-00-an-io-project.html)
+and [comprenhensive ruse](https://google.github.io/comprehensive-rust/)
+
+I will improving this in some time. (like I said with all this notations 😅).
 
 # Understanding Ownership
 
@@ -6,13 +9,55 @@ Ownership is Rust’s most unique feature and has deep implications for the rest
 
 ## What Is Ownership?
 
-_Ownership_ is a set of rules that govern how a Rust program manages memory. All programs have to manage the way they use a computer’s memory while runningwnership is a set of rules that govern how a Rust program manages memory. All programs have to manage the way they use a computer’s memory while running
+_Ownership_ is a set of rules that govern how a Rust program manages memory. All programs have to manage the way they use a computer’s memory while running. Some languages have a garbage collection that regularly looks for no-longer-used memory.
+In other languages, the programmer must explicitly allocate and free the memory.
 
 Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks.
 
 None of the features of ownership will slow down your program while it’s running
 
 You’ll learn ownership by working through some examples that focus on a very common data structure: strings
+
+To learn about how to add the `Copy` trait annotation to your type to implement the trait,
+see [Derivable Traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html) in Appendix C.
+
+## Ownership rules
+
+- Each value is rust has an `owner`;
+- There can only be one owner at a time.
+- When the owner goes out of scope, the value will be dropped.
+
+## Ownership and functions
+
+```rust
+fn main() {
+    let s = String::from("hello");  // s comes into scope
+
+    takes_ownership(s);             // s's value moves into the function...
+                                    // ... and so is no longer valid here
+
+    println!("{}", s); // this give me an error, but if in "takes_ownership" I'm use (s.clone()) not will give a error
+
+    let x = 5;                      // x comes into scope
+
+    makes_copy(x);                  // x would move into the function,
+                                    // but i32 is Copy, so it's okay to still
+                                    // use x afterward
+
+    println!("{}", x); // this not give me an error
+
+} // Here, x goes out of scope, then s. But because s's value was moved, nothing
+  // special happens.
+
+fn takes_ownership(some_string: String) { // some_string comes into scope
+    println!("{}", some_string);
+} // Here, some_string goes out of scope and `drop` is called. The backing
+  // memory is freed.
+
+fn makes_copy(some_integer: i32) { // some_integer comes into scope
+    println!("{}", some_integer);
+} // Here, some_integer goes out of scope. Nothing special happens.
+```
 
 ## The Stack and the Heap
 
@@ -137,7 +182,36 @@ So, what types implement the `Copy` trait?
 _______________________________________
 
 
-### Reference 
+### Reference and Borrowing
+
+The ampersands (&) represent `references`.
+
+When we send a reference, the variable isn't dropped because the `&s (reference of s)`
+doesn't have ownership.
+
+When functions have references as parameters instead of the actual values,
+we won’t need to return the values in order to give back ownership, because we never had ownership.
+
+We call the action of creating a reference `borrowing (empréstimo)`.
+When you're done, you have to give it back. You don't own it.
+
+So, what happens if we try to modify something we’re borrowing?
+Try the code in above. `Spoiler alert`: it doesn’t work!
+
+```rust
+fn main() {
+    let s = String::from("hello");
+
+    change(&s);
+}
+
+fn change(some_string: &String) {
+    some_string.push_str(", world");
+}
+```
+
+The `&s1` syntax lets us create a reference that refers to the value of `s1` but does not own it.
+Because it does not own it, the value it points to will not be dropped when the reference stops being used.
 
 ```rust
 // Here I can called s1 again, because I passed a reference to the value,
@@ -157,7 +231,7 @@ fn calculate_length(s: &String) -> (&String, usize) {
     (&s, length)
 }
 
-// Here I can~t called s1 again, because I passed the value,
+// Here I can't called s1 again, because I passed the value,
 // not a reference
 fn main() {
     let s1 = String::from("hello");
@@ -178,7 +252,10 @@ fn calculate_length(s: String) -> (String, usize) {
 
 ### Mutable References
 
-Mutable references have one big restriction: if you have a mutable reference to a value, you can have no other references to that value. This code that attempts to create two mutable references to s will fail:
+Mutable references have one big restriction: if you have a mutable reference to a value,
+you can have no other references to that value. This code that attempts to create two mutable
+references to `s` will fail:
+
 ```rust
     let mut s = String::from("hello");
 
@@ -197,6 +274,7 @@ The restriction preventing multiple mutable references to the same data at the s
 - There’s no mechanism being used to synchronize access to the data.
 
 As always, we can use curly brackets to create a new scope, allowing for multiple mutable references, just not simultaneous ones:
+
 ```rust
     let mut s = String::from("hello");
 
@@ -234,6 +312,40 @@ Note that a reference’s scope starts from where it is introduced and continues
 
     let r3 = &mut s; // no problem
     println!("{}", r3);
+```
+
+## Dangling References
+
+In Rust, the compiler guarantees that references will never be dangling references:
+If you have a reference to some data, the compiler will ensure that the data will not go out
+of scope before the reference to the data does.
+
+This is a dangling reference, and will return a error:
+
+```rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
+}
+```
+
+The solution is to return the `String` directly:
+
+```rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
+}
 ```
 
 ## The Slice Type
@@ -764,3 +876,86 @@ fn main() {
     }
 }
 ```
+
+## Using structs to structure Related Data
+
+Defining a struct:
+
+```rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sin_in_count: u64,
+}
+```
+
+A good thing in rust:
+
+The `user2` has a different email, and the rest if the same of the `user1`
+
+```rust
+fn main() {
+    // --snip--
+
+    let user2 = User {
+        email: String::from("another@example.com"),
+        ..user1
+    };
+}
+```
+
+## Using tuple structs without named fields to create different types.
+
+Rust supports structs that look similar to tuples, called `tuple structs`.
+Tuple structs have the added meaning the struct name provides but dont't have names
+associated with their fields; rather, they just have the types of the fields.
+
+Example to a `tuple struct`:
+
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+
+```
+
+## Associated Functions
+
+All functions defined within an `impl` block are called `associated function` because
+they're associated with the type named after tem `impl`. 
+
+We can define `associated functions` that don't have self as their first parameter
+(and thus are not methods) because they don't need an instance of the type to work with.
+(We've already used one function like this: the `String::from` function that's defined on the String type.)
+
+`Associated functions` that aren't methods are often used for constructors that
+will return a new instance of the struct. These are often called new, but new
+isn't a special name and isn't built into the language.
+
+For example, we could choose to provide an associated function named `square`
+that would have one dimension parameter and use that as both width and height,
+thus making it easier to create a square Rectangle rather than having to specify
+the same value twice:
+
+```rust
+impl Rectangle {
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
+}
+```
+
+The Self keywords in the return type and in the body of the function
+are aliases for the type that appears after the impl keyword, which
+in this case is Rectangle.
+
+To call this associated function we use the `::` syntax with the struct name;
+`let square = Rectangle::square(3);`
