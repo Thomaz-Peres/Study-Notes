@@ -959,3 +959,40 @@ in this case is Rectangle.
 
 To call this associated function we use the `::` syntax with the struct name;
 `let square = Rectangle::square(3);`
+
+# Managing growing projects with packages, crates and modules
+
+Here is a chapter from a project when he grows, and need to organize code by
+splitting it into multiple modules and then multiple files. A package can
+contain multiple binary crates and optionally one library crate. You can extract
+parts into separete crates that become external dependencies.
+
+For a very large projects comprising a ser of interrelated pakages that evolve
+together, Cargo provides `workspaces`.
+
+Rust has a number of features that allow you to manage your code's organization,
+including which details are exposed, which details are private, and what names
+are in each scope in your programs.
+These features, sometimes collectively referred to as the `module system`, include:
+
+- *Packages*: A Cargo feature that lets you build, test, and share crates;
+- *Crates*: A tree of modules that procedures a library or executable;
+- *Modules* and *use*: Let you control the organization, scope, and privacy of panths;
+- *Paths*: A way of naming an item, such as a struct, function, or module;
+
+### Packages and Crates
+
+A `crate` is the smallest amount of code that the rust compiler considers at a time.
+If run with `rustc` or `cargo` and pass a single source code file, the compiler considers
+that file to be a crate. Crates can contain module, and the modules may be defined in other
+files that get compiled with the crate, as we'll see in the coming sections.
+
+`Crate` can come in one of two forms: 
+
+- *Binary crate*: Is a executable we can run, by CLI or a server (has the functions `main`).
+- *Library crate*: Don't have a `main` function, and not is compile to an executable.
+
+A `package` is a bundle of one or more crates that provides a set of functionality.
+Packa  contains a `Cargo.toml` file that describes how to build those crates.
+
+### Defining modules to control scope and privacy
