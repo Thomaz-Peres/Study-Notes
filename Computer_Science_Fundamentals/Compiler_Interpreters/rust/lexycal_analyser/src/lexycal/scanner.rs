@@ -1,6 +1,6 @@
 use std::fs;
 
-use crate::token;
+pub mod token;
 
 pub struct Scanner {
     content: Vec<char>,
@@ -89,19 +89,19 @@ impl Scanner {
         None
     }
 
-    pub fn is_digit(&self, c: char) -> bool {
+    fn is_digit(&self, c: char) -> bool {
         c >= '0' && c <= '9'
     }
 
-    pub fn is_char(&self, c: char) -> bool {
+    fn is_char(&self, c: char) -> bool {
         (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
     }
 
-    pub fn is_operator(&self, c: char) -> bool {
+    fn is_operator(&self, c: char) -> bool {
         c == '>' || c == '<' || c == '=' || c == '!'
     }
     
-    pub fn is_space(&self, c: char) -> bool {
+    fn is_space(&self, c: char) -> bool {
         c == ' ' || c == '\t' || c == '\n' || c == '\r'
     }
 
@@ -109,7 +109,7 @@ impl Scanner {
         *self.content.get(self.pos).unwrap()
     }
 
-    pub fn is_end(&self) -> bool {
+    fn is_end(&self) -> bool {
         self.pos == self.content.len()
     }
 

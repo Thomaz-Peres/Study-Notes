@@ -1007,5 +1007,68 @@ This is a great place to refer to as a reminder of how modules work.
 
 **Declaring modules**: you declare a `garden` module with `mod garden;`
 
+**Paths to code in modules**: Once a module is part of your crate, you can refer
+to code in that module from anywhere else in that same crate, as long as the privacy
+rules allow, using the path to the code. For example, an `Asparagus` type in the garden
+vegetables module would be found at `crate::garden::vegetables::Asparagus`.
 
+**The `use` keyword**: Within a scope, the `use` keyword creates shortcuts to items
+to reduce repetition of longs paths. In any scope that can refer to
+`crate::garden::vegetables::Asparagus`, you can create a shortcut with
+`use crate::garden::vegetables::Asparagus;` and from them on you only need to write
+`Asparagus` to make use of that type in the scope.
+
+Ilustratin this rules:
+
+```
+backyard
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── garden
+    │   └── vegetables.rs
+    ├── garden.rs
+    └── main.rs
+
+```
+
+The crate root file is `src/main.rs`.
+
+Inside the `main.rs`
+
+```rust
+use crate::garden::vegetables::Asparagus;
+
+pub mod garden;
+
+fn main() {
+    let plant = Asparagus {};
+    println!("I'm growing {:?}!", plant);
+}
+```
+
+The `pub mod garden;` line tells to compiler to include the code it finds in `src/garden.rs`
+
+And inside the `garden.rs`, we have the code:
+
+```rust
+pub mod vegetables;
+```
+
+And this `pub mod vegetables;` include the code inside the `vegetables`.
+
+And the code included is:
+
+```rust
+#[derive(Debug)]
+pub struct Asparagus {}
+```
+
+### Grouping Related Code in Modules
+
+Modules allow us to control the *privacy* or items, because code with modules
+is private by default.
+
+After here the rust documentation create a lib that provides a restaurant functionality,
+the project [restaurant](./restaurant/).
 

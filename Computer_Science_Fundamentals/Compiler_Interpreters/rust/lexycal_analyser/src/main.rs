@@ -4,8 +4,10 @@ use std::fs::{self};
 use scanner::Scanner;
 use parser::Parser;
 
-#[path = "lexycal/scanner.rs"] mod scanner;
-#[path = "lexycal/token.rs"] mod token;
+use crate::scanner;
+
+// #[path = "lexycal/scanner.rs"] mod scanner;
+// #[path = "lexycal/token.rs"] mod token;
 #[path = "parser/parser.rs"] mod parser;
 #[path = "error/error.rs"] mod error;
 
