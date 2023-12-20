@@ -12,11 +12,11 @@ use parser::Parser;
 
 fn main() {
     let filename = fs::read_to_string("input.isi").expect("Fail to read the file");
-    let mut scanner = Scanner::new(filename);
-    let parser = Parser::new(Option<scanner>, scanner.next_token());
+    let mut scan = Scanner::new(filename);
+    let parser = Parser::new(&mut Option<scan>, scan.next_token());
 
     loop {
-        let token = scanner.next_token();
+        let token = scan.next_token();
         if !token.is_none() {
             println!("{:?}" ,token);
         }

@@ -996,3 +996,16 @@ A `package` is a bundle of one or more crates that provides a set of functionali
 Packa  contains a `Cargo.toml` file that describes how to build those crates.
 
 ### Defining modules to control scope and privacy
+
+We'll discuss external packages and the glob operator.
+
+##### Modules Cheat Sheet
+
+We'll will show how modules, paths, `use`m pub work in the compiler.
+
+This is a great place to refer to as a reminder of how modules work.
+
+**Declaring modules**: you declare a `garden` module with `mod garden;`
+
+
+
