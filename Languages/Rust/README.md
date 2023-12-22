@@ -1003,6 +1003,8 @@ We'll discuss external packages and the glob operator.
 
 We'll will show how modules, paths, `use`m pub work in the compiler.
 
+Code within a module is private by default.
+
 This is a great place to refer to as a reminder of how modules work.
 
 **Declaring modules**: you declare a `garden` module with `mod garden;`
@@ -1071,4 +1073,209 @@ is private by default.
 
 After here the rust documentation create a lib that provides a restaurant functionality,
 the project [restaurant](./restaurant/).
+
+### Paths for referring to an item in the module tree
+
+- An *absolute path* is the full path starting from a crate root;
+- A *relative path* starts from the current module and uses `self`, `super`, or an 
+identifier ih the current module.
+
+The rust team preference in general is to specify absolute paths because it's more likely
+we'll want to move code definitions and tiem call independently of each other.
+
+Items in a parent module can't use the private items inside child modules,
+but items in child modules can use the items in their ancestor modules.
+This is because child modules wrap and hide their implementation details.
+
+### Starting relative paths with super
+
+`super`, is like using `..` em files in CLI for example.
+
+```rust
+fn deliver_order() {}
+
+mod back_of_house {
+    fn fix_incorrect_order() {
+        cook_order();
+        super::deliver_order();
+    }
+
+    fn cook_order() {}
+}
+```
+
+### Using structs and class, functions class
+
+This is interesting because in the compiler, I use a direct struct, like:
+
+```rust
+pub struct Breakfast {
+    pub toast: String,
+    seasonal_fruit: String,
+}
+
+impl Breakfast {
+    pub fn summer(toast: &str) -> Breakfast {
+        Breakfast {
+            toast: String::from(toast),
+            seasonal_fruit: String::from("peaches"),
+        }
+    }
+}
+```
+
+And this like better, let see in the next chapters;
+
+```rust
+mod back_of_house {
+    pub struct Breakfast {
+        pub toast: String,
+        seasonal_fruit: String,
+    }
+
+    impl Breakfast {
+        pub fn summer(toast: &str) -> Breakfast {
+            Breakfast {
+                toast: String::from(toast),
+                seasonal_fruit: String::from("peaches"),
+            }
+        }
+    }
+}
+
+pub fn eat_at_restaurant() {
+    let mut meal = back_of_house::Breakfast::summer("Rye");
+    meal.toast = String::from("Wheat");
+    println!("I'd like {} toast please", meal.toast);
+}
+```
+
+### Bringing paths into scope with the use Keyword
+
+This is like `using FrontOhHouse` in c#
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+other importante thing, if we create a new module before `eat_at_restaurant`,
+we need move the use too, like;
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting; // use here not work
+
+mod customer {
+    use crate::front_of_house::hosting;
+    pub fn eat_at_restaurant() {
+        hosting::add_to_waitlist();
+    }
+}
+```
+
+or use with super, example:
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting; // now this work
+
+mod customer {
+    pub fn eat_at_restaurant() {
+        super::hosting::add_to_waitlist();
+    }
+}
+```
+
+### Creating idiomatic use Paths
+
+We can use the function directy in the use, like `use crate::front_of_house::hosting::add_to_waitlist;`
+and just call
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting::add_to_waitlist;
+
+pub fn eat_at_restaurant() {
+    add_to_waitlist();
+}
+```
+
+### Providing new names with the `as` keyword
+
+We can do this if we have the same name functions, and give a name to one of them (or for all)
+and use their name, like below:
+
+```rust
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+    // --snip--
+}
+
+fn function2() -> IoResult<()> {
+    // --snip--
+}
+```
+
+### Using nested paths to clean up large use Lists
+
+If we want use two items defined in the same crate/module, like this below, where we use two
+modules inside the `std` lib:
+
+```rust
+use std::cmp::Ordering;
+use std::io;
+```
+
+We can do this:
+
+`use std::{cmp::Odering, io}`
+
+And we can use this for the same place, but share a subpath, for example:
+
+```rust
+use std::io;
+use std::io::Write;
+```
+
+And use like this:
+
+`use std::io::{self, Write};`
+
+This above will brings `str::io` and `str::io::Write`
+
+### The glob operator
+
+If we want to bring all public items defined in a path, we can specify that path
+followed by the `*` glob operator:
+
+`use str::collections::*`
+
+### Separating modules into different Files
 
