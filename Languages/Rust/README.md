@@ -1341,6 +1341,8 @@ execution for unrecoverable errors.
 
 ##### Unrecoverable Errors with `panic!`
 
+The `panic!` can come from your code, you some Lib you use.
+
 By default, these panics will print a failure message, unwind, clean up the stack, and quit.
 
 Via an environment varaible, you can also have rust display the call stack when a panic
@@ -1366,3 +1368,124 @@ to the appropriate `[profile]` sections in your *Cargo.toml*.
 >panic = 'abort'
 >```
 
+## Recoverable Errors with `Result<T, E>`
+
+The `T` and `E` are generic type parameters.
+
+Let's call a function that return a `Result` value because the function could fail.
+
+The return type of `File::open` is a `Result<T, E>`
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let greeting_file_result = File::open("hello.txt");
+
+    let greeting_file = match greeting_file_result {
+        Ok(file) => file,
+        Err(error) => panic!("Problem opening the file: {:?}", error),
+    };
+}
+```
+
+Now we will improve this, for different actions for different failure reasons.
+If `File::open` failed because the file doesn't exist, we wanto to create and
+return the handle to the new file.
+If failed for any other reason, for example, we didn't jave permission to open
+the file, we still want the `panic!`.
+
+```rust
+use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    let greeting_file_result = File::open("hello.txt");
+
+    let greeting_file = match greeting_file_result {
+        Ok(file) => file,
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create("hello.txt") {
+                Ok(fc) => fc,
+                Err(e) => panic!("Problem creating the file: {:?}", e),
+            },
+            other_error => {
+                panic!("Problem opening the file: {:?}", other_error);
+            }
+        },
+    };
+}
+```
+
+The `Err` returns the variant `io::Error`, which is a struct provided by the std lib.
+This struct has a method `kind` that we can call to get an `io::ErrorKind` value.
+
+The enum `io::ErrorKind` is provided by the std lib and has variant representing the
+different kinds of errors that might result fron as `io` operation.
+
+>Have some alternatives to use `match` with `Result<T, E>`
+>
+>The match expression is very much a primitive. In other chapter, we'll learn about
+closures.
+>
+>These methods can be more concise than using `match`
+>
+>Example:
+>
+>```rust
+>use std::fs::File;
+>use std::io::ErrorKind;
+>
+>fn main() {
+>    let greeting_file = File::open("hello.txt").unwrap_or_else(|error| {
+>        if error.kind() == ErrorKind::NotFound {
+>            File::create("hello.txt").unwrap_or_else(|error| {
+>                panic!("Problem creating the file: {:?}", error);
+>            })
+>        } else {
+>            panic!("Problem opening the file: {:?}", error);
+>        }
+>    });
+>}
+>```
+>
+> The `unwrap_or_else` not is a closure
+
+##### Shortcuts for Panic on Error: `unwrap` and `expect`
+
+The `unwrap` method is will return the value inside the `Ok`.
+If the `Result` is the `Err` variant, `unwrap` will call the `panic!` macro for us.
+(is a shortchut method like the `match` expression we wrote some lines above).
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let greeting_file = File::open("hello.txt").unwrap();
+}
+```
+
+If we run this code without a `hello.txt` file, we'll see an error message from the `panic!`.
+
+The `expect` method lets us also choose the `panic!` error message.
+
+We use `expect` in the same way as `unwrap`, to return the file handle or call the `panic!` macro.
+
+Using `expect` instead of `unwrap` and providing good error messages can convey your intent
+and make tracking down the source of a panic easier.
+
+The syntas of `expect`:
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let greeting_file = File::open("hello.txt")
+        .expect("hello.txt should be included in this project");
+}
+```
+
+The `panic!` error will use the `expect` message we sent
+
+**OBS: In production-quality code, most Rustaceans choose `expect` rather than `unwrap`**
+**and give more context about why the operation is expected to always succeed.**
