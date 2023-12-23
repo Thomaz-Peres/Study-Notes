@@ -1279,3 +1279,90 @@ followed by the `*` glob operator:
 
 ### Separating modules into different Files
 
+Separating the code in files:
+
+`lib.rs`
+```rust
+mod front_of_house;
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+`front_of_house`
+```rust
+pub mod hosting {
+    pub fn add_to_waitlist() {}
+}
+```
+
+Now we'll extrat the hosting module to its own file. The process is a bit different because
+hosting is a child module of `front_of_house`, not of the root module.
+
+To start moving `hosting`, we change `src/front_of_house.rs` to contain only the declaration
+of the `hosting` module:
+
+Filename: `src/front_of_house.rs`
+```rust
+pub mod hosting;
+```
+
+Then we create a `src/front_of_house` irectory and a file `hosting.rs` to contain the definitions
+made in the `hosting` module;
+
+Filname: `src/front_of_house/hosting.rs`
+```rust
+pub fn add_to_waitlist() {}
+```
+
+If we instead put `hosting.rs` in the src directory, the compiler would expect the `hosting.rs`
+code to be in a `hosting` module declared in the crate root, and not declared as a child of
+the `front_of_house` module.
+
+
+## Error Handling
+
+Rust groups errors into two major categories:
+
+- **Recoverable :** A error like `file not found`, problaly we report the problem to the user
+and retry the operation.
+
+- **Unrecoverable :** This errors, are always symptoms of bugs, like trying to access a location
+beyond the of an array, and so we want to immediately stop the program.
+
+**Rust doesn't jave exceptions.**
+
+Just has the types, `Result<T, E>` for recoverable errors and the `panic!` macro that stops
+execution for unrecoverable errors.
+
+
+##### Unrecoverable Errors with `panic!`
+
+By default, these panics will print a failure message, unwind, clean up the stack, and quit.
+
+Via an environment varaible, you can also have rust display the call stack when a panic
+occurs to make it easier to track down the source of the panic.
+
+
+>**Unwinding the Stack or Aborting in Response to a Panic**
+>
+>The `unwinding (walk back up the stack and cleans up the data from each function it encounters)`
+of the `panic!` is a lot of work.
+>
+>Rust allow yo choose the alternative of immediately *aborting*. which end the program
+without cleaning up and the memory the program was using will then need to be
+cleaned up by the SO.
+>
+>It's possible switch from unwinding to aborting upon a panic by adding `panic = 'abort'`
+to the appropriate `[profile]` sections in your *Cargo.toml*.
+>
+>Exemple if you want to abort on panic in release mode, add:
+>
+>```rust
+>[profile.release]
+>panic = 'abort'
+>```
+
