@@ -1490,3 +1490,110 @@ The `panic!` error will use the `expect` message we sent
 **OBS: In production-quality code, most Rustaceans choose `expect` rather than `unwrap`**
 **and give more context about why the operation is expected to always succeed.**
 
+### Propagating Errors
+
+This is a propagating error to functins called other functions, and this gives more
+control to the calling code, and this calling code dictates how the error should be handled.
+
+This is a example, we propagating the `Error` and the `Ok`.
+
+For exemplae, in the second match, who call this function, will receive a `Error`, and the
+calling function, see what we do with the error.
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let username_file_result = File::open("hello.txt");
+
+    let mut username_file = match username_file_result {
+        Ok(file) => file,
+        Err(e) => return Err(e),
+    };
+
+    let mut username = String::new();
+
+    match username_file.read_to_string(&mut username) {
+        Ok(_) => Ok(username),
+        Err(e) => Err(e),
+    }
+}
+
+```
+
+###### A shortcut for Propagating Error: the `?` Operator
+
+The `?` work in almost the same way as the `match` expressions.
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut username_file = File::open("hello.txt")?;
+    let mut username = String::new();
+    username_file.read_to_string(&mut username)?;
+    Ok(username)
+}
+
+```
+
+If the value of the `Result` is an `Ok`, the value inside the `Ok` will get returned from this
+expression, and the program will continue.
+
+If the value is an `Err`, the `Err` will be returned from the whole function as if we had
+used the `return` keyword, so the error value gets propagated to the callind code.
+
+###### Where the `?` operator can be used
+
+The `?` operator can only be used in functions whose return type is compatible with the value
+the `?` is used on.
+This is because the `?` operator is defined to perform an early return of a value out of the function.
+
+Let's look at the error we'll get if we use the `?` operator in a `main` function with a return type
+incompatible with the type of the value we use `?` on:
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let greeting_file = File::open("hello.txt")?;
+}
+```
+
+This code opens a file, which might fail. The `?` operator follows the `Result` value returned by
+`File::open`, but this `main` function has the return type of `()`, not `Result`. When we compile
+this code, we will receive a error.
+
+We're only allowed to use the `?` operator in a function that returns `Result`, `Option`, or another
+type that implements `FromResidual`
+
+The `Option<T>` is similar to `Result` but, (ao inves de) `Err` and `Ok`, `Option` return
+`None (Err)` and `Some (Ok)`
+
+Other good example, is the `?` operator extracts the `string slice`, and the code above, we can
+call `chars` on that string slice to get an iterator of its characters
+
+```rust
+fn last_char_of_first_line(text: &str) -> Option<char> {
+    text.lines().next()?.chars().last()
+}
+```
+
+The `?` won't automatically convert a `Result` to an `Option` or vice versa
+
+## Generic Types, Traits, and Lifetimes
+
+**Lifetimes:** A variety of generics that give the compiler information about
+how references relate to each other. Lifetimes allow us to give the compiler
+enough information about borrowed values so that it can ensure references will
+be valid in more situations that it could without our help.
+
+#### Removing Duplication by extracting a function
+
+Let's first look at how to remove duplication in a way that doesn't involve generic
+types by extracting a function that replaces specific values with a placeholder that
+represents multiple values.
+
+Then we'll apply the same technique to extract a generic function!
