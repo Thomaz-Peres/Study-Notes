@@ -1597,3 +1597,173 @@ types by extracting a function that replaces specific values with a placeholder 
 represents multiple values.
 
 Then we'll apply the same technique to extract a generic function!
+
+(How I already know how works generics because the C#, I will only write some examples in
+Rust, in general not is too much different)
+
+*Declaring a generic function in Rust*:
+```rust
+fn largest<T>(list: &[T]) -> &T {}
+```
+
+This code above will give a error (in this case a *trait*).
+
+In this case, the error occurs because the body of `largest` won't work for all possible types
+that `T` could be.
+
+To enable comparisons, the standar library has the `std::cmp::PartialOrd` trait that you can
+implement on types.
+By following the help text's suggetions, we restrict the types valid for `T` to only those that
+implement `PartialOrd` and this example will compile, because `i32` and`char` implements `PartialOrd`
+
+The code will look like this:
+
+```rust
+fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
+    let mut largest = &list[0];
+
+    for item in list {
+        if item > largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+```
+
+### In Struct Definitions
+
+We can also define structs to use generic type:
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
+}
+```
+
+Note the `x` and `y` need to be the same type, if we do this, will give an error:
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let wont_work = Point { x: 5, y: 4.0 };
+}
+```
+
+We can use multiple generic type parameters, for example:
+
+```rust
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+fn main() {
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
+}
+```
+
+Let's remember the `Result<T, E>` and `Option<T>` is a generic, but a enum generic, like this:
+
+```rust
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+##### In Method Definitions
+
+We can implement generics Methods too, like this:
+
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+fn main() {
+    let p = Point { x: 5, y: 10 };
+
+    println!("p.x = {}", p.x());
+}
+```
+
+Note that we have to declare `T` just after `impl`.
+
+By declaring `T` as a generic type after `impl`, Rust can identify that the type
+in the angle brackets in `Point` is a generic type rather than a concrete type.
+
+We can also specify contraints on generic types when defining methods on the type.
+We could, for example, implement methods only on `Point<f32>`:
+
+```rust
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+```
+
+We can create a `impl` with generic type, and in the method we create other Generic.
+The method creates a new Point instance with the x value from the self Point
+(of type X1) and the y value from the passed-in Point (of type Y2).
+
+```rust
+struct Point<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+impl<X1, Y1> Point<X1, Y1> {
+    fn mixup<X2, Y2>(self, other: Point<X2, Y2>) -> Point<X1, Y2> {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10.4 };
+    let p2 = Point { x: "Hello", y: 'c' };
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
+}
+```
+
+Here, the generic parameters `X1` and `Y1` are declared after impl because they go with the
+struct definition. The generic parameters `X2` and `Y2` are declared after `fn mixup`, because
+they're only relevant to the method.
+
+
+## Performance of code using Generics
+
+TODO: Search about performance about generics vs object in c#
+
