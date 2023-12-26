@@ -1767,3 +1767,36 @@ they're only relevant to the method.
 
 TODO: Search about performance about generics vs object in c#
 
+
+The program with generics not lose performance, or made the program run slower
+than it would with concrete types.
+
+Rust use *Monomorphization*, is the process of turning generic code into specific
+code by filing in the concrete types that are used when compiled.
+
+In the compiler, the compiler expands the generics in two specific function for
+each use case, for example:
+
+```rust
+enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+
+fn main() {
+    let integer = Option_i32::Some(5);
+    let float = Option_f64::Some(5.0);
+}
+```
+
+## Traits: Defining shared behavior
+
+> NOTE: Traits are similar to a feature ofter called `interfaces` in other 
+> languages, although with some differences.
+
+##### Defining a trait
