@@ -2,6 +2,8 @@ use std::fs;
 
 pub mod token;
 
+use token::{Token, TokenEnum};
+
 pub struct Scanner {
     content: Vec<char>,
     estado: i32,
@@ -19,12 +21,12 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
     
-    pub fn next_token(&mut self) -> Option<token::Token> {
+    pub fn next_token(&mut self) -> Option<Token> {
         if self.is_end() {
             return None;
         }
 
-        let mut token = token::Token::new_token(token::TokenEnum::TkAssign, "".to_string());
+        let mut token = Token::new_token(TokenEnum::TkAssign, "".to_string());
         let mut term = String::from("");
 
         loop {
@@ -58,7 +60,7 @@ impl Scanner {
                 }
                 2 => {
                     self.back();
-                    token = token::Token::new_token(token::TokenEnum::TkIdentifier, term);
+                    token = Token::new_token(TokenEnum::TkIdentifier, term);
                     return Some(token);
                 }
                 3 => {
@@ -73,12 +75,12 @@ impl Scanner {
                 }
                 4 => {
                     self.back();
-                    token = token::Token::new_token(token::TokenEnum::TkNumber, term);
+                    token = Token::new_token(TokenEnum::TkNumber, term);
                     return Some(token);
                 }
                 5 => {
                     term.push(current_char);
-                    token = token::Token::new_token(token::TokenEnum::TkOperator, term);
+                    token = Token::new_token(TokenEnum::TkOperator, term);
                     return Some(token);
                 }
                 _ => {

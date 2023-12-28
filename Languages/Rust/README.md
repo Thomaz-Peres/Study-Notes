@@ -1851,3 +1851,207 @@ impl Summary for Tweet {
     }
 }
 ```
+
+Using the struct with the trait:
+
+```rust
+use crate::{Summary, Tweet};
+
+fn main() {
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
+}
+```
+
+This will prints `1 new tweet: horse_ebooks: of course, as you probably already know, people`.
+
+#### Default implementations
+
+We can create a default trait implementation, and then when we will implement the trait
+in a particular type, we can keep or override each method's default behavior.
+
+Default trait:
+
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String {
+        String::from("(Read more...)")
+    }
+}
+
+```
+
+To use a default implementation to `summarize`  instances of something, we specify an
+empty `impl` block with `impl Summary for SomeStructure {}`.
+
+With this, we have provided a dafault implementation of `Summary`.
+
+We can create traits using another traits, for example:
+
+```rust
+pub trait Summary {
+    fn summarize_author(&self) -> String;
+
+    fn summarize(&self) -> String {
+        format!("(Read more from {}...)", self.summarize_author())
+    }
+}
+
+```
+
+And to use this version, of `Summary` we only need to define `summarize_author` when we
+implement the trait on a type:
+
+```rust
+impl Summary for Tweet {
+    fn summarize_author(&self) -> String {
+        format!("@{}", self.username)
+    }
+}
+```
+
+And after that, we can call `summarize` on instances of the `Tweet` struct, and the default
+implementation of `summarize` will call the definition of `summarize_author` that we've
+provided.
+
+```rust
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
+```
+
+This code prints `1 new tweet: (Read more from @horse_ebooks...)`.
+
+##### Traits as Parameters
+
+We can use traits as parameters too. we use the syntax `impl Trait`, for example:
+
+```rust
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+With this, we can use any methods that comes from the `Summary` trait.
+
+##### Trait bound Syntax
+
+The `impl Trait` is a syntax sugar for `trait bound`, looks like this:
+
+```rust
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+The example in `Traits as parameters` is the same of the code above, but is more berbose.
+
+The `bound syntax` can express more complexity, for example, when we have two parameters.
+
+With syntax sugar:
+```rust
+pub fn notify(item1: &impl Summary, item2: &impl Summary) { }
+```
+
+With `bound syntax`:
+
+```rust
+pub fn notify<T: Summary>(item1: &T, item2: &T) { }
+```
+
+##### Specifying multiple trait bounds with the + Syntax
+
+We can use more than one trait for variable. We can implement both `x` and `y`
+using the `+` syntax:
+
+With the syntax sugar:
+`pub fn notify(item: &(impl Summary + Display)) { }`
+
+With the trait bounds:
+`pub fn notify<T: Summary + Display>(item: &T) { }`
+
+##### Clearer trait bounds with where Clauses
+
+Rust has the `where` syntax too (like in C#). Example:
+
+```rust
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+```
+
+##### Returning Types that implement Traits
+
+We can use the trait in the return to return a value of some type that implements
+a trait, as show below:
+
+```rust
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+```
+
+`Tweet` return a trait Summary. If has another type where implements `Summary`,
+the function `returns_summarizable()` can return this type that implements the
+`Summary` trait.
+
+##### Using Trait Bounds to Conditionally Implement Methods
+
+The `impl` block the uses generics parameters, with you want to create a new `impl`
+just use like this:
+
+```rust
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+```
+
+It's possible too conditionally implement a trait for any type that implements
+another trait.
+
+They are called *blanket implementations*, are extensibely used in the Rust
+standard library. For example, the standard library implements the `ToString` trait
+on any type that implements the `Display` trait
