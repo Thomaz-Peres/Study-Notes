@@ -1796,7 +1796,58 @@ fn main() {
 
 ## Traits: Defining shared behavior
 
-> NOTE: Traits are similar to a feature ofter called `interfaces` in other 
+> NOTE: Traits are similar to a feature ofter called `interfaces` in other
 > languages, although with some differences.
 
 ##### Defining a trait
+
+A type's behavior consists of the methods we can call on that type.
+
+Different types share the same behavior if we can call the same methods
+on all of those types.
+
+Trait defintions are a way to group method to define a set of behaviors
+necessary to accomplish some purpose.
+
+**Creating a trait**
+
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+```
+
+##### Implementing a Trait on a Type
+
+The implementation of a trait in a tpye is similar to implemeting regular methods.
+The difference is that after `impl`, we put the trait name we want to implement
+then use the `for` keyword, and then specify the name of the type we want to
+implement the trait for.
+
+```rust
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
+}
+```
