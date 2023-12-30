@@ -2054,4 +2054,65 @@ another trait.
 
 They are called *blanket implementations*, are extensibely used in the Rust
 standard library. For example, the standard library implements the `ToString` trait
-on any type that implements the `Display` trait
+on any type that implements the `Display` trait.
+
+For example, integers implement `Display`, because that we can use
+
+`let s = 3.to_string()`;
+
+The blanket implementation appear in the documentation for the trait in the `implementors`
+section.
+
+## Validatin references with lifetimes.
+
+Lifetimes are another kind of generic.
+In generics we want to ensure that a type has he behavior we want.
+Lifetimes ensure that references are valid as long as we need them to be.
+
+Every reference in Rust has a `lifetime`, which is the scope for which that
+reference is valid.
+
+Most of the time, lifetimes are implicit and inferred, just like mosto of the time,
+types are inferred. We must only annotate types when multiple types are possible.
+
+Is similar for `lifetimes`.
+Rust requires to annotate the relationships using generic lifetime parameters
+to ensure the actual references used at runtimne will definitely be valid.
+
+
+##### Generic lifetimes in functions
+
+Note that below we want the function to take string slices, which are references,
+rather than strings, because we don't want the `longest` function take ownership
+of its parameters.
+
+```rust
+fn main() {
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
+}
+```
+
+If we try to implement the `longest` function as follow, it won't compile.
+
+```rust
+fn longest(x: &str, y: &str) -> &str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+This happen becasue we don't know wheter the `if` case or the `else` case will execute.
+We also don't know the concrete lifetimes of the references that will be passed in,
+we can't determine wheter the reference we return will always be valid.
+
+And the `borrow checker` can't determine this eiter, because ii doesn't know how the lifetimes
+of `x` and `y` relate to the lifetime of ther return value. To fix this error, we'll
+add generic lifetime parameters that define the relationship between the references so the
+borrow checker can perform its analysis
