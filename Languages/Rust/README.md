@@ -2115,4 +2115,50 @@ we can't determine wheter the reference we return will always be valid.
 And the `borrow checker` can't determine this eiter, because ii doesn't know how the lifetimes
 of `x` and `y` relate to the lifetime of ther return value. To fix this error, we'll
 add generic lifetime parameters that define the relationship between the references so the
-borrow checker can perform its analysis
+borrow checker can perform its analysis.
+
+##### Lifetime Annotation Syntax
+
+Lifetimes don't change how long any reference live. They describe the relationships of the
+lifetimes of multiple references to each other without affecting the lifetimes.
+
+Functins can accept references with any lifetime by specifying a generic lifetime parameter.
+
+Lifetime annotations have a slightly unusual syntax: the names of lifetimes parameters must
+start with an apostrophe (`'`) and are usually all lowercase and very short, like generic types.
+Most people use the name `'a` for the first lifetime annotation.
+
+We place lifetime parameter annotations after the `&` of a reference, using a space to separate
+the annotation from the reference's type.
+
+##### Lifetime Annotations in Function Signatures
+
+Declaring a generic *lifetime*.
+
+`fn longest<'a>(x: &'a str, y: &'a str) -> &'a str { ... }`
+
+With this, we want the signature to express the following constraint: the returned reference
+will be valid as long as both the parameters are valid. This is a relationship between
+lifetimes of the parameters and the return value.
+
+```rust
+fn longest<'c>(x: &'c str, y: &'c str) -> &'c str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+The functions signature tells Rust for some lifetime `a` the function takes two parameters,
+also tells Rust the return has the lifetime `a`, and the *variable/type* live at least as
+long as lifetime `a`.
+
+In practice, it means that the lifetime of the reference returned by the longest function is
+the same as the smaller of the lifetimes of the values referred to by the function arguments.
+These relationships are what we want Rust to use when analyzing this code.
+
+This lifetimes parameters specified in the function signature, not change the lifetimes of
+any values passed in or returned. rather, we're specifying that the borrow checker should
+reject any values that don't adhere to these constraints.
