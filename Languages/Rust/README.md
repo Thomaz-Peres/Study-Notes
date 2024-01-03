@@ -2161,4 +2161,6 @@ These relationships are what we want Rust to use when analyzing this code.
 
 This lifetimes parameters specified in the function signature, not change the lifetimes of
 any values passed in or returned. rather, we're specifying that the borrow checker should
-reject any values that don't adhere to these constraints.
+reject any values that don't adhere to these constraints. Note the `longents` function
+doesn't need to know exactly how long `x` and `y` will live, only that some scope can be
+substituted for `'a` that will satisfy this signature.
