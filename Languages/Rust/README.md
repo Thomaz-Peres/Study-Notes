@@ -2164,3 +2164,45 @@ any values passed in or returned. rather, we're specifying that the borrow check
 reject any values that don't adhere to these constraints. Note the `longents` function
 doesn't need to know exactly how long `x` and `y` will live, only that some scope can be
 substituted for `'a` that will satisfy this signature.
+
+The lifetimes references in `longest` function will be the same in `x`, `y` and the for
+the return
+
+Another example about lifetimes, let's look this code:
+
+```rust
+fn main() {
+    let string1 = String::from("long string is long");
+    let result;
+    {
+        let string2 = String::from("xyz");
+        result = longest(string1.as_str(), string2.as_str());
+    }
+    println!("The longest string is {}", result);
+}
+```
+
+This will return this error:
+
+```
+$ cargo run
+   Compiling chapter10 v0.1.0 (file:///projects/chapter10)
+error[E0597]: `string2` does not live long enough
+ --> src/main.rs:6:44
+  |
+6 |         result = longest(string1.as_str(), string2.as_str());
+  |                                            ^^^^^^^^^^^^^^^^ borrowed value does not live
+                                                                long enough
+7 |     }
+  |     - `string2` dropped here while still borrowed
+8 |     println!("The longest string is {}", result);
+  |                                          ------ borrow later used here
+
+For more information about this error, try `rustc --explain E0597`.
+error: could not compile `chapter10` due to previous error
+```
+
+This happens because the Rust compiler not understand the `string1` will be valid for the
+`println!` statement.
+
+##### thinking in terms of lifetimes
