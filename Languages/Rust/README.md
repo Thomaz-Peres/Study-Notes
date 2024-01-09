@@ -2205,4 +2205,52 @@ error: could not compile `chapter10` due to previous error
 This happens because the Rust compiler not understand the `string1` will be valid for the
 `println!` statement.
 
-##### thinking in terms of lifetimes
+##### Thinking in Terms of Lifetimes
+
+If we changed the implementation of the `longest` function to always return the first parameter rather than the longest string slice, we wouldn't need to specify a lifetime on the `y` parameter, and we can change the function to this:
+
+```rust
+fn longest<'a>(x: &'a str, y: &str) -> &'a str { 
+    x
+}
+```
+(Of course, this only is a example)
+
+When returning a reference from a function, the lifetime parameter for the return type needs to match the lifetime parameter for one of the paremeters. With you return a new value without being the same lifetimes this would be a dangling referencec because the value will go out of scope at the end of the function. This code for example, not work:
+
+```rust
+fn longest<'a>(x: &str, y: &str) -> &'a str {
+    let result = String::from("really long string");
+    result.as_str()
+}
+```
+
+##### Lifetime Annotations in Struct Definitions
+
+We can define structs to hold references, just adding a lifetime annotation on every reference in the struct's definition. Code example:
+
+```rust
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+
+fn main() {
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    let i = ImportantExcerpt {
+        part: first_sentence,
+    };
+}
+```
+
+In this `main` function, the variable `novel` is the owned. The variable `novel` doens't go out of scope until after the `ImportantExcerpt` goes out of scope, so the reference in the `ImportantExcerpt` instance is valid.
+
+##### Lifetime Elision
+
+The patterns programmed into Rust’s analysis of references are called the lifetime elision rules. These aren’t rules for programmers to follow; they’re a set of particular cases that the compiler will consider, and if your code fits these cases, you don’t need to write the lifetimes explicitly.
+
+
+Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
+
+##### Lifetime Annotation in Method Definitions
+
