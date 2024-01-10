@@ -2252,5 +2252,72 @@ The patterns programmed into Rust’s analysis of references are called the life
 
 Lifetimes on function or method parameters are called *input lifetimes*, and lifetimes on return values are called *output lifetimes*.
 
+*Lifetime Elision Rules* is a three rules to figure out the lifetimes of the reference, but it's to long I thing it's better stay updated with the [page](https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html#lifetime-elision).
+
 ##### Lifetime Annotation in Method Definitions
 
+Lifetimes names for struct fields always need to be decalred after the `impl` keyword and then used after the struct's name, because those lifetimes are part of the struct's type. In addition, the `lifetime elision rules` ofter make it so that lifetime annotations aren't necessary in method signatures.
+
+Let's see some examples:
+
+```rust
+impl<'a> ImportantExcerpt<'a> {
+    fn level(&self) -> i32 {
+        3
+    }
+}
+```
+
+We're not required to annotate the lifetime of the reference to `self` because of the first elision rule.
+
+Here is an example where the third lifetime elision rule applies:
+
+```rust
+impl<'a> ImportantExcerpt<'a> {
+    fn announce_and_return_part(&self, announcement: &str) -> &str {
+        println!("Attention please: {}", announcement);
+        self.part
+    }
+}
+```
+
+There are two input lifetime,s so Rust applies the first lifetime elision rule and gives both `&self` and `announcement` their own lifetimes. Then, because one of the aprameters is `&self`, the return type gets the lifetime of `&self`, and all lifetimes have been accounted for.
+
+##### The static lifetime
+
+One special lifetime we need to discuss is `'static`, which denotes that the affected reference can live for the entire duration of the program. All string literals have the `'static` lifetime, which we can annotate as follows:
+
+`let s: &'static str = "I have a static lifetime.`;
+
+The text of this string is stored directly in the program's binary, which is always available. Therefore, the lifetime of all string literals is `'static`.
+
+##### Generic Type Parameters, Trait Bounds, and Lifetimes Together.
+
+Let's see some examples using traits, generics and lifetimes:
+
+```rust
+use std::fmt::Display;
+
+fn longest_with_an_announcement<'a, T>(
+    x: &'a str,
+    x: &'a str,
+    ann: T,
+) -> &'a str
+where
+    T: Display,
+{
+    println!("Announcement! {}", ann);
+
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+```
+
+Because lifetimes are a type of generic, the declarations of the lifetime parameter `'a` and the generic type parameter `T` go in the same list inside the angle brackets after the function name.
+
+### Automated Tests
+
+We will looks at the features Rust provides speciafically for writing tests that take these actions, which include the `test` attribute, a few macros, and the `should_panic` attribute.
