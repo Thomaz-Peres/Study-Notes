@@ -2321,3 +2321,151 @@ Because lifetimes are a type of generic, the declarations of the lifetime parame
 ### Automated Tests
 
 We will looks at the features Rust provides speciafically for writing tests that take these actions, which include the `test` attribute, a few macros, and the `should_panic` attribute.
+
+#### The Anatomy of a Test Function
+
+A test in Rust is a function that's annotated with the `test` attribute.
+
+To run the tests, just run `cargo test`.
+
+When we make a new library project with Cargo, a test module it is automatically generated for us.
+
+Let's see an example of tests:
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+    }
+}
+```
+
+When we annotate a function with the `#[test]`, this indicates a test function, and we can have non-test function in the tests module to help set up common scenarios or perform common operation, so always need to indicate which functions are tests.
+
+And the `assert_eq` is a macro to assert the result (almost the same as `Assert.xxx` in C#).
+
+This is a example a part of the return:
+
+```
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
+
+We will explain each statistic.
+
+The `measured` statistic if for benchmark tests that measure performance. Benchmark tests are, as of this writing, only available in nightly Rust. See [the documentation abou benchmark tests](https://doc.rust-lang.org/unstable-book/library-features/test.html) to learn more.
+
+Now lets adding a fail test:
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn exploration() {
+        assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn another() {
+        panic!("Make this test fail");
+    }
+}
+```
+
+The return:
+
+```
+$ cargo test
+   Compiling adder v0.1.0 (file:///projects/adder)
+    Finished test [unoptimized + debuginfo] target(s) in 0.72s
+     Running unittests src/lib.rs (target/debug/deps/adder-92948b65e88960b4)
+
+running 2 tests
+test tests::another ... FAILED
+test tests::exploration ... ok
+
+failures:
+
+---- tests::another stdout ----
+thread 'tests::another' panicked at 'Make this test fail', src/lib.rs:10:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::another
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`
+```
+
+##### Adding Custom Failure Messages
+
+```rust
+    #[test]
+    fn greeting_contains_name() {
+        let result = greeting("Carol");
+        assert!(
+            result.contains("Carol"),
+            "Greeting did not contain name, value was `{}`",
+            result
+        );
+    }
+```
+
+The error:
+
+```
+$ cargo test
+   Compiling greeter v0.1.0 (file:///projects/greeter)
+    Finished test [unoptimized + debuginfo] target(s) in 0.93s
+     Running unittests src/lib.rs (target/debug/deps/greeter-170b942eb5bf5e3a)
+
+running 1 test
+test tests::greeting_contains_name ... FAILED
+
+failures:
+
+---- tests::greeting_contains_name stdout ----
+thread 'tests::greeting_contains_name' panicked at 'Greeting did not contain name, value was `Hello!`', src/lib.rs:12:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::greeting_contains_name
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`
+```
+
+##### Using `Result<T, E>` in tests
+
+Here is a exampkle to test with `Result<T, E>`
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err(String::from("two plus two does not equal four"))
+        }
+    }
+}
+```
+
+Rather than calling the `assert_eq!` macro, we return `Ok(())` whe the test passes and an `Err` with a `String` inside when the test fails.
+
+Writing tests so they return a `Result<T, E>` enables you to use the question mark operation in the body of tests, which can be a convenient way to write tests that should fail if any operation within them return an `Err` variant.
+
+You can't use the `#[should_panic]` annotation on tests that use `Result<T, E>`. To assert that an operation return an `Err` variant, *don't* use the question mark operation on the `Result<T, E>` value. Instead, use `assert!(value.is_err())`.
+
+# I will stop to see tests for now, and back after.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
