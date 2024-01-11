@@ -2469,3 +2469,15 @@ You can't use the `#[should_panic]` annotation on tests that use `Result<T, E>`.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## Accepting Command Line Arguments
+
+Create a new project, the first task is accept its two command line aruments: the file path and a string to search for. That is, we want to be able to run our program with `cargo run`, two hyphens to indicate the following arguments are for our program rather than for `cargo`, a string to search for, and a path to a file to search in, like so:
+
+`cargo run -- searchstring example-filename.txt`.
+
+[The project](./minigrep/)
+
+### Reading the Argument Values
+
+To enable to a project to read the values of command line we pass to it, we need the `std::env::args` function.
+
