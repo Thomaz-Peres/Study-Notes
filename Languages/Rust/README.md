@@ -2480,4 +2480,9 @@ Create a new project, the first task is accept its two command line aruments: th
 ### Reading the Argument Values
 
 To enable to a project to read the values of command line we pass to it, we need the `std::env::args` function.
+This function returns an iterator of the command line arguments passed.
+
+Iterators: a series of values, and we can call the `collect` method on an iterator to turn it into a collection, such as a vector, that contains all the elements the iterator produces
+
+(Iterator em c# e acredito que é igual em tudo: e um objeto que percorre conteineres, particularmente listas)
 
