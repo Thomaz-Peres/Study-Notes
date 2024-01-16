@@ -2482,7 +2482,8 @@ Create a new project, the first task is accept its two command line aruments: th
 To enable to a project to read the values of command line we pass to it, we need the `std::env::args` function.
 This function returns an iterator of the command line arguments passed.
 
-Iterators: a series of values, and we can call the `collect` method on an iterator to turn it into a collection, such as a vector, that contains all the elements the iterator produces
+Iterators: Iterators produces a series of values, and we can call the `collect` method on an iterator to turn it into a collection, such as a vector, that contains all the elements the iterator produces
 
 (Iterator em c# e acredito que é igual em tudo: e um objeto que percorre conteineres, particularmente listas)
 
+We can use the `collect` function to create many kinds of collections, so we explicitly annotate the type of `args` to specify that we want a vector of strings. `collect` is one function you do often need to annotate because Rust isn't able to infer the kind of collection you want.
