@@ -2487,3 +2487,74 @@ Iterators: Iterators produces a series of values, and we can call the `collect` 
 (Iterator em c# e acredito que é igual em tudo: e um objeto que percorre conteineres, particularmente listas)
 
 We can use the `collect` function to create many kinds of collections, so we explicitly annotate the type of `args` to specify that we want a vector of strings. `collect` is one function you do often need to annotate because Rust isn't able to infer the kind of collection you want.
+
+### Saving the argument Values in Variables
+
+To save the values we receive from the command line arguments.
+
+```rust
+let query = &args[1];
+let file_path = &args[2];
+```
+
+The input and the output
+
+```
+$ cargo run -- test sample.txt
+   Compiling minigrep v0.1.0 (file:///projects/minigrep)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.0s
+     Running `target/debug/minigrep test sample.txt`
+Searching for test
+In file sample.txt
+```
+
+## Reading a File
+
+Now, let's learning how to read a file (in this case, the variable `file_path` we create before)
+
+Create a txt file with something you want, in this case `poem.txt`.
+
+```txt
+I'm nobody! Who are you?
+Are you nobody, too?
+Then there's a pair of us - don't tell!
+They'd banish us, you know.
+
+How dreary to be somebody!
+How public, like a frog
+To tell your name the livelong day
+To an admiring bog!
+
+```
+
+Now we do that:
+
+```rust
+use std::env;
+use std::fs;
+
+fn main() {
+    // --snip-- the code we write before
+    println!("In file {}", file_path);
+
+    let contents = fs::read_to_string(file_path)
+        .expect("Should have been able to read the file");
+
+    println!("With text: \n{contents}");
+}
+```
+
+We use a relevant part of the standard library: `std::fs` to handle files.
+
+The statement `fs::read_to_string` takes the `file_path`, opens that file, and returns a `std::io::Result<String>` of the file's contents.
+
+## Refactoring to Improve modularity and Error Handling
+
+To refactore a code, we need to find were has problem, in this code before we used, the `main` function performs two tasks: it parses arguments and reads files. It's best to separate functionality so each function is responsible for one task.
+
+This issue also ties the second problem: although `query` and `file_path` are configuration variables the program, variables like `contents` are used to perform the program's logic. The longet `main` becomes, the more variables we'll need to bring into scope; the more variables we have in scope, the harder it will be to keep track of the purpose of each. It's best to group the configuration variables into one structure to make their purpose clear.
+
+The third problem is we've used `expect` to read the file, but can have error before, like to read the file.
+
+#### Separation of concerns for Binary Projects
+
