@@ -2556,5 +2556,85 @@ This issue also ties the second problem: although `query` and `file_path` are co
 
 The third problem is we've used `expect` to read the file, but can have error before, like to read the file.
 
-#### Separation of concerns for Binary Projects
+## Separation of concerns for Binary Projects
 
+The organizational problem of allocating responsability for multiple tasks to the main function is common to many binary projects. As a result, the Rust community has developed guidelines for splitting the separate concerns of a binary program when `main` starts getting large. This process has the following steps:
+
+- Split your program into a `main.rs` abd a `lib.rs` and move your program's logic to `lib.rs`.
+- As long your command line parsing logic is small, it can remain in `main.rs`
+- When the command line parsing logic starts getting complicated, extract it from `main.rs` and move it to `lib.rs`.
+
+The responsabilities that remain in the `main` function after this process should be limited to the following:
+
+- Calling the command line parsing logic with the argument values.
+- Setting up any other configuration.
+- Calling a `run` function in `lib.rs`.
+- Handling the error if `run` return an error.
+
+This pattern is about separating concerns: `main.rs` handles running the program, and `lib.rs` handles all the logic of the task at hand.
+
+Because you can't test the `main` function directly, this structure lets you test all of your program's logic by moving it into functions in `lib.rs`. The code that remains in `main.rs` will be small enough to verify its correctness by reading it.
+
+#### Extracting the Argument Parser
+
+Extract the functionality for parsing arguments into a function that `main` will call to prepare for moving the command line parsing logic to `lib.rs`
+
+```rust
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let (query, file_path) = parse_config(&args);
+
+    // --snip--
+}
+
+fn parse_config(args: &[String]) -> (&str, &str) {
+    let query = &args[1];
+    let file_path = &args[2];
+
+    (query, file_path)
+}
+```
+
+Now, the function `parse_config` holds the logic that determines which argument goes in which variable and passes the values back.
+
+We still create the variables in `main` function, but not more the responsibility of determining how the command line arguments and variables correspond.
+
+### Grouping Configuration Values
+
+At the moment, we're returning a tuple, but then we immediately break that typle into individual parts again. This is a sign that perhaps we don't have the right abstraction yet.
+
+We can understand the return in the `parse_config` are related and are both part of one configuration value.
+So, we can transform the returned values in a config struct
+
+The code will looks like this:
+
+```rust
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let config = parse_config(&args);
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.file_path);
+
+    let contents = fs::read_to_string(config.file_path)
+        .expect("Should have been able to read the file");
+
+    // --snip--
+}
+
+struct Config {
+    query: String,
+    file_path: String,
+}
+
+fn parse_config(args: &[String]) -> Config {
+    let query = args[1].clone();
+    let file_path = args[1].clone();
+
+    Config { query, file_path }
+}
+```
+
+The signature of `parse_config` now indicates that it return a `Config` value.
