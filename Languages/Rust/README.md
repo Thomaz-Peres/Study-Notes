@@ -2649,3 +2649,5 @@ There are a number of ways we could manage the `String` data; the easiest though
 > cost.
 > Ahead, we will learn how to use more efficient methods in this type of situation.
 >
+> For now, it's okay to copy a few string to continue making progress because you'll make these copies only once and
+> your file path and query string are very small.
