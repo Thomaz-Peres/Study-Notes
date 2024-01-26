@@ -2638,3 +2638,14 @@ fn parse_config(args: &[String]) -> Config {
 ```
 
 The signature of `parse_config` now indicates that it return a `Config` value.
+
+The `args` variable in `main` is the owner of the argument values and is only letting the `parse_config` function borrow them, which means we'd violate Rust's borrowing rules if `Config` tried to take ownership of the values in `args`.
+
+There are a number of ways we could manage the `String` data; the easiest though somewhat inefficient, route is to call the`clone` method on the values. This will make a full copy of the data for the `Config` instance to own, which takes more time and memory than storing a reference to the string data. However, cloning the data also makes our code very straightforward because we don't have to manage the lifetimes of the references; in this circumstance, giving up a little performance to gain simplicity is a worthwhile trade-off.
+
+> ##### The Trade-Offs of Using clone
+>
+> There's a tendency among many Rustaceans to avoind using clone to fix ownership problems because of its runtime
+> cost.
+> Ahead, we will learn how to use more efficient methods in this type of situation.
+>
