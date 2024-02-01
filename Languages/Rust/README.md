@@ -2651,3 +2651,81 @@ There are a number of ways we could manage the `String` data; the easiest though
 >
 > For now, it's okay to copy a few string to continue making progress because you'll make these copies only once and
 > your file path and query string are very small.
+>
+> It's better to have a working program that's a bit inefficient than to try to hyperoptimize code on your first
+> pass. As you become more experienced with Rust, it'll be easier to start with the most efficientsolution, but for
+> now, it's perfectly acceptable to call `clone`.
+
+### Creating a Constructor for Config
+
+The purpose of the `parse_config` function is to create a `Config` instance, we can change `parse_config` from
+a plain function to a function named `new` that is associated with the `Config` struct.
+
+With this change make the code more idiomatic.
+
+```rust
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let config = Config::new(&args);
+
+    // --snip--
+}
+
+// --snip--
+
+impl Config {
+    fn new(args: &[String]) -> Config {
+        let query = args[1].clone();
+        let file_path = args[2].clone();
+
+        Config { query, file_path }
+    }
+}
+```
+
+We've update `main` where we were calling `parse_config` to instead call `Config::new`.
+
+
+### Fixing the Error Handling
+
+Recall that attempting to access the values in the `args` vector at index 1 or index 2 will cause the program to
+panif if the vector contains fewer than three items. 
+
+Try running the program without any arguments
+
+### Improving the Error Message
+
+In the `new` function, we add the verify that the slice is long enough before acces index 1 and 2.
+
+```rust
+    // --snip--
+    fn new(args: &[String]) -> Config {
+        if args.len() < 3 {
+            panic!("not enough arguments");
+        }
+        // --snip--
+```
+
+### Returning a `Result` instead of Calling `panic!`
+
+First, we will change the name `new` to `build` because many programmers expect new function to never fail.
+
+Need to change the `main` functino too to receive and convert the Result.
+```rust
+impl Config {
+    fn build(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
+
+        let query = args[1].clone();
+        let file_path = args[2].clone();
+
+        Ok(Config { query, file_path })
+    }
+}
+```
+
+Our `build` function returns a `Result` with a `Config` insatnce in the ssuccess case and a `&'static str` in the
+error case. Our error values will always be string literals that have the `'static` lifetime.
