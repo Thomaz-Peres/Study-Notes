@@ -2729,3 +2729,10 @@ impl Config {
 
 Our `build` function returns a `Result` with a `Config` insatnce in the ssuccess case and a `&'static str` in the
 error case. Our error values will always be string literals that have the `'static` lifetime.
+
+We've made two changes in the body of the function: instead of calling `panic!` when the user doesn't pass enough
+arguments, we now return an `Err` value, and we've wrapped the `Config` return value in an `Ok`. These changes
+make the function conform to its new type signature.
+
+#### Calling `Config::build` and Handling Errors
+
