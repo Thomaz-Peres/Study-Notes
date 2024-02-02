@@ -2736,3 +2736,72 @@ make the function conform to its new type signature.
 
 #### Calling `Config::build` and Handling Errors
 
+To handle the error case and print a user-friendly message, we need to update `main` to handle the `Result` being returned by `Config::build`
+
+A nonzero exit status is a convention to signal to the process that called our program that the program exited with
+an error state.
+
+The `main` function:
+
+```rust
+use std::process;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
+    // --snip--
+```
+
+`unwrap_or_else` which is defined on `Result<T, E>`.
+Using `unwrap_or_else` allows us to define some custom, non-`panic!` error handling, if is an `Ok`, this method's
+behavior is similar to `unwrap`: it returns the inner value `Ok` is wrapping.
+
+If is an `Err` value, this method calls the code in the *closure*, which is an anonymous function we define and pass
+as an argument to `unwrap_or_else`.
+
+`unwrap_or_else` will pass the inner value of the Err, which in this case is the static string `"not enough arguments"`.
+
+Running the code, we print the `err` value and then call `process::exit`. The `process::exit` function will stop
+the program immediately and return the number that was passed as the exit status code. Like this:
+
+```
+$ cargo run
+   Compiling minigrep v0.1.0 (file:///projects/minigrep)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.48s
+     Running `target/debug/minigrep`
+Problem parsing arguments: not enough arguments
+```
+
+#### Extracting Logic from main
+
+We'll extract a function named `run` that will hold all the logic currently in the `main` function that isn't
+involved with setting up configuration or handling errors.
+
+When we're done, `main` will be concise and easy to verify by inspection, and we'll be able to write tests for all the other logic.
+
+```rust
+fn main() {
+    // --snip--
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.file_path);
+
+    run(config);
+}
+
+fn run(config: Config) {
+    let contents = fs::read_to_string(config.file_path)
+        .expect("Should have been able to read the file");
+
+    println!("With text:\n{contents}");
+}
+
+// --snip--
+```
+
+#### Returning Errors from the `run` Function
+
