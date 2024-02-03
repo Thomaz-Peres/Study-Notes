@@ -2805,3 +2805,95 @@ fn run(config: Config) {
 
 #### Returning Errors from the `run` Function
 
+With the remaining program logic separated into the run function, we can improve the error handling.
+
+
+Instead of allowing the program to panic by calling `expect`, the `run` function will return a `Result<T, E>` when
+something goes wrong.
+
+Example:
+
+```rust
+use std::error::Error;
+
+// --snip--
+
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(config.file_path)?;
+
+    println!("With text:\n{contents}");
+
+    Ok(())
+}
+```
+
+This function previosly returned the unit type, `()`, and we keep that as the value returned in the `Ok` case.
+
+For the error type, we used the *trait object* `Box<dyn Error>` (and we've brought `std::error::Error` into scope).
+The `Box<dyn Error>` means the function will return a type that implements the Error trait, but we don't have to
+specify what particular type the return value will be. This gives us flexibility to return error values that may be
+of different types in different error cases. The `dyn` keyword is short for "dynamic".
+
+`?` will return the error value from the current function for the caller to handle.
+
+This `Ok(())` syntax might look a bit strange at first, but using `()` like this is the idiomatic way to indicate
+that we're calling `run` for its side effects only; It doesn't return a value we need.
+
+When you run this code, it will compile but will display a warning:
+
+```
+$ cargo run the poem.txt
+   Compiling minigrep v0.1.0 (file:///projects/minigrep)
+warning: unused `Result` that must be used
+  --> src/main.rs:19:5
+   |
+19 |     run(config);
+   |     ^^^^^^^^^^^
+   |
+   = note: this `Result` may be an `Err` variant, which should be handled
+   = note: `#[warn(unused_must_use)]` on by default
+
+warning: `minigrep` (bin "minigrep") generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 0.71s
+     Running `target/debug/minigrep the poem.txt`
+Searching for the
+In file poem.txt
+With text:
+I'm nobody! Who are you?
+Are you nobody, too?
+Then there's a pair of us - don't tell!
+They'd banish us, you know.
+
+How dreary to be somebody!
+How public, like a frog
+To tell your name the livelong day
+To an admiring bog!
+```
+
+Rust tells us that our code ignored the `Result` value and the `Result` value might indicate that an error occurred. But we’re not checking to see whether or not there was an error, and the compiler reminds us that we probably meant to have some error-handling code here! Let’s rectify that problem now.
+
+#### Handling Errors returned from run in main
+
+We'll check for error and handle them using a technique.
+
+```rust
+fn main() {
+    // --snip--
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.file_path);
+
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
+}
+```
+
+In this case, we only care about detecting an error, so we don't need `unwrap_or_else` to return the unwrapped value,
+which would only be `()`.
+So, we use `if let` to check wheter `run` return an `Err` value and call `process::exit(1)` if it does.
+
+The bodies of the if let and the unwrap_or_else functions are the same in both cases: we print the error and exit.
+
+### Splitting Code into a Library Crate
