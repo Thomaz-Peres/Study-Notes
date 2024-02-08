@@ -32,12 +32,12 @@ impl Token {
         }
     }
 
-    pub fn get_type(&self) -> &TokenEnum {
-        &self.token_id
+    pub fn get_type(&self) -> TokenEnum {
+        self.token_id
     }
 
-    pub fn set_text(&mut self, string : String) {
-        self.string = string;
+    pub fn set_text(&mut self, string : &String) {
+        self.string = *string;
     }
 }
 

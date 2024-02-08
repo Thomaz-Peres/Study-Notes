@@ -1,8 +1,6 @@
 use std::fs;
 
-pub mod token;
-
-use token::{Token, TokenEnum};
+use super::token::{Token, TokenEnum};
 
 pub struct Scanner {
     content: Vec<char>,
@@ -11,9 +9,9 @@ pub struct Scanner {
 }
 
 impl Scanner {
-    pub fn new(filename: String) -> Self {
-        println!("{filename}");
-        let binding = &fs::read("input.isi").expect("Unable to read the file");
+
+    pub fn new(filename: &String) -> Self {
+        let binding = fs::read(filename).expect("Unable to read the file");
         let txt_content = String::from_utf8_lossy(&binding);
         let content: Vec<char> = txt_content.chars().collect();
         println!("{:?}", content);
@@ -21,9 +19,9 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
     
-    pub fn next_token(&mut self) -> Option<Token> {
+    pub fn next_token(&mut self) -> Result<Token, &'static str> {
         if self.is_end() {
-            return None;
+            return Err("Token not found");
         }
 
         let mut token = Token::new_token(TokenEnum::TkAssign, "".to_string());
@@ -45,7 +43,7 @@ impl Scanner {
                     } else if self.is_operator(current_char) {
                         self.estado = 5;
                     } else {
-                        return None;
+                        return Err("Token state not found");
                     }
                 }
                 1 => {
@@ -55,13 +53,13 @@ impl Scanner {
                     } else if self.is_space(current_char) || self.is_operator(current_char) {
                         self.estado = 2;
                     } else {
-                        return None;
+                        return Err("Token state not found");
                     }
                 }
                 2 => {
                     self.back();
                     token = Token::new_token(TokenEnum::TkIdentifier, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 3 => {
                     if self.is_digit(current_char) {
@@ -70,25 +68,24 @@ impl Scanner {
                     } else if !self.is_char(current_char) {
                         self.estado = 4;
                     } else {
-                        return None;
+                        return Err("Token state not found");
                     }
                 }
                 4 => {
                     self.back();
                     token = Token::new_token(TokenEnum::TkNumber, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 5 => {
                     term.push(current_char);
                     token = Token::new_token(TokenEnum::TkOperator, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 _ => {
-                    return None;
+                    return Err("Token state not found");
                 }
             }
         }
-        None
     }
 
     fn is_digit(&self, c: char) -> bool {

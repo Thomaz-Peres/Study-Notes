@@ -1,21 +1,22 @@
+mod parser;
+mod lexycal;
+
+use parser::parser::Parser;
+use lexycal::scanner::Scanner;
 use std::fs;
-use scanner::Scanner;
-
-#[path = "lexycal/scanner.rs"] mod scanner;
-#[path = "lexycal/token.rs"] mod token;
-#[path = "parser/parser.rs"] mod parser;
-#[path = "error/error.rs"] mod error;
-
 
 fn main() {
-    let filename = fs::read_to_string("input.isi").expect("Fail to read the file");
-    let mut scan = Scanner::new(filename);
-    let parser = Parser::new(&mut scan, scan.next_token());
+    let filename = fs::read_to_string("input.isi")
+                    .expect("Fail to read the file");
+
+    let mut scan = Scanner::new(&filename);
+    let parser = Parser::new(scan, &scan.next_token().unwrap());
 
     loop {
         let token = scan.next_token();
-        if !token.is_none() {
-            println!("{:?}" ,token);
+        
+        if let Err(e) = token {
+            println!("Application error: {e}");
         }
     }
 }
