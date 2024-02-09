@@ -3,28 +3,27 @@ use crate::{
     Scanner,
 };
 
-pub struct Parser {
-    pub scanner: Scanner,
+pub struct Parser<'a> {
+    scanner: &'a Scanner,
     current_token: Token,
 }
 
-impl Parser {
+impl<'a> Parser<'a> {
     // O parser recebe o scanner (analisador lexico) como parametro pois a cada procedimento,
     // invoca-o sob demanda.
-    pub fn new<'c>(scanner: Scanner, token: &'c Token) -> Self {
+    pub fn new(scanner: &'a Scanner) -> Self {
         Parser {
             scanner: scanner,
-            current_token: *token,
+            current_token: *scanner.next_token().unwrap(),
         }
     }
 
-    pub fn e(&mut self) {
+    pub fn e(&self) {
         self.t();
         self.el();
     }
 
-    pub fn el(&mut self) {
-        self.current_token = self.scanner.next_token().unwrap();
+    pub fn el(&self) {
         if self.current_token.get_type() != TokenEnum::TkOperator {
             self.op();
             self.t();
@@ -32,18 +31,14 @@ impl Parser {
         }
     }
 
-    pub fn t(&mut self) -> Result<(), &'static str> {
-        self.current_token = self.scanner.next_token().unwrap();
-
+    pub fn t(&self) -> Result<(), &'static str> {
         match self.current_token.get_type() {
             TokenEnum::TkIdentifier | TokenEnum::TkNumber => Ok(()),
             _ => Err("ID or Number expected"),
         }
     }
 
-    pub fn op(&mut self) -> Result<(), &'static str> {
-        self.current_token = self.scanner.next_token().unwrap();
-
+    pub fn op(&self) -> Result<(), &'static str> {
         match self.current_token.get_type() {
             TokenEnum::TkOperator => Ok(()),
             _ => Err("Operator expected"),

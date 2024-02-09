@@ -1001,7 +1001,7 @@ We'll discuss external packages and the glob operator.
 
 ##### Modules Cheat Sheet
 
-We'll will show how modules, paths, `use`m pub work in the compiler.
+We'll will show how modules, paths, `use`, pub work in the compiler.
 
 Code within a module is private by default.
 

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Data_Structures/Data.Structures.md",
+                "file": "Data_Structures/UnivespClasses/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -89,8 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -106,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Data_Structures/Data.Structures.md",
+                "file": "Data_Structures/UnivespClasses/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Data_Structures/Data.Structures.md",
+                "file": "Data_Structures/UnivespClasses/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Data_Structures/Data.Structures.md"
+                "file": "Data_Structures/UnivespClasses/README.md"
               }
             }
           },
@@ -178,10 +177,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "34d81dc41b280dba",
+  "active": "c999b7a34a8a9977",
   "lastOpenFiles": [
-    "Data_Structures/README.md",
     "Data_Structures/Data.Structures.md",
+    "Data_Structures/README.md",
     "Data.Structures.md",
     "Data.md",
     "README.md",
