@@ -9,8 +9,8 @@ fn main() {
     let filename = fs::read_to_string("input.isi")
                     .expect("Fail to read the file");
 
-    let scan = Scanner::new(&filename);
-    let _parser = Parser::new(&scan);
+    let mut scan = Scanner::new(&filename);
+    let _parser = Parser::new( &mut scan);
 
     let token = scan.next_token();
     loop {

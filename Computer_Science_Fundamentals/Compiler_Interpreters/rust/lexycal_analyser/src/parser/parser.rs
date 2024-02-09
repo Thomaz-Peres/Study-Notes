@@ -4,17 +4,19 @@ use crate::{
 };
 
 pub struct Parser<'a> {
-    scanner: &'a Scanner,
+    scanner: &'a mut Scanner,
     current_token: Token,
 }
 
 impl<'a> Parser<'a> {
     // O parser recebe o scanner (analisador lexico) como parametro pois a cada procedimento,
     // invoca-o sob demanda.
-    pub fn new(scanner: &'a Scanner) -> Self {
+    pub fn new(scanner: &'a mut Scanner) -> Self {
+        let scan = scanner;
+        
         Parser {
             scanner: scanner,
-            current_token: *scanner.next_token().unwrap(),
+            current_token: scan.next_token().unwrap(),
         }
     }
 

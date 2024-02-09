@@ -32,7 +32,7 @@ impl Token {
         }
     }
 
-    pub fn get_type(&self) -> TokenEnum {
+    pub fn get_type(self) -> TokenEnum {
         self.token_id
     }
 

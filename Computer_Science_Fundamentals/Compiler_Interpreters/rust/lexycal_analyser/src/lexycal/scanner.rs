@@ -19,7 +19,7 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    pub fn next_token<'a>(&'a mut self) -> Result<&'a Token, &'static str> {
+    pub fn next_token(&mut self) -> Result<Token, &'static str> {
         if self.is_end() {
             return Err("Token not found");
         }
@@ -59,7 +59,7 @@ impl Scanner {
                 2 => {
                     self.back();
                     let token = Token::new_token(TokenEnum::TkIdentifier, term);
-                    return Ok(&token);
+                    return Ok(token);
                 }
                 3 => {
                     if self.is_digit(current_char) {
@@ -74,12 +74,12 @@ impl Scanner {
                 4 => {
                     self.back();
                     let token = Token::new_token(TokenEnum::TkNumber, term);
-                    return Ok(&token);
+                    return Ok(token);
                 }
                 5 => {
                     term.push(current_char);
                     let token = Token::new_token(TokenEnum::TkOperator, term);
-                    return Ok(&token);
+                    return Ok(token);
                 }
                 _ => {
                     return Err("Token state not found");
