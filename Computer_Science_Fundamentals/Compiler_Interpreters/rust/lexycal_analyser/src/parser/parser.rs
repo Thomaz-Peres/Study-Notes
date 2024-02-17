@@ -11,21 +11,19 @@ pub struct Parser<'a> {
 impl<'a> Parser<'a> {
     // O parser recebe o scanner (analisador lexico) como parametro pois a cada procedimento,
     // invoca-o sob demanda.
-    pub fn new(scanner: &'a mut Scanner) -> Self {
-        let scan = scanner;
-        
-        Parser {
+    pub fn new(scanner: &mut Scanner) -> Self {
+        Self {
             scanner: scanner,
-            current_token: scan.next_token().unwrap(),
+            current_token: scanner.next_token().unwrap(),
         }
     }
 
-    pub fn e(&self) {
+    pub fn e(&mut self) {
         self.t();
         self.el();
     }
 
-    pub fn el(&self) {
+    pub fn el(&mut self) {
         if self.current_token.get_type() != TokenEnum::TkOperator {
             self.op();
             self.t();
@@ -33,14 +31,14 @@ impl<'a> Parser<'a> {
         }
     }
 
-    pub fn t(&self) -> Result<(), &'static str> {
+    pub fn t(&mut self) -> Result<(), &'static str> {
         match self.current_token.get_type() {
             TokenEnum::TkIdentifier | TokenEnum::TkNumber => Ok(()),
             _ => Err("ID or Number expected"),
         }
     }
 
-    pub fn op(&self) -> Result<(), &'static str> {
+    pub fn op(&mut self) -> Result<(), &'static str> {
         match self.current_token.get_type() {
             TokenEnum::TkOperator => Ok(()),
             _ => Err("Operator expected"),
