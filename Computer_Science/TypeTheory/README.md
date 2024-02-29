@@ -1,0 +1,1 @@
+The Type Theory is the study of [Type Systems](https://en.wikipedia.org/wiki/Type_system), Type Systems in resume is a area of study about types, with a set of rules, compilers, language design.
