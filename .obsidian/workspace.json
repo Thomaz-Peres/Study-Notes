@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "c0f45f049ee03707",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -93,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md"
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md"
               }
             }
           },
@@ -166,10 +180,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "82a1563a61341491",
+  "active": "c0f45f049ee03707",
   "lastOpenFiles": [
-    "Computer_Science/TypeTheory/Some tests.md",
     "Computer_Science/TypeTheory/README.md",
+    "Posts/1. - A simple way to running kubernetes locally with Kind.md",
+    "Posts",
+    "Computer_Science/TypeTheory/Some tests.md",
     "Data_Structures/Data.Structures.md",
     "Data_Structures/UnivespClasses/README.md",
     "Data_Structures/README.md",
@@ -187,7 +203,6 @@
     "Rust/testes3.testes3.369a55da-cgu.5.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.2.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.7.rcgu.o",
-    "Rust/testes3.4shg305tzr00vlgx.rcgu.o",
     "Xamarin.Forms/Entendendo_O_Projeto.md",
     "Evitar_Excesso_de_Postagem.md",
     "Orchestrator.md",
@@ -203,7 +218,6 @@
     "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Pattern Matching So Far/README.md",
     "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Type Synonyms/README.md",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Pasted image 20230108155934.png",
