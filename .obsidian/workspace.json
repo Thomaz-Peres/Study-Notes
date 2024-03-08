@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
                 "mode": "source",
                 "source": false
               }
@@ -23,16 +23,13 @@
             "id": "c0f45f049ee03707",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
-                "mode": "source",
-                "source": false
+                "file": "Imgs/LensImge.png"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,8 +87,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -107,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md",
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind.md"
+                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md"
               }
             }
           },
@@ -180,10 +176,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c0f45f049ee03707",
+  "active": "82a1563a61341491",
   "lastOpenFiles": [
+    "Imgs/LensImge2.png",
+    "Imgs/Screenshot 2024-03-07 211517.png",
+    "Imgs/Screenshot 2024-03-07 211434.png",
+    "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
+    "Imgs/Screenshot 2024-03-07 211210.png",
+    "Coursera_Course.Programming_Languages/Part A/Week 2/Options/README.md",
+    "Coursera_Course.Programming_Languages/README.md",
+    "Coursera_Course.Programming_Languages/Part A/README.md",
+    "Coursera_Course.Programming_Languages/Part A/Week 2/pairs-tuples/README.md",
     "Computer_Science/TypeTheory/README.md",
-    "Posts/1. - A simple way to running kubernetes locally with Kind.md",
+    "Imgs/LensImge.png",
+    "Imgs/Pasted image 20230108155934.png",
+    "Imgs/Screenshot 2024-03-07 210043.png",
+    "Imgs/Pasted image 20230108154435.png",
+    "README.md",
+    "Software_Foundations/README.md",
+    "Software_Foundations/Chapter_1/README.md",
+    "Software_Foundations/Book1/README.md",
+    "Languages/C#_Classes/README.md",
+    "Languages/C#_Classes/aula48/Recursividade.md",
     "Posts",
     "Computer_Science/TypeTheory/Some tests.md",
     "Data_Structures/Data.Structures.md",
@@ -191,7 +205,6 @@
     "Data_Structures/README.md",
     "Data.Structures.md",
     "Data.md",
-    "README.md",
     "Data_Structures/UnivespClasses/Funções_De_Gerenciamentos.md",
     "Data_Structures/UnivespClasses",
     "Languages/C.md",
@@ -208,16 +221,6 @@
     "Orchestrator.md",
     "Kubectl_Commands.md",
     "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/Useful_Example_Of_Nested_Patterns.md",
-    "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digression - Polymorphic Types and Equality Types/README.md",
-    "Programming Languages - Coursera/Part A/Week 2/ListsSML/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digressions - Type inference/README.md",
-    "Programming Paradigms/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Pattern-Matching for Each-Of Types/README.md",
-    "Programming Languages - Coursera/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Pattern Matching So Far/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Pasted image 20230108155934.png",
