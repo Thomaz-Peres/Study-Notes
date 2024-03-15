@@ -17,6 +17,8 @@ A type theory has judments that defines types and assign them to a collection of
 
 ### Terms
 
+##### **Term are a collection of formal objects.**
+
 A term in logic is recursively defined as a constant symbol, variable or a function application, where a term s applied to another term.
 Constant symbols could include the natural number `0`, the boolean value `true` and function such as the successor function `S` and conditional operator `if`. Thus some terms could be `0`, `(S 0)`, `(S (S 0))` and `(if true 0(S 0))`
 
@@ -37,6 +39,14 @@ $x : bool, y : nat \vdash (if\ \ x\ \ y\ \ y) : nat$.
 If there are no assumption, there will be nothing to the left of the turnstile.
 
 $\vdash S : nat \to nat$
+
+>In this like first-order logic in math. Looks like this:
+> `(∀x ∈ R)(x ≤ 0 ∨ x > 0)`
+>But implicity a `x` to a type (that of the real numbers). Looks like this:
+>`(∀x)(x ∈ R → (x ≤ 0 ∨ x > 0))`
+>
+>You can read something like this in programming like
+>`for all X, if x <= 0 or x > 0; return true else return false;`
 
 The list of assumptions on the left is the *context* of the judment. Capital greek letters, such as $\Gamma$ (gamma) and $\Delta$ (delta), are common choices to represent some or all of the assumptions. The 4 different judments are thus usually written as follows.
 

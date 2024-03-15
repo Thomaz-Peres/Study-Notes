@@ -4,28 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "e643e620dadcc813",
+        "id": "9e0cd30bcaa93aaf",
         "type": "tabs",
         "children": [
           {
-            "id": "82a1563a61341491",
+            "id": "d7b6869afc202735",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
+                "file": "Computer_Science/TypeTheory/Some tests.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "c0f45f049ee03707",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Imgs/LensImge.png"
               }
             }
           }
@@ -103,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
+                "file": "Computer_Science/TypeTheory/Some tests.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
+                "file": "Computer_Science/TypeTheory/Some tests.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md"
+                "file": "Computer_Science/TypeTheory/Some tests.md"
               }
             }
           },
@@ -176,19 +166,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "82a1563a61341491",
+  "active": "d7b6869afc202735",
   "lastOpenFiles": [
+    "Computer_Science/TypeTheory/README.md",
+    "Computer_Science/TypeTheory/Some tests.md",
+    "Computer_Science/Concurrency_Parallelism.md",
+    "Imgs/LensImge.png",
+    "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
     "Imgs/LensImge2.png",
     "Imgs/Screenshot 2024-03-07 211517.png",
     "Imgs/Screenshot 2024-03-07 211434.png",
-    "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
     "Imgs/Screenshot 2024-03-07 211210.png",
     "Coursera_Course.Programming_Languages/Part A/Week 2/Options/README.md",
     "Coursera_Course.Programming_Languages/README.md",
     "Coursera_Course.Programming_Languages/Part A/README.md",
     "Coursera_Course.Programming_Languages/Part A/Week 2/pairs-tuples/README.md",
-    "Computer_Science/TypeTheory/README.md",
-    "Imgs/LensImge.png",
     "Imgs/Pasted image 20230108155934.png",
     "Imgs/Screenshot 2024-03-07 210043.png",
     "Imgs/Pasted image 20230108154435.png",
@@ -199,7 +191,6 @@
     "Languages/C#_Classes/README.md",
     "Languages/C#_Classes/aula48/Recursividade.md",
     "Posts",
-    "Computer_Science/TypeTheory/Some tests.md",
     "Data_Structures/Data.Structures.md",
     "Data_Structures/UnivespClasses/README.md",
     "Data_Structures/README.md",
@@ -223,7 +214,6 @@
     "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/Useful_Example_Of_Nested_Patterns.md",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
-    "Pasted image 20230108155934.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
