@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer_Science/TypeTheory/Some tests.md",
+                "file": "Computer_Science/RuleOfInference.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/TypeTheory/Some tests.md",
+                "file": "Computer_Science/RuleOfInference.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/TypeTheory/Some tests.md",
+                "file": "Computer_Science/RuleOfInference.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer_Science/TypeTheory/Some tests.md"
+                "file": "Computer_Science/RuleOfInference.md"
               }
             }
           },
@@ -168,8 +168,8 @@
   },
   "active": "d7b6869afc202735",
   "lastOpenFiles": [
-    "Computer_Science/TypeTheory/README.md",
     "Computer_Science/TypeTheory/Some tests.md",
+    "Computer_Science/TypeTheory/README.md",
     "Computer_Science/Concurrency_Parallelism.md",
     "Imgs/LensImge.png",
     "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",

@@ -1,46 +1,34 @@
 Some judments try myself
 
-| Formal notation for juddments    | Description                                                                            |
-| -------------------------------- | -------------------------------------------------------------------------------------- |
-| $\Gamma \vdash bool$  Type       | $bool$ is a type (under assumptions $\Gamma$).                                         |
-| $\Gamma \vdash x : bool$         | $x$ is a term of type $bool$ (under assumptions $\Gamma$)                              |
-| $\Gamma \vdash bool_1 = bool_2$  | Type $bool_1$ is equal to type $bool_2$ (under assumptions $\Gamma$)                   |
-| $\Gamma \vdash x_1 = x_2 : bool$ | Terms $t_1$ and $t_2$ are both of type $T$ and are equal (under assumptions $\Gamma$). |
+| Formal notation for juddments | Description                                                                            |
+| ----------------------------- | -------------------------------------------------------------------------------------- |
+| $\Gamma \vdash T$  Type       | $T$ is a type (under assumptions $\Gamma$).                                            |
+| $\Gamma \vdash t : T$         | $t$ is a term of type $T$ (under assumptions $\Gamma$)                                 |
+| $\Gamma \vdash T_1 = T_2$     | Type $T_1$ is equal to type $T_2$ (under assumptions $\Gamma$)                         |
+| $\Gamma \vdash t_1 = t_2 : T$ | Terms $t_1$ and $t_2$ are both of type $T$ and are equal (under assumptions $\Gamma$). |
 
-```csharp
-internal class Judment
-{
-	public class bool Type { get; set; }
-}
+This will like something like this
 
-internal class 
+```typescript
+// Γ ⊢ T Type
+type T = number;
+
+// Γ ⊢ t : T
+let t: T = 10;
+
+// Γ ⊢ T1 = T2
+type T1 = {a: number};
+type T2 = {a: number, b?: string};
+let x: T1 = {a: 1};
+let y: T2 = x; // This should not give a compile error as T1 is assignable to T2
+console.log(x == y); // This should print 'true'
+console.log(y == x); // This should print 'true'
+
+
+// Γ ⊢ t1 = t2 : T
+let t1: T = 10;
+let t2: T = 10;
+console.log(typeof t1 === typeof t2 && t1 === t2); // This should print 'true'
+
+
 ```
-
-interface Judgement {
-    assumptions: Assumption[];
-}
-
-interface Assumption {
-    variable: string;
-    type: string;
-}
-
-interface TypeJudgement extends Judgement {
-    type: string;
-}
-
-interface TermTypeJudgement extends Judgement {
-    term: string;
-    type: string;
-}
-
-interface TypeEqualityJudgement extends Judgement {
-    type1: string;
-    type2: string;
-}
-
-interface TermEqualityJudgement extends Judgement {
-    term1: string;
-    term2: string;
-    type: string;
-}
