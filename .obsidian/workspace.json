@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9e0cd30bcaa93aaf",
+        "id": "2d73332086fc3ca4",
         "type": "tabs",
         "children": [
           {
-            "id": "d7b6869afc202735",
+            "id": "7f4447c839f22083",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer_Science/RuleOfInference.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/RuleOfInference.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/RuleOfInference.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer_Science/RuleOfInference.md"
+                "file": "Computer_Science/TypeTheory/README.md"
               }
             }
           },
@@ -167,12 +166,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d7b6869afc202735",
+  "active": "7f4447c839f22083",
   "lastOpenFiles": [
-    "Computer_Science/Threads_Processes.md",
-    "Computer_Science/TypeTheory/Some tests.md",
     "Computer_Science/RuleOfInference.md",
     "Computer_Science/TypeTheory/README.md",
+    "Computer_Science/TypeTheory/Some tests.md",
+    "Computer_Science/Threads_Processes.md",
     "Computer_Science/Concurrency_Parallelism.md",
     "Imgs/LensImge.png",
     "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",

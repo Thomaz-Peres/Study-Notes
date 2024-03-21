@@ -59,6 +59,25 @@ The list of assumptions on the left is the *context* of the judment. Capital gre
 
 ### Rules of inference
 
-A type theory's inference rules say what judments can be made, based on the existence of other judments.
+A type theory's inference rules say what judgments can be made, based on the existence of other judgments.
 
-Rules are expressed as a Gentzen-style deduction using a horizontal line, with the required input judments above the line and the resulting judment below the line. For example, the following inference rule states a substitution rule for judmental equality.
+Rules are expressed as a Gentzen-style deduction using a horizontal line, with the required input judgments above the line and the resulting judgment below the line. For example, the following inference rule states a substitution rule for judgmental equality:
+
+${\displaystyle {\begin{array}{c}\Gamma \vdash t:T_{1}\qquad \Delta \vdash T_{1}=T_{2}\\\hline \Gamma ,\Delta \vdash t:T_{2}\end{array}}}$
+
+> Reading something looks something like this: $t$ is a term of type $T_1$ (under assumptions $\Gamma$ )
+
+
+The metavariables ${\displaystyle \Gamma }$, ${\displaystyle \Delta }$, ${\displaystyle t}$,  ${\displaystyle T_{1}}$, and  ${\displaystyle T_{2}}$ may actually consist of comples term and types that contain many function applications, not just single symbols.
+
+To generate judgments in type theory, there must be a rule to generate it, as well as rules to generate all of that rule's required inputs, and so on.
+
+The applied rules form a proof tree, and the top-most rules need no assumptions.
+
+One example of a rule does not required any inputs is one that states the type of a constant term. To assert that there is a term $0$ of type $nat$, we write the following.
+
+${\displaystyle {\underline \qquad \quad \quad \qquad \qquad} }$
+${\displaystyle { \vdash 0 : nat } }$
+
+__________________
+
