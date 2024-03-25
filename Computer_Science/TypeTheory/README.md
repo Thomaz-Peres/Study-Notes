@@ -25,14 +25,14 @@ Constant symbols could include the natural number `0`, the boolean value `true` 
 ### Judments
 
 Most type theories have 4 judments:
-- "$T$ is a type"
-- "$t$ is a term of type $T$"
-- "Type $T_1$ is equal to type $T_{2}$"
-- "Terms $t_1$ and $t_2$ both of type $T$ are equal"
+- "${T}$ is a type"
+- "${t}$ is a term of type ${T}$"
+- "Type ${T_1}$ is equal to type ${T_{2}}$"
+- "Terms ${t_1}$ and ${t_2}$ both of type ${T}$ are equal"
 
 Judments may follow from assumptions. For example, one might say "assuming $x$ is a term of type **bool** and $y$  is a term of type **nat**, it follows that ($if\ \ x\ \ y\ \ y$) is a term of type **nat**". Such judments are formally written with the `*turnstile symbol` $\vdash$.
 
-> $*_1$: In the typed lambda calculus, the turnstile is used to separate typing assumptions from the typing judgment.
+> $*_1$: In the typed lambda calculus, the **turnstile** is used to separate typing assumptions from the typing judgment.
 
 $x : bool, y : nat \vdash (if\ \ x\ \ y\ \ y) : nat$.
 
@@ -63,12 +63,16 @@ A type theory's inference rules say what judgments can be made, based on the exi
 
 Rules are expressed as a Gentzen-style deduction using a horizontal line, with the required input judgments above the line and the resulting judgment below the line. For example, the following inference rule states a substitution rule for judgmental equality:
 
-${\displaystyle {\begin{array}{c}\Gamma \vdash t:T_{1}\qquad \Delta \vdash T_{1}=T_{2}\\\hline \Gamma ,\Delta \vdash t:T_{2}\end{array}}}$
+${{\begin{array}{c}\Gamma \vdash t:T_{1}\qquad \Delta \vdash T_{1}=T_{2}\\\hline \Gamma ,\Delta \vdash t:T_{2}\end{array}}}$
 
 > Reading something looks something like this: $t$ is a term of type $T_1$ (under assumptions $\Gamma$ )
+> 
+> And: $T_1$ is equal to type $T_2$ (under assumptions $\Delta$ )
+> 
+> And the conclusion is:  $t$ is a term of type $T_2$ (under assumptions $\Gamma$ $\Delta$ )
 
 
-The metavariables ${\displaystyle \Gamma }$, ${\displaystyle \Delta }$, ${\displaystyle t}$,  ${\displaystyle T_{1}}$, and  ${\displaystyle T_{2}}$ may actually consist of comples term and types that contain many function applications, not just single symbols.
+The metavariables ${\displaystyle \Gamma }$, ${\displaystyle \Delta }$, ${\displaystyle t}$,  ${\displaystyle T_{1}}$, and  ${\displaystyle T_{2}}$ may actually consist of complex term and types that contain many function applications, not just single symbols.
 
 To generate judgments in type theory, there must be a rule to generate it, as well as rules to generate all of that rule's required inputs, and so on.
 
@@ -76,8 +80,84 @@ The applied rules form a proof tree, and the top-most rules need no assumptions.
 
 One example of a rule does not required any inputs is one that states the type of a constant term. To assert that there is a term $0$ of type $nat$, we write the following.
 
-${\displaystyle {\underline \qquad \quad \quad \qquad \qquad} }$
-${\displaystyle { \vdash 0 : nat } }$
+${\underline \qquad \quad \quad \qquad \qquad}$
+${\vdash 0 : nat }$
 
-__________________
+#### Type theory usually has several rules, including ones to:
+
+- Create a judgment (known as a context in this case)
+- Add an assumption to the context (context weakening)
+- Rearrange the assumptions
+- Use an assumption to create a variable
+- Define reflexivity, symmetry and transitivity for judgmental equality
+- Define substitution for application of lambda terms
+- List all the interactions of equality, such as substitution
+- Define a hierarchy of type universes
+- Assert the existence of new types
+
+Also, for each "by rule" type, there are 4 different kinds of rules:
+- "Type formation" rules say  how to create the type.
+- "Term introduction" rules define the canonical terms and constructor function like "pair" and "S".
+- "Term elimination" rules define the other functions like "first", "second", and "R".
+- "Computation" rules specify how computation is performed with the type-specific functions.
+
+>For example of rules, an interested reader may follow Appendix A.2 of the *Homotopy Type theory* book, or Martin-Lof's Intuitionistic Type Theory.
+
+______________________________________________
+# Connections to foundations
+
+### Intuitionistic logic
+
+When used as a foundation, certain types are interpreted to be propositions (statements that can be proven), and terms inhabiting the type are interpreted to be proofs of that proposition.
+
+Under this intuitionistic interpretation, there are common types that act as the logical operators:
+
+| Logic Name  | Logic Notation           | Type Notation          | Type Name              |
+| ----------- | ------------------------ | ---------------------- | ---------------------- |
+| True        | ${\top}$                 | ${\top}$               | Unit Type              |
+| False       | ${\bot}$                 | ${\bot}$               | Empty Type             |
+| Implication | ${A \rightarrow B}$      | ${A \rightarrow B}$    | Function               |
+| Not         | ${\neg \ A}$             | ${A \rightarrow \bot}$ | Function To Empty Type |
+| And         | ${A \land B}$            | ${A \times B}$         | Product Type           |
+| Or          | ${A \lor B}$             | ${A + B}$              | Sum Type               |
+| For all     | ${\forall a \in A,P(a)}$ | ${\Pi a \ : A,P(a)}$   | Dependent Product      |
+| Exists      | ${\exists a \in A,P(a)}$ | ${\Sigma a \ : P(a)}$  | Dependent Sum          |
+
+### Constructive mathematics
+
+Per Martin-Löf proposed his intuitionistic type theory as a foundation for constructive mathematics.
+______________________________________________
+
+# Definitions
+
+## Terms and Types
+
+#### Atomic terms
+
+The most basic types are called atoms.
+
+Some atomic terms:
+
+- ${42 : nat}$
+- ${true : bool}$
+- ${x : nat}$
+- ${y : bool}$
+
+#### Function Terms
+
+Functions introduce the arrow symbol and are defined inductively.
+
+If ${a}$ and ${r}$ are types, then the notation ${a \rightarrow r}$ is the type of a function which takes a parameter of type ${a}$ and return a term of type ${r}$.
+
+Some terms may be declared directly as having a simple type, such as the following term, **add**, which takes in two natural numbers in sequence and return one natural number.
+
+${add : nat \rightarrow (nat \rightarrow nat)}$
+
+Strictly speaking, a simple type only allows for one input and one output, so a more faithful reading of the above type is that **add** is a function which takes in a natural number and returns a function of the form ${nat \rightarrow nat}$. The parentheses clarify that **add** does not have the type ${(nat \rightarrow nat) \rightarrow nat}$ which would be a function which takes in a function of natural number and return a natural number.
+
+The convention is that the arrow is right associative, so the parentheses may be dropped from The parentheses clarify that **add** does not have the type
+
+> Some obs to help me
+> 
+> Em resumo, a principal diferença é que na primeira expressão, a entrada é uma função, e na segunda, a entrada é um número natural. Além disso, o resultado da primeira expressão é um número natural, enquanto o resultado da segunda é uma função. Isso muda completamente o tipo de operação que está sendo realizada e o tipo de dado que está sendo manipulado.
 
