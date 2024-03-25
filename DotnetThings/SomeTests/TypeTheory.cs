@@ -24,8 +24,33 @@ Func<int, Func<int, int>> function2 = (int n) =>
   });
 };
 
+// or
+
+// Exemplo para function2
+Func<int, Func<int, int>> add = x => y => x + y;
+var b = add(5);
+int result2_2 = b(10);
+Console.WriteLine("Resultado da function 2 do estilo 2: " + result2_2);
+
+int x = 5;
+
 // Chamando function2 e passando um número como argumento
-var resultFunction = function2(5);
+var resultFunction = function2(x);
 // Agora, chamando a função resultante com outro número
-int result2 = resultFunction(3);
-Console.WriteLine("Resultado de function2: " + resultFunction);
+int result2 = resultFunction(x);
+Console.WriteLine("Resultado de function2: " + result2);
+
+// Exemplo para function2
+Func<string, Func<string, string>> f3 = (string n) =>  new Func<string, string>((string x) => n + x); // Uma função que soma 'n' e 'x');
+
+// Chamando function2 e passando um número como argumento
+var resultFunction2 = f3("5");
+// Agora, chamando a função resultante com outro número
+string result3 = resultFunction2("teste");
+Console.WriteLine("Resultado de f3: " + result3);
+
+
+
+// the lambda something like this: {\displaystyle (\lambda x.\mathrm {add} \,x\,x):{\mathsf {nat}}\to {\mathsf {nat}}}
+Func<int, int> addTwice = x => x + x;
+

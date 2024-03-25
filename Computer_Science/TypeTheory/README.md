@@ -132,6 +132,8 @@ ______________________________________________
 
 ## Terms and Types
 
+> I have some some examples of (functions and lambda) terms in [C#](../DotnetThings/SomeTests/TypeTheory.cs)
+
 #### Atomic terms
 
 The most basic types are called atoms.
@@ -161,3 +163,15 @@ The convention is that the arrow is right associative, so the parentheses may be
 > 
 > Em resumo, a principal diferença é que na primeira expressão, a entrada é uma função, e na segunda, a entrada é um número natural. Além disso, o resultado da primeira expressão é um número natural, enquanto o resultado da segunda é uma função. Isso muda completamente o tipo de operação que está sendo realizada e o tipo de dado que está sendo manipulado.
 
+### Lambda Terms
+
+New function term may be constructed with lambda expression (${\lambda}$). These terms are also defined inductively.
+
+The lambda terms has the form: ${(\lambda v.t)}$ where ${v}$ is formal variable and ${t}$ is a term.
+You can understand something like this ${v \to t}$.
+
+This following lambda term represents a:
+
+${(\lambda x.\mathrm {add} \,x\,x):{\mathsf {nat}}\to {\mathsf {nat}}}$
+
+> For the 
