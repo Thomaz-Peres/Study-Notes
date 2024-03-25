@@ -132,7 +132,7 @@ ______________________________________________
 
 ## Terms and Types
 
-> I have some some examples of (functions and lambda) terms in [C#](../DotnetThings/SomeTests/TypeTheory.cs)
+> I have some some examples of (functions and lambda) terms in [C#](./DotnetThings/SomeTests/TypeTheory.cs)
 
 #### Atomic terms
 
