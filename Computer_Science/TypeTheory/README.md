@@ -199,4 +199,29 @@ Symbolically, they are written
 
 The first reduction describes how to evaluate a lambda term: if a lambda expression ${(\lambda v.t)}$ is applied to a term ${s}$, one replaces every occurrence of ${v}$ in ${t}$ with ${s}$.
 
-> Again, some [examples](../../DotnetThings/SomeTests/TypeTheory.cs) 
+> Again, some [examples](../../DotnetThings/SomeTests/TypeTheory.cs).
+
+## Common Terms and Types
+
+###### Empty Type
+
+Empty type has no terms. Usually written $\bot$ or ${0}$. Is used in proofs of type inhabitation.
+
+A function of type $a \to \bot$, then $a$ is *uninhabited*, which is to say it has no terms.
+
+###### Unit Type
+
+Has exactly 1 canonical term. usually written $\top$ or $1$ and the single canonical term is written $\ast$. Also used in proof of type inhabitation.
+
+A function of type $\top \to a$, then $a$ is *inhabited*, which is to say it must have one or more terms.
+
+###### Boolean type
+
+Usually written bool or $\mathbb {B}$ or 2. Canonical terms is **true** or **false**.
+
+###### Natural numbers
+
+Canonical term $0 : nat$ for zero. Canonical values largen than zero iterated applications of a [successor function](https://en.wikipedia.org/wiki/Successor_function) $S : nat \to nat$.
+
+## Dependent typing
+
