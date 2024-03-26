@@ -174,4 +174,29 @@ This following lambda term represents a:
 
 ${(\lambda x.\mathrm {add} \,x\,x):{\mathsf {nat}}\to {\mathsf {nat}}}$
 
-> For the 
+The variable is ${x}$ must have type **nat**. The term ${add \ x \ x}$ has type **nat**, which is seen by applying the function application inference rule twice.
+
+> For looks like the Function Type (${add : nat \rightarrow (nat \rightarrow nat)}$) is this:
+> ${(\lambda x. \lambda y.\mathrm {add} \,x\,y):{\mathsf {nat}}\to ({\mathsf {nat} \to nat)}}$
+
+A lambda term is ofter referred to as an anonymous function because it lacks a name.
+
+## Inference Rules
+
+### Function application
+
+The inference is the combination of terms by way of inference rules.
+
+For example, if ${t}$ is a term of type ${a \to r}$, and s is a term of type ${a}$, then the application of ${t}$ to ${s}$, often written ${(t \ \ s)}$, has type ${r}$.
+
+### Reductions
+
+Type theories that allow for lambda term also include inference rules, know as ${\beta}$-reduction and ${\eta}$-reduction.
+
+Symbolically, they are written
+- ${(\lambda v.t) s \to t[v:=s]}$ (${\beta}$-reduction).
+- ${(\lambda v.t \ v) \to t}$, if ${v}$ is not a free variable in ${t}$ (${\eta}$-reduction).
+
+The first reduction describes how to evaluate a lambda term: if a lambda expression ${(\lambda v.t)}$ is applied to a term ${s}$, one replaces every occurrence of ${v}$ in ${t}$ with ${s}$.
+
+> Again, some [examples](../../DotnetThings/SomeTests/TypeTheory.cs) 

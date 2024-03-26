@@ -1,1 +1,28 @@
-{}
+{
+  "editor:add-cursor-below": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowDown"
+    }
+  ],
+  "editor:add-cursor-above": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowUp"
+    }
+  ],
+  "editor:toggle-inline-math": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ]
+}
