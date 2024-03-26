@@ -50,7 +50,18 @@ string result3 = resultFunction2("teste");
 Console.WriteLine("Resultado de f3: " + result3);
 
 
-
-// the lambda something like this: {\displaystyle (\lambda x.\mathrm {add} \,x\,x):{\mathsf {nat}}\to {\mathsf {nat}}}
+// the lambda something like this: (λx.add x x) nat -> nat
 Func<int, int> addTwice = x => x + x;
 
+
+// (λv.t)s -> t[v:= s]
+// t é uma expressão ou método que usa 'v'
+// s é o valor que você está passando para a função
+Func<int, int> lambdaTerm = v => v * 2; // 't' deve ser substituído pela expressão correspondente
+int result = lambdaTerm(5); // 's' é o valor que você está aplicando
+Console.WriteLine(result);
+
+// (λv.t v) -> t
+Func<int, int> lambdaTerm2 = v => v;
+int result4 = lambdaTerm2(5);
+Console.WriteLine(result4);
