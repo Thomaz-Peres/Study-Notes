@@ -225,3 +225,40 @@ Canonical term $0 : nat$ for zero. Canonical values largen than zero iterated ap
 
 ## Dependent typing
 
+Some type theories allow for types of complex terms, such as functions or lists.
+
+For example, you can have a list of terms, like $list \ a$ where each term must have type $a$. In this case, list has type $U \to U$, where $U$ denotes the universe of all types in the theory.
+
+Some theories also permit types to be dependent on terms instead of types. One example in a theory with the type $vector \ n$, where $n$ is a term of type **nat**  encoding the length of the vector.
+
+This allow for greater specificity and type safety: function with vector length restrictions or length matching requirements.
+
+###### Product Type
+
+Product Type it is commonly written as ordered pairs $(s,t)$ or with the symbol $\times$.
+
+The product type is usually defined with eliminator functions $first : (\Pi \sigma \tau .\sigma \times \tau \to \sigma)$ and $second (\Pi \sigma \tau .\sigma \times \tau \to \tau)$.
+
+- $first (s,t)$ returns $s$
+- $second (s,t)$ returns $t$.
+
+> Besides ordered pairs, this type is used for the concepts of logical conjunction and intersection.
+
+###### Sum type
+
+Sum type it is commonly written with the symbol $+$ or $\sqcup$. 
+
+Sym types may be referred to as tagged unions.
+
+The type $\sigma \sqcup \tau$ is usually defined with constructors $left : \sigma \to (\sigma \sqcup \tau)$, which are injective, and an eliminator function $match : (\Pi p.(\sigma \to p) \to (\tau \to p) \to (\sigma \sqcup \tau) \to p$ such that
+
+- $match\  f \ g (left \ x)$ return $f \ x$ and
+- $match f \ g (right \ y)$ returns $g \ y$.
+
+The sum type is used for the concepts of logical disjunction and union.
+
+
+
+## References
+
+https://en.wikipedia.org/wiki/Type_theory
