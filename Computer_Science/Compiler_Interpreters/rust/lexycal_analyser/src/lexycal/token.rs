@@ -32,19 +32,11 @@ impl Token {
         }
     }
 
-    pub fn get_type(&self) -> &TokenEnum {
-        &self.token_id
+    pub fn get_type(self) -> TokenEnum {
+        self.token_id
     }
 
     pub fn set_text(&mut self, string : String) {
         self.string = string;
     }
 }
-
-// impl fmt::Display for TokenEnum {
-//     fn fmt(&self, tk: &mut fmt::Formatter<'_>) -> fmt::Result {
-//         match self {
-//             TokenEnum::TkIdentifier => write(f, args)
-//         }
-//     }
-// }

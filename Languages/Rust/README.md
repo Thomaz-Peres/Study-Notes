@@ -1001,7 +1001,7 @@ We'll discuss external packages and the glob operator.
 
 ##### Modules Cheat Sheet
 
-We'll will show how modules, paths, `use`m pub work in the compiler.
+We'll will show how modules, paths, `use`, pub work in the compiler.
 
 Code within a module is private by default.
 
@@ -1994,7 +1994,7 @@ fn some_function<T, U>(t: &T, u: &U) -> i32
 where
     T: Display + Clone,
     U: Clone + Debug,
-{
+{}
 ```
 
 ##### Returning Types that implement Traits
@@ -2897,3 +2897,64 @@ So, we use `if let` to check wheter `run` return an `Err` value and call `proces
 The bodies of the if let and the unwrap_or_else functions are the same in both cases: we print the error and exit.
 
 ### Splitting Code into a Library Crate
+
+Now, we'll split the *src/main.rs* anmd put some code into *src/lib.rs*. That way we can test the conde and have a
+*src/main.rs* with fewer responsibilities.
+
+Let's move all the code that ins't the main function:
+
+- The `run` function definition
+- The relevant `use` statements
+- The definition of `Config`
+- The `Config::build` function definition
+
+The lib.rs
+
+```rust
+use std::error::Error;
+use std::fs;
+
+pub struct Config {
+    pub query: String,
+    pub file_path: String,
+}
+
+impl Config {
+    pub fn build(args: &[String]) -> Result<Config, &'static str> {
+        // --snip--
+    }
+}
+
+pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    // --snip--
+}
+```
+
+We've made liberal use of the `pub` keyword. We now have a library crate that has a public API we can test!.
+
+And the *main.rs* will looks like this:
+
+```rust
+use std::env;
+use std::process;
+
+use minigrep::Config;
+
+fn main() {
+    // --snip--
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.file_path);
+
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
+}
+```
+
+We add a `use minigrep::Config` line to bring the `Config` type from the library crate into the binary crate's scope
+
+
+# Working with environment Variables
+

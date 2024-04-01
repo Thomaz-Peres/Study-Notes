@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "744e35ebb149c31d",
+        "id": "ba0efad9440f822e",
         "type": "tabs",
         "children": [
           {
-            "id": "c999b7a34a8a9977",
+            "id": "612086a5805a42c2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Data_Structures/UnivespClasses/README.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Data_Structures/UnivespClasses/README.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Data_Structures/UnivespClasses/README.md",
+                "file": "Computer_Science/TypeTheory/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Data_Structures/UnivespClasses/README.md"
+                "file": "Computer_Science/TypeTheory/README.md"
               }
             }
           },
@@ -143,12 +143,13 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -165,47 +166,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c999b7a34a8a9977",
+  "active": "612086a5805a42c2",
   "lastOpenFiles": [
-    "Data_Structures/WithCsharp/LinkedList/Singly/LinkedList.cs",
-    "Data_Structures/WithCsharp/LinkedList/Singly",
-    "Data_Structures/WithCsharp/LinkedList",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/WithCsharp.AssemblyInfo.cs",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/WithCsharp.AssemblyInfoInputs.cache",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/WithCsharp.GeneratedMSBuildEditorConfig.editorconfig",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/WithCsharp.GlobalUsings.g.cs",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/ref",
-    "Data_Structures/WithCsharp/obj/Debug/net8.0/refint",
-    "Data_Structures/WithCsharp/bin/Debug/net8.0",
-    "Data_Structures/WithCsharp/bin/Debug",
-    "Data_Structures/UnivespClasses/Funções_De_Gerenciamentos.md",
+    "Computer_Science/TypeTheory/README.md",
+    "DotnetThings/SomeTests/obj/3de15e0f-702f-4353-9024-b01142845c58.tmp",
+    "DotnetThings/SomeTests/TypeTheory.cs",
+    "DotnetThings/SomeTests/ThreadTest copy.cs",
+    "Computer_Science/RuleOfInference.md",
+    "Computer_Science/TypeTheory/Some tests.md",
+    "Computer_Science/Threads_Processes.md",
+    "Computer_Science/Concurrency_Parallelism.md",
+    "Imgs/LensImge.png",
+    "Posts/1. - A simple way to running kubernetes locally with Kind (and Lens).md",
+    "Imgs/LensImge2.png",
+    "Imgs/Screenshot 2024-03-07 211517.png",
+    "Imgs/Screenshot 2024-03-07 211434.png",
+    "Imgs/Screenshot 2024-03-07 211210.png",
+    "Coursera_Course.Programming_Languages/Part A/Week 2/Options/README.md",
+    "Coursera_Course.Programming_Languages/README.md",
+    "Coursera_Course.Programming_Languages/Part A/README.md",
+    "Coursera_Course.Programming_Languages/Part A/Week 2/pairs-tuples/README.md",
+    "Imgs/Pasted image 20230108155934.png",
+    "Imgs/Screenshot 2024-03-07 210043.png",
+    "Imgs/Pasted image 20230108154435.png",
+    "README.md",
+    "Software_Foundations/README.md",
+    "Software_Foundations/Chapter_1/README.md",
+    "Software_Foundations/Book1/README.md",
+    "Languages/C#_Classes/README.md",
+    "Languages/C#_Classes/aula48/Recursividade.md",
+    "Posts",
     "Data_Structures/Data.Structures.md",
+    "Data_Structures/UnivespClasses/README.md",
     "Data_Structures/README.md",
     "Data.Structures.md",
     "Data.md",
-    "README.md",
-    "Data_Structures/UnivespClasses/README.md",
+    "Data_Structures/UnivespClasses/Funções_De_Gerenciamentos.md",
+    "Data_Structures/UnivespClasses",
     "Languages/C.md",
+    "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.3.rcgu.o",
+    "Rust/testes3.testes3.369a55da-cgu.1.rcgu.o",
     "Xamarin.Forms/Entendendo_O_Projeto.md",
     "Evitar_Excesso_de_Postagem.md",
-    "Orchestrator.md",
-    "Kubectl_Commands.md",
-    "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/Useful_Example_Of_Nested_Patterns.md",
-    "Programming Languages - Coursera/Part A/Week 3/Nested Patterns/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digression - Polymorphic Types and Equality Types/README.md",
-    "Programming Languages - Coursera/Part A/Week 2/ListsSML/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Digressions - Type inference/README.md",
-    "Programming Paradigms/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Pattern-Matching for Each-Of Types/README.md",
-    "Programming Languages - Coursera/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Polymorphic Dataypes/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Pattern Matching So Far/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Lists and Options are Datatypes/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Type Synonyms/README.md",
-    "Programming Languages - Coursera/Part A/Week 3/Case Expressions/README.md",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
-    "Pasted image 20230108155934.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

@@ -4,7 +4,6 @@ use std::fs;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    
     let (query, file_path) = parse_config(&args);
 
     println!("In file {}", file_path);
