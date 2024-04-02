@@ -155,6 +155,9 @@ Installing WSL ->
 
     cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
 
+    sudo chmod -R 700 .ssh
+    sudo chmod -R 600 .ssh/*
+
 
 Problably Optional ->
 
