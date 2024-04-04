@@ -1,0 +1,61 @@
+2024-04-04 02:12:43 Loading main app package /tmp/.mount_obsidi36MfWy/resources/obsidian.asar
+Ignored: Error: ENOENT: no such file or directory, open '/home/tomenos/.config/obsidian/obsidian.json'
+LaunchProcess: failed to execvp:
+xdg-settings
+[81484:0403/231243.532354:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81484:0403/231243.532531:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81484:0403/231243.532545:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81484:0403/231243.532554:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+2024-04-04 02:12:43 Checking for update using Github
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+2024-04-04 02:12:44 Success.
+2024-04-04 02:12:44 Latest version is 1.5.12
+2024-04-04 02:12:44 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/obsidian-1.5.12.asar.gz
+2024-04-04 02:12:48 Loading main app package /tmp/.mount_obsididt2AaZ/resources/obsidian.asar
+2024-04-04 02:12:48 Verifying hash & signature. Size= 8781526
+2024-04-04 02:12:48 Saving file
+[81562:0403/231248.743380:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81562:0403/231248.743463:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81562:0403/231248.743478:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81562:0403/231248.743490:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+2024-04-04 02:12:49 Checking for update using Github
+2024-04-04 02:12:49 Update complete.
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+2024-04-04 02:12:55 Loading updated app package /home/tomenos/.config/obsidian/obsidian-1.5.12.asar
+[81617:0403/231255.643814:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81617:0403/231255.643885:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81617:0403/231255.643898:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81617:0403/231255.643907:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+2024-04-04 02:12:55 Checking for update using Github
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+2024-04-04 02:15:59 Loading updated app package /home/tomenos/.config/obsidian/obsidian-1.5.12.asar
+Ignored: Error: ENOENT: no such file or directory, open '/home/tomenos/.config/obsidian/obsidian.json'
+LaunchProcess: failed to execvp:
+xdg-settings
+[81676:0403/231559.829224:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81676:0403/231559.829300:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81676:0403/231559.829313:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81676:0403/231559.829322:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+2024-04-04 02:16:00 Checking for update using Github
+2024-04-04 02:16:00 Success.
+2024-04-04 02:16:00 Latest version is 1.5.12
+2024-04-04 02:16:00 App is up to date.
+2024-04-04 02:17:23 Loading updated app package /home/tomenos/.config/obsidian/obsidian-1.5.12.asar
+Ignored: Error: ENOENT: no such file or directory, open '/home/tomenos/.config/obsidian/obsidian.json'
+LaunchProcess: failed to execvp:
+xdg-settings
+[81821:0403/231723.960779:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81821:0403/231723.960834:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81821:0403/231723.960843:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[81821:0403/231723.960851:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/user/1000/bus: No such file or directory
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+libEGL warning: egl: failed to create dri2 screen
+2024-04-04 02:17:24 Checking for update using Github
+2024-04-04 02:17:24 Success.
+2024-04-04 02:17:24 Latest version is 1.5.12
+2024-04-04 02:17:24 App is up to date.
