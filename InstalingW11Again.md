@@ -52,7 +52,7 @@ Set-Alias lvim 'C:\Users\name\.local\bin\lvim.ps1'
 # See https://ch0.co/tab-completion for details.
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+    Import-Module "$ChocolateyProfile"
 }
 ```
 
@@ -74,6 +74,11 @@ SSH ->
             ssh-add c:/Users/YOU/.ssh/id_ed25519
 
     2. Linux (wsl) ->
+
+            cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
+
+            sudo chmod -R 700 .ssh
+            sudo chmod -R 600 .ssh/*
 
             $ eval "$(ssh-agent -s)"
 
@@ -98,7 +103,6 @@ Install SQL ->
     By Docker.
 
     And Azure Data Studio
-
 
 Installing WSL ->
 
@@ -135,10 +139,10 @@ Installing WSL ->
     add in .zshrc -> source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
     Normally I do
-        yay -S bat exa procs dust tokei utop tealdeer grex rmesg zoxide
+        yay -S bat exa procs dust tokei htop tealdeer grex rmesg zoxide
 
     Or with cargo:
-        cargo install bat exa procs dust tokei ytop tealdeer grex rmesg zoxide delta
+        cargo install bat exa procs dust tokei htop tealdeer grex rmesg zoxide delta
 
     After this, the aliases:
 
@@ -153,15 +157,8 @@ Installing WSL ->
         ls /opt/asdf-vm
         source /opt/asdf-vm/asdf.sh
 
-    cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
-
-    sudo chmod -R 700 .ssh
-    sudo chmod -R 600 .ssh/*
-
-
 Problably Optional ->
 
     https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=github%2Cblob-storage
-
 
 After all this, let's install docker on windows normally, and after this in WSL, use `yay -S docker`
