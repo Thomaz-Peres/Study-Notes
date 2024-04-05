@@ -120,7 +120,10 @@ Installing WSL ->
     After yay
 
     You can install with pacman too, the zsh, whatever.
-    yay -S zsh asdf-vm open-ssh
+    yay -S zsh asdf-vm open-ssh bat exa procs tokei htop tealdeer grex rmesg zoxide neofetch
+
+    For the plugins after `open-ssh`, you can use cargo:
+        cargo install bat exa procs tokei htop tealdeer grex rmesg zoxide delta
 
     Change shell bash to zsh -> chsh -s /usr/bin/zsh
 
@@ -140,11 +143,6 @@ Installing WSL ->
 
     add in .zshrc -> source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-    Normally I do
-        yay -S bat exa procs tokei htop tealdeer grex rmesg zoxide
-
-    Or with cargo:
-        cargo install bat exa procs tokei htop tealdeer grex rmesg zoxide delta
 
     After this, the aliases:
 
