@@ -80,9 +80,10 @@ SSH ->
             sudo chmod -R 700 .ssh
             sudo chmod -R 600 .ssh/*
 
-            $ eval "$(ssh-agent -s)"
+            eval "$(ssh-agent -s)"
 
             ssh-add ~/.ssh/id_ed25519
+            ssh -T git@github.com
 
 Dotnet ->
 
@@ -118,7 +119,8 @@ Installing WSL ->
 
     After yay
 
-    yay -S zsh
+    You can install with pacman too, the zsh, whatever.
+    yay -S zsh asdf-vm open-ssh
 
     Change shell bash to zsh -> chsh -s /usr/bin/zsh
 
@@ -139,10 +141,10 @@ Installing WSL ->
     add in .zshrc -> source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
     Normally I do
-        yay -S bat exa procs dust tokei htop tealdeer grex rmesg zoxide
+        yay -S bat exa procs tokei htop tealdeer grex rmesg zoxide
 
     Or with cargo:
-        cargo install bat exa procs dust tokei htop tealdeer grex rmesg zoxide delta
+        cargo install bat exa procs tokei htop tealdeer grex rmesg zoxide delta
 
     After this, the aliases:
 
@@ -150,8 +152,7 @@ Installing WSL ->
     alias bat="bat --style=auto"
     alias code="code-insiders"
 
-    Installing asdf
-        yay -S asdf-vm
+    Configuring asdf
 
         ls /opt
         ls /opt/asdf-vm
