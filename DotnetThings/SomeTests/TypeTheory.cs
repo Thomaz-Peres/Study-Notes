@@ -65,3 +65,6 @@ Console.WriteLine(result);
 Func<int, int> lambdaTerm2 = v => v;
 int result4 = lambdaTerm2(5);
 Console.WriteLine(result4);
+
+
+// the lambda something like this: (λx y.mult x y) nat -> nat

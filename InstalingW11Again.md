@@ -155,6 +155,9 @@ Installing WSL ->
         ls /opt
         ls /opt/asdf-vm
         source /opt/asdf-vm/asdf.sh
+		
+		put this in .zshrc (yes I forget) source /opt/asdf-vm/asdf.sh
+		
 
 Problably Optional ->
 
