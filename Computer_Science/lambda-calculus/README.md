@@ -17,6 +17,35 @@ The reduction operation include:
 - $(\lambda x.M[x]) \to (\lambda y.M[y])$: $\alpha$-conversion,  renaming the bound variables in the expression. Used to avoid name collisions.
 - $((\lambda x.M) N) \to (M [x := N])$: $\beta$-reduction, replacing the bound variables with the argument expression in the body of the abstraction.
 
+
+## Motivation
+
+Lambda calculus treats functions "anonymously". It does not give them explicit names. For example, the function:
+
+$square_sum(x, y) = x^2 + y^2$
+
+Can be rewritten in *anonymous* form as
+
+$(x, y) \mapsto  x^2 + y^2$
+
+(Is read as "a tuple of $x$ and $y$ is mapped to $x^2 + y^2$).
+Similarly, the function
+
+$id(x) = x$
+
+can be rewritten in *anonymous* for as
+
+$x \mapsto x$
+
+Where the input is simply mapped to itself.
+
+The lambda calculus only uses functions of a single input. When a function requires two inputs, example the **square_sum** function, we can rework in a function, that receive a single input, and the output return *another* function, that it turn accepts a single input. For example,
+$(x, y) \mapsto x^2 + y^2$
+
+can be reworked into
+
+$x \mapsto (y \mapsto x^2 + y^2)$
+
 ## Lambda terms
 
 The following three rules give an inductive definition that can be applied to build all syntactically valid lambda terms:
