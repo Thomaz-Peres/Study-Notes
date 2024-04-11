@@ -10,7 +10,7 @@ pub struct Scanner {
 
 impl Scanner {
 
-    pub fn new(filename: &String) -> Self {
+    pub fn new(filename: &String) -> Scanner {
         let binding = fs::read(filename).expect("Unable to read the file");
         let txt_content = String::from_utf8_lossy(&binding);
         let content: Vec<char> = txt_content.chars().collect();
@@ -19,7 +19,7 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    pub fn next_token(&mut self) -> Result<Token, &'static str> {
+    pub fn next_token<'a>(&mut self) -> Result<Token, &'static str> {
         if self.is_end() {
             return Err("Token not found");
         }

@@ -14,8 +14,8 @@ pub enum TokenEnum {
 }
 
 impl Token {
-    pub fn new_token(token_id: TokenEnum, string: String) -> Self {
-        Self { token_id, string}
+    pub fn new_token(token_id: TokenEnum, string: String) -> Token {
+        Token { token_id, string}
     }
 
     pub fn set_type(token_id: TokenEnum) -> Self {
@@ -32,8 +32,8 @@ impl Token {
         }
     }
 
-    pub fn get_type(self) -> TokenEnum {
-        self.token_id
+    pub fn get_type(&self) -> &TokenEnum {
+        &self.token_id
     }
 
     pub fn set_text(&mut self, string : String) {
