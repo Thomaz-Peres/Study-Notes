@@ -19,7 +19,7 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    pub fn next_token<'a>(&mut self) -> Result<Token, &'static str> {
+    pub fn next_token(&'static mut self) -> Result<Token, &'static str> {
         if self.is_end() {
             return Err("Token not found");
         }
