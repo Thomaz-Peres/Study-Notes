@@ -3,17 +3,17 @@ use crate::{
     Scanner,
 };
 
-pub struct Parser<'a> {
-    scanner: &'a Scanner,
-    current_token: &'a Token,
+pub struct Parser {
+    scanner: Scanner,
+    current_token: Token,
 }
 
-impl<'a> Parser<'a> {
+impl Parser {
     // O parser recebe o scanner (analisador lexico) como parametro pois a cada procedimento,
     // invoca-o sob demanda.
-    pub fn new(scanner: &'a Scanner, current_token: &'a Token) -> Parser<'a> {
+    pub fn new(scanner: &Scanner, current_token: Token) -> Parser {
         Parser {
-            scanner: scanner,
+            scanner: scanner.clone(),
             current_token: current_token
         }
     }

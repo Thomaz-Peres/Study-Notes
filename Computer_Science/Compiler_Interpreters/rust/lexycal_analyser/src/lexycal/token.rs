@@ -4,7 +4,7 @@ pub struct Token {
     string: String,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TokenEnum {
     TkIdentifier,
     TkNumber,
