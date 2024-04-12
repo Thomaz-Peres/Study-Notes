@@ -10,10 +10,12 @@ fn main() {
 
     // print!("{filename}");
     let mut scan = Scanner::new();
-    print!("{:?}", scan.next_token());
+    // print!("{:?}", scan.);
     let x = scan.next_token().unwrap();
-    let _parser = Parser::new(&scan, x);
+    // print!("{:?}", x);
+    let _parser = Parser::new(&scan.clone(), &scan.clone().next_token().unwrap());
 
+    _parser.e();
     loop {
         let token = scan.next_token().expect("teste");
         println!("{:?}" ,token);
@@ -25,7 +27,7 @@ fn main() {
     // let mut some_while: bool = false;
 
     // while some_while == false {
-    //     let token = scanner.next_token();
+    //     let token = scan.next_token();
     //     if !token.is_none() {
     //         println!("{:?}" ,token);
     //     } else if token.is_none() {

@@ -17,10 +17,9 @@ impl Scanner {
         Scanner { content: content, estado: 0, pos: 0 }
     }
 
-    // pub fn next_token(&mut self) -> Result<Token, &'static str> {
-    pub fn next_token(&mut self) -> Option<Token> {
+    pub fn next_token(&mut self) -> Result<Token, &'static str> {
         if self.is_end() {
-            return None;
+            return Err("Token not found");
         }
 
         // let token;
@@ -42,7 +41,8 @@ impl Scanner {
                     } else if self.is_operator(current_char) {
                         self.estado = 5;
                     } else {
-                        return None;
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 1 => {
@@ -52,13 +52,14 @@ impl Scanner {
                     } else if self.is_space(current_char) || self.is_operator(current_char) {
                         self.estado = 2;
                     } else {
-                        return None;
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 2 => {
                     self.back();
                     let token = Token::new_token(TokenEnum::TkIdentifier, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 3 => {
                     if self.is_digit(current_char) {
@@ -67,25 +68,26 @@ impl Scanner {
                     } else if !self.is_char(current_char) {
                         self.estado = 4;
                     } else {
-                        return None;
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 4 => {
                     self.back();
                     let token = Token::new_token(TokenEnum::TkNumber, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 5 => {
                     term.push(current_char);
                     let token = Token::new_token(TokenEnum::TkOperator, term);
-                    return Some(token);
+                    return Ok(token);
                 }
                 _ => {
-                    return None;
+                    continue;
+                    // return Err("Token state not found");
                 }
             }
         }
-        None
     }
 
     fn is_digit(&self, c: char) -> bool {
@@ -104,7 +106,10 @@ impl Scanner {
         c == ' ' || c == '\t' || c == '\n' || c == '\r'
     }
 
-    pub fn next_char(&mut self) -> char {
+    pub fn next_char(&self) -> char {
+        if self.is_end() {
+            return '\0';
+        }
         *self.content.get(self.pos).unwrap()
     }
 
