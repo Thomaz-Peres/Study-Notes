@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ba0efad9440f822e",
+        "id": "7b1865b818efa7d5",
         "type": "tabs",
         "children": [
           {
-            "id": "612086a5805a42c2",
+            "id": "1ecf6da57590bec5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Computer_Science/lambda-calculus/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Computer_Science/lambda-calculus/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md",
+                "file": "Computer_Science/lambda-calculus/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer_Science/TypeTheory/README.md"
+                "file": "Computer_Science/lambda-calculus/README.md"
               }
             }
           },
@@ -167,8 +167,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "612086a5805a42c2",
+  "active": "1ecf6da57590bec5",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Computer_Science/lambda-calculus/README.md",
+    "InstalingW11Again.md",
     "Computer_Science/TypeTheory/README.md",
     "DotnetThings/SomeTests/obj/3de15e0f-702f-4353-9024-b01142845c58.tmp",
     "DotnetThings/SomeTests/TypeTheory.cs",
@@ -210,8 +213,6 @@
     "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.3.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.1.rcgu.o",
-    "Xamarin.Forms/Entendendo_O_Projeto.md",
-    "Evitar_Excesso_de_Postagem.md",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Untitled 1.canvas",

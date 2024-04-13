@@ -67,3 +67,5 @@ int result4 = lambdaTerm2(5);
 Console.WriteLine(result4);
 
 // (λv x.t v) -> t
+
+// the lambda something like this: (λx y.mult x y) nat -> nat

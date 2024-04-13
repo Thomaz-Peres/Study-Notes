@@ -1,7 +1,7 @@
 use std::fs;
-
 use super::token::{Token, TokenEnum};
 
+#[derive(Debug, Clone)]
 pub struct Scanner {
     content: Vec<char>,
     estado: i32,
@@ -9,12 +9,10 @@ pub struct Scanner {
 }
 
 impl Scanner {
-
-    pub fn new(filename: &String) -> Self {
-        let binding = fs::read(filename).expect("Unable to read the file");
+    pub fn new() -> Scanner {
+        let binding = &fs::read("input.isi").expect("Unable to read the file");
         let txt_content = String::from_utf8_lossy(&binding);
         let content: Vec<char> = txt_content.chars().collect();
-        println!("{:?}", content);
 
         Scanner { content: content, estado: 0, pos: 0 }
     }
@@ -43,7 +41,8 @@ impl Scanner {
                     } else if self.is_operator(current_char) {
                         self.estado = 5;
                     } else {
-                        return Err("Token state not found");
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 1 => {
@@ -53,7 +52,8 @@ impl Scanner {
                     } else if self.is_space(current_char) || self.is_operator(current_char) {
                         self.estado = 2;
                     } else {
-                        return Err("Token state not found");
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 2 => {
@@ -68,7 +68,8 @@ impl Scanner {
                     } else if !self.is_char(current_char) {
                         self.estado = 4;
                     } else {
-                        return Err("Token state not found");
+                        continue;
+                        // return Err("Token state not found");
                     }
                 }
                 4 => {
@@ -82,7 +83,8 @@ impl Scanner {
                     return Ok(token);
                 }
                 _ => {
-                    return Err("Token state not found");
+                    continue;
+                    // return Err("Token state not found");
                 }
             }
         }
@@ -104,7 +106,10 @@ impl Scanner {
         c == ' ' || c == '\t' || c == '\n' || c == '\r'
     }
 
-    pub fn next_char(&mut self) -> char {
+    pub fn next_char(&self) -> char {
+        if self.is_end() {
+            return '\0';
+        }
         *self.content.get(self.pos).unwrap()
     }
 
