@@ -65,3 +65,5 @@ Console.WriteLine(result);
 Func<int, int> lambdaTerm2 = v => v;
 int result4 = lambdaTerm2(5);
 Console.WriteLine(result4);
+
+// (λv x.t v) -> t
