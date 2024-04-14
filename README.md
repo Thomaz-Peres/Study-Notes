@@ -4,7 +4,7 @@
 
 #### This repository as a purpose, to leave some notes regardin my studies in the technology, in each folder ther will be README explained how to works, and with all classes/notes about the explained. Oh, and can safe somethings I forget, but a few days I started to use more the github gist.
 
-- [Computert Science fundamentals](/Computer_Science_Fundamentals/)
+- [Computert Science fundamentals](/Computer_Science/)
 
 - [Coursera Course (Programming Languages)](/Coursera_Course.Programming_Languages/)
 
