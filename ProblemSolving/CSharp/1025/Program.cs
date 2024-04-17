@@ -7,11 +7,11 @@ public class Marmore
     public static void Main(string[] args) 
     {
         int cont = 0;
-        int n = 0;
-        int q = 0;
+        int n;
+        int q;
         do
         {
-            string[] linha = Console.ReadLine().Split(new char[] { ' ' });
+            string?[] linha = Console.ReadLine().Split(' ');
 
             n = Convert.ToInt32(linha[0]);
             q = Convert.ToInt32(linha[1]);
@@ -27,16 +27,10 @@ public class Marmore
                 if (x < n)
                     mables[x] = int.Parse(Console.ReadLine());
                 else
-                {
                     searchsMeena[x - n] = int.Parse(Console.ReadLine());
-                }
             }
 
-            // como os numeros estao ordenados, eu pego o numero que quero procurar, e verifico se existe antes ou depois.
-            // dar uma olhada nas aulas de C que fiz sobre estrutura de dados e algoritmos
             Console.WriteLine($"CASE# {cont + 1}:");
-            Array.Sort(mables);
-            Array.Sort(searchsMeena);
             foreach (var item in searchsMeena)
             {
                 var findPos = Array.BinarySearch(mables, item);
