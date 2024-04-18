@@ -46,7 +46,7 @@ impl Scanner {
                     }
                 }
                 1 => {
-                    if self.is_char(current_char) || self.is_digit(current_char) {
+                    if self.is_char(current_char) || self.is_digit(current_char) || self.is_char_end(current_char) {
                         term.push(current_char);
                         self.estado = 1;
                     } else if self.is_space(current_char) || self.is_operator(current_char) {
@@ -115,6 +115,10 @@ impl Scanner {
 
     fn is_end(&self) -> bool {
         self.pos == self.content.len()
+    }
+
+    fn is_char_end(&self, c: char) -> bool {
+        c == '\0'
     }
 
     pub fn back(&mut self) {
