@@ -44,10 +44,10 @@ public class SinglyList<T>
         if (Head == null)
             return default;
 
-        var tempElement = Head;
-
         if (index < 0)
             throw new ArgumentOutOfRangeException(nameof(index));
+
+        var tempElement = Head;
 
         for (int i = 0; tempElement != null && i < index; i++)
         {
