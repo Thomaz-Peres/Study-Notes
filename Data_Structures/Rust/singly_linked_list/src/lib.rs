@@ -59,7 +59,3 @@ impl<T> SinglyList<T> {
         }
     }
 }
-
-fn main() {
-    print!("Hello World!");
-}
