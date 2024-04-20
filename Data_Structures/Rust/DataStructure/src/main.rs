@@ -5,7 +5,7 @@ struct SinglyListNode<T> {
 
 impl<T> SinglyListNode<T> {
     fn new(data: T) -> SinglyListNode<T> {
-        SinglyListNode { data, next: None }
+        Self { data, next: None }
     }
 }
 
@@ -22,40 +22,41 @@ impl<T> SinglyList<T> {
         SinglyListNode::new(data)
     }
 
-    pub fn add_last(&mut self, data: T)  {
+    pub fn add_last(&mut self, data: T) {
         let new_element = Box::new(SinglyListNode::new(data));
 
-        if let Some(ref mut head) = self.head {
-            let mut temp_element = head;
-            while let Some(ref mut next_node) = temp_element.next {
-                temp_element = next_node;
-            }
+        match self.head.take() {
+            None => {
+                self.head = Some(new_element);
+                // Some(self.head)
+            },
+            Some(mut temp_element) => {
+                while let Some(next_node) = temp_element.next {
+                    temp_element = next_node
+                }
 
-            temp_element.next = Some(new_element);
-        } else {
-            self.head = Some(new_element);
+                temp_element.next = Some(new_element);
+                // Some(new_element)
+            }
         }
     }
 
-    pub fn get_index(&self, index: i32) -> () {
+    pub fn get_index(&mut self, index: i32) -> Option<&T> {
         if index < 0 {
             ()
         }
 
-        if let Some(ref head) = self.head {
-            let mut temp_element = head;
-            let mut i = 0;
-            while let Some(ref mut current) = temp_element {
-                if i >= index {
-                    break;
+        match self.head.as_mut() {
+            None => None,
+            Some(mut temp_element) => {
+                let mut i: i32 = 0;
+                while i < index {
+                    temp_element = temp_element.next.as_mut().unwrap();
+                    i += 1;
                 }
-
-                temp_element = &mut current.next();
+                Some(&temp_element.data)
             }
-
         }
-
-
     }
 }
 
