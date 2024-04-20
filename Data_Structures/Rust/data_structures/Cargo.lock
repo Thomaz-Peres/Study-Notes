@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "singly_linked_list"
+name = "data_structures"
 version = "0.1.0"
