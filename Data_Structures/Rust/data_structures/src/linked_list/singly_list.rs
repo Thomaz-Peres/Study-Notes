@@ -18,10 +18,6 @@ impl<T> Head<T> {
         Self { head: None }
     }
 
-    // pub fn start_list(data: T) -> SinglyListNode<T> {
-    //     SinglyListNode::new(data)
-    // }
-
     pub fn add_last(&mut self, data: T) {
         let new_element = Box::new(SinglyListNode::new(data));
 
@@ -36,6 +32,7 @@ impl<T> Head<T> {
                 }
 
                 temp_element.next = Some(new_element);
+                self.head = Some(temp_element);
                 // Some(new_element)
             }
         }
@@ -60,21 +57,17 @@ impl<T> Head<T> {
     }
 }
 
-// impl<T> Default for Head<T> {
-//     fn default() -> Self {
-//         Self::new()
-//     }
-// }
-
-
 #[cfg(test)]
 mod test_singly_list {
     use super::*;
 
     #[test]
     fn basics() {
-        let mut list: Head<i32> = Head::new();
-        // list.add_last(5);
-        assert_eq!(list.get_index(1), None);
+        let mut list = Head::new();
+        list.add_last(5);
+        list.add_last(10);
+        // assert_eq!(list.get_index(1), None);
+        assert_eq!(list.get_index(0), Some(&5));
+        assert_eq!(list.get_index(1), Some(&10));
     }
 }
