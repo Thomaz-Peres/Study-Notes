@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct SinglyListNode<T> {
     pub data: T,
     pub next: Option<Box<SinglyListNode<T>>>,
@@ -9,6 +10,7 @@ impl<T> SinglyListNode<T> {
     }
 }
 
+#[derive(Debug)]
 pub struct Head<T> {
     head: Option<Box<SinglyListNode<T>>>,
 }
@@ -19,21 +21,17 @@ impl<T> Head<T> {
     }
 
     pub fn add_last(&mut self, data: T) {
-        let new_element = Box::new(SinglyListNode::new(data));
+        let new_element = Some(Box::new(SinglyListNode::new(data)));
 
-        match self.head.take() {
+        match self.head.as_mut() {
             None => {
-                self.head = Some(new_element);
-                // Some(self.head)
+                self.head = new_element;
             },
             Some(mut temp_element) => {
-                while let Some(next_node) = temp_element.next {
-                    temp_element = next_node
+                while let Some(ref mut next_node) = temp_element.next {
+                    temp_element = next_node;
                 }
-
-                temp_element.next = Some(new_element);
-                self.head = Some(temp_element);
-                // Some(new_element)
+                temp_element.next = new_element;
             }
         }
     }
@@ -55,6 +53,20 @@ impl<T> Head<T> {
             }
         }
     }
+
+    pub fn get_lenght(&mut self) -> i32 {
+        match self.head.take() {
+            None => 0,
+            Some(mut element) => {
+                let mut lenght = 1;
+                while let Some(next) = element.next {
+                    element = next;
+                    lenght += 1;
+                }
+                lenght
+            }
+        }
+    }
 }
 
 #[cfg(test)]
@@ -62,12 +74,36 @@ mod test_singly_list {
     use super::*;
 
     #[test]
-    fn basics() {
-        let mut list = Head::new();
+    fn basics_i32() {
+        let mut list: Head::<i32> = Head::new();
         list.add_last(5);
         list.add_last(10);
-        // assert_eq!(list.get_index(1), None);
+        list.add_last(11);
         assert_eq!(list.get_index(0), Some(&5));
         assert_eq!(list.get_index(1), Some(&10));
+        assert_eq!(list.get_index(2), Some(&11));
+    }
+
+    #[test]
+    fn basics_string() {
+        let mut list: Head::<String> = Head::new();
+
+        list.add_last("ABC".to_string());
+        list.add_last("123".to_string());
+        list.add_last("Teste".to_string());
+
+        assert_eq!(list.get_index(0), Some(&"ABC".to_string()));
+        assert_eq!(list.get_index(1), Some(&"123".to_string()));
+        assert_eq!(list.get_index(2), Some(&"Teste".to_string()));
+    }
+
+    #[test]
+    fn get_lenght() {
+        let mut list = Head::new();
+        list.add_last(5);
+        list.add_last(6);
+        list.add_last(7);
+        list.add_last(8);
+        assert_eq!(list.get_lenght(), 2);
     }
 }
