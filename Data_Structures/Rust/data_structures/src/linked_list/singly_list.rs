@@ -6,7 +6,10 @@ struct SinglyListNode<T> {
 
 impl<T> SinglyListNode<T> {
     fn new(data: T) -> SinglyListNode<T> {
-        Self { data, next: None }
+        Self {
+            data: data,
+            next: None,
+        }
     }
 }
 
@@ -15,7 +18,7 @@ pub struct Head<T> {
     head: Option<Box<SinglyListNode<T>>>,
 }
 
-impl<T> Head<T> {
+impl<T: PartialEq> Head<T> {
     pub fn new() -> Self {
         Self { head: None }
     }
@@ -26,7 +29,7 @@ impl<T> Head<T> {
         match self.head.as_mut() {
             None => {
                 self.head = new_element;
-            },
+            }
             Some(mut temp_element) => {
                 while let Some(ref mut next_node) = temp_element.next {
                     temp_element = next_node;
@@ -67,6 +70,39 @@ impl<T> Head<T> {
             }
         }
     }
+
+    // pub fn delete_element(&mut self, delete_data: T) -> bool {
+    //     let mut current = temp_element;
+    //     while let Some(ref mut node) = current.next {
+    //         if current.data.is_some() && current.data.unwrap() == delete_data {
+    //             if current.data == self.head.unwrap().data {
+    //                 self.head = self.head.unwrap().next;
+    //                 return true;
+    //             }
+
+    //             if temp_element.data.is_some() {
+    //                 temp_element.next = current.next;
+    //                 return true;
+    //             }
+    //         }
+    //     }
+
+    //     true
+    // }
+
+    pub fn delete(&mut self, delete: T) {
+        let mut current = &mut self.head;
+        while let Some(ref mut node) = current {
+            match &node.data {
+                data => {
+                    if *data == delete {
+                        self.head.unwrap().data = self.head.unwrap().next.unwrap().data;
+                    }
+                }
+            }
+            current = &mut node.next;
+        }
+    }
 }
 
 #[cfg(test)]
@@ -75,7 +111,7 @@ mod test_singly_list {
 
     #[test]
     fn basics_i32() {
-        let mut list: Head::<i32> = Head::new();
+        let mut list: Head<i32> = Head::new();
         list.add_last(5);
         list.add_last(10);
         list.add_last(11);
@@ -86,7 +122,7 @@ mod test_singly_list {
 
     #[test]
     fn basics_string() {
-        let mut list: Head::<String> = Head::new();
+        let mut list: Head<String> = Head::new();
 
         list.add_last("ABC".to_string());
         list.add_last("123".to_string());
