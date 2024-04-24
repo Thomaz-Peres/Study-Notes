@@ -71,36 +71,19 @@ impl<T: PartialEq> Head<T> {
         }
     }
 
-    // pub fn delete_element(&mut self, delete_data: T) -> bool {
-    //     let mut current = temp_element;
-    //     while let Some(ref mut node) = current.next {
-    //         if current.data.is_some() && current.data.unwrap() == delete_data {
-    //             if current.data == self.head.unwrap().data {
-    //                 self.head = self.head.unwrap().next;
-    //                 return true;
-    //             }
-
-    //             if temp_element.data.is_some() {
-    //                 temp_element.next = current.next;
-    //                 return true;
-    //             }
-    //         }
-    //     }
-
-    //     true
-    // }
-
-    pub fn delete(&mut self, delete: T) {
+    pub fn remove(&mut self, v: T) -> bool {
         let mut current = &mut self.head;
-        while let Some(ref mut node) = current {
-            match &node.data {
-                data => {
-                    if *data == delete {
-                        self.head.unwrap().data = self.head.unwrap().next.unwrap().data;
-                    }
+        loop {
+            match current {
+                None => return false,
+                Some(node) if node.data == v => {
+                    *current = node.next.take();
+                    return true;
+                },
+                Some(node) => {
+                    current = &mut node.next;
                 }
             }
-            current = &mut node.next;
         }
     }
 }
@@ -141,5 +124,17 @@ mod test_singly_list {
         list.add_last(7);
         list.add_last(8);
         assert_eq!(list.get_lenght(), 2);
+    }
+
+    #[test]
+    fn remove_data() {
+        let mut list = Head::new();
+        list.add_last(5);
+        list.add_last(6);
+        list.add_last(7);
+        list.add_last(8);
+        assert_eq!(list.remove(7), true);
+        assert_eq!(list.remove(10), false);
+        assert_eq!(list.get_lenght(), 3);
     }
 }
