@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7b1865b818efa7d5",
+        "id": "8102df38f802850d",
         "type": "tabs",
         "children": [
           {
-            "id": "1ecf6da57590bec5",
+            "id": "9351d326c2885245",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer_Science/lambda-calculus/README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -48,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"aliases\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,8 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -94,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/lambda-calculus/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/lambda-calculus/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Computer_Science/lambda-calculus/README.md"
-              }
+              "state": {}
             }
           },
           {
@@ -150,12 +141,12 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 206.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -167,10 +158,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1ecf6da57590bec5",
+  "active": "9351d326c2885245",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Languages/C.md",
+    "2024-05-19.md",
     "Computer_Science/lambda-calculus/README.md",
+    "Untitled.md",
     "InstalingW11Again.md",
     "Computer_Science/TypeTheory/README.md",
     "DotnetThings/SomeTests/obj/3de15e0f-702f-4353-9024-b01142845c58.tmp",
@@ -205,9 +198,7 @@
     "Data_Structures/README.md",
     "Data.Structures.md",
     "Data.md",
-    "Data_Structures/UnivespClasses/Funções_De_Gerenciamentos.md",
     "Data_Structures/UnivespClasses",
-    "Languages/C.md",
     "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
