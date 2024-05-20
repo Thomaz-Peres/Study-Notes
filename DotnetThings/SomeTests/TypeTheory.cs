@@ -69,3 +69,21 @@ Console.WriteLine(result4);
 // (λv x.t v) -> t
 
 // the lambda something like this: (λx y.mult x y) nat -> nat
+
+var teste = () => {
+    var teste = () => {
+      var teste = () => {
+          var teste = () => {
+              return "teste4";
+          };
+          Console.WriteLine(teste.Invoke());
+          return "teste3";
+      };
+      Console.WriteLine(teste.Invoke());
+      return "teste2";
+    };
+    Console.WriteLine(teste.Invoke());
+    return "teste";
+};
+
+Console.WriteLine(teste.Invoke());
