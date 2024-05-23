@@ -1,17 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public class Marmore
 {
-    public static void Main(string[] args)
+    public static void Main(string[] args) 
     {
         int cont = 0;
         int n;
         int q;
         do
         {
-            string? linha = Console.ReadLine();
+            string?[] linha = Console.ReadLine().Split(' ');
 
-            string[] linha2 = linha?.Split(' ');
-            n = Convert.ToInt32(linha2?[0]);
-            q = Convert.ToInt32(linha2?[1]);
+            n = Convert.ToInt32(linha[0]);
+            q = Convert.ToInt32(linha[1]);
 
             if (q == 0 && n == 0)
                 return;
@@ -22,22 +25,15 @@ public class Marmore
             for (int x = 0; x < (n + q); x++)
             {
                 if (x < n)
-                {
-                    string? x1 = Console.ReadLine();
-                    mables[x] = int.Parse(x1 ?? throw new ArgumentException("Value cannot be null"));
-                }
+                    mables[x] = int.Parse(Console.ReadLine());
                 else
-                {
-                    string? meena = Console.ReadLine();
-                    searchsMeena[x - n] = int.Parse(meena ?? throw new ArgumentException("Value cannot be null"));
-                }
+                    searchsMeena[x - n] = int.Parse(Console.ReadLine());
             }
 
             Console.WriteLine($"CASE# {cont + 1}:");
-            Array.Sort(mables);
             foreach (var item in searchsMeena)
             {
-                var findPos = Array.IndexOf(mables, item);
+                var findPos = Array.BinarySearch(mables, item);
 
                 if (findPos == -1)
                     Console.WriteLine($"{item} not found");
