@@ -4,6 +4,28 @@ namespace Tests.LinkedListTests.SinglyList;
 
 public static class SinglyListTests
 {
+    [Fact(DisplayName = "Append")]
+    public static void AppendList()
+    {
+        // Arrange
+        var newList = new SinglyList<int>();
+
+        var x = newList.Append(default, 1);
+        var z = newList.Append(x, 2);
+
+        Console.WriteLine(x);
+        Console.WriteLine(z);
+
+        // Act
+        // for (int i = 2; i < 100; i++)
+        // {
+        //     newList.AddLast(i);
+        // }
+
+        // Assert
+        // Assert.Equal(100, newList.GetLenght());
+    }
+
     [Fact]
     public static void IntLinkedList()
     {

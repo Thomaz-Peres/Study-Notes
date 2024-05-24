@@ -2,15 +2,25 @@ namespace DataStructure.LinkedList.Singly;
 
 public record SinglyListNode<T>
 {
-    public SinglyListNode(T data) =>
+    public SinglyListNode(T data, SinglyListNode<T>? next = default) {
         Data = data;
+        Next = next;
+    }
 
     public T Data { get; set; }
     public SinglyListNode<T>? Next { get; set; }
 }
 
+// public static class SinglyList<T> {
+//     public static SinglyListNode<T> Append (this SinglyListNode<T>, T data) =>
+//         new SinglyListNode<T>(data);
+// }
+
 public class SinglyList<T>
 {
+    public SinglyListNode<T> Append(SinglyListNode<T> list, T data) =>
+        new SinglyListNode<T>(data, list);
+
     private SinglyListNode<T>? Head { get; set; }
 
     public SinglyListNode<T> StartList(T data)
