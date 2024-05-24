@@ -8,22 +8,33 @@ public static class SinglyListTests
     public static void AppendList()
     {
         // Arrange
-        var newList = new SinglyList<int>();
+        var newList = new SinglyListNode<int>(0);
 
-        var x = newList.Append(default, 1);
-        var z = newList.Append(x, 2);
-
-        Console.WriteLine(x);
-        Console.WriteLine(z);
+        newList = newList.Append(1).Append(2);
+        Console.WriteLine(newList);
 
         // Act
-        // for (int i = 2; i < 100; i++)
-        // {
-        //     newList.AddLast(i);
-        // }
+        for (int i = 2; i < 100; i++)
+        {
+            newList = newList.Append(i);
+        }
 
         // Assert
         // Assert.Equal(100, newList.GetLenght());
+    }
+
+    [Fact(DisplayName = "Map")]
+    public static void Map()
+    {
+        // Arrange
+        var newList = new SinglyListNode<int>(0);
+
+        newList = newList.Append(1).Append(2);
+        Console.WriteLine($"Sem Map {newList} \n\n");
+        Console.WriteLine($"Com Map {newList.Map(x => x + 1)} \n\n");
+
+        // Assert
+        Assert.True(true);
     }
 
     [Fact]

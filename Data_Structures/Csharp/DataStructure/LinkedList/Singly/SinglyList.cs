@@ -2,7 +2,8 @@ namespace DataStructure.LinkedList.Singly;
 
 public record SinglyListNode<T>
 {
-    public SinglyListNode(T data, SinglyListNode<T>? next = default) {
+    public SinglyListNode(T data, SinglyListNode<T>? next = default)
+    {
         Data = data;
         Next = next;
     }
@@ -11,15 +12,32 @@ public record SinglyListNode<T>
     public SinglyListNode<T>? Next { get; set; }
 }
 
-// public static class SinglyList<T> {
-//     public static SinglyListNode<T> Append (this SinglyListNode<T>, T data) =>
-//         new SinglyListNode<T>(data);
-// }
+public static class SinglyListExtension
+{
+    public static SinglyListNode<T> Append<T>(this SinglyListNode<T> list, T data) =>
+        new SinglyListNode<T>(data, list);
+
+    public static SinglyListNode<T>? Map<T>(this SinglyListNode<T> list, Func<T, T> f)
+    {
+        if (list.IsEmpty())
+            return null;
+        else {
+            var element = f(list.Data);
+            if (list.Next == null)
+                return null;
+            var next = Map(list.Next, f);
+            return next?.Append(element);
+        }
+    }
+
+    public static bool IsEmpty<T>(this SinglyListNode<T> list) =>
+        list == null;
+}
 
 public class SinglyList<T>
 {
-    public SinglyListNode<T> Append(SinglyListNode<T> list, T data) =>
-        new SinglyListNode<T>(data, list);
+    // public SinglyListNode<T> Append(SinglyListNode<T> list, T data) =>
+    //     new SinglyListNode<T>(data, list);
 
     private SinglyListNode<T>? Head { get; set; }
 
