@@ -25,6 +25,7 @@ public static class SinglyListExtension
             var element = f(list.Data);
             if (list.Next == null)
                 return null;
+
             var next = Map(list.Next, f);
             return next?.Append(element);
         }

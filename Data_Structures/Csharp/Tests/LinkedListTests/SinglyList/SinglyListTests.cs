@@ -37,7 +37,7 @@ public static class SinglyListTests
         Assert.True(true);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Int")]
     public static void IntLinkedList()
     {
         // Arrange
@@ -50,6 +50,8 @@ public static class SinglyListTests
         {
             newList.AddLast(i);
         }
+
+        Console.WriteLine(newList.ToString());
 
         // Assert
         Assert.Equal(100, newList.GetLenght());
