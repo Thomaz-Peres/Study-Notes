@@ -11,8 +11,12 @@
             "id": "9351d326c2885245",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Computer_Science/type-theory/ADT.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Computer_Science/type-theory/ADT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Computer_Science/type-theory/ADT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Computer_Science/type-theory/ADT.md"
+              }
             }
           },
           {
@@ -160,6 +168,10 @@
   },
   "active": "9351d326c2885245",
   "lastOpenFiles": [
+    "Computer_Science/type-theory/README.md",
+    "Computer_Science/type-theory/Some tests.md",
+    "Computer_Science/type-theory/ADT.md",
+    "README.md",
     "Languages/C.md",
     "2024-05-19.md",
     "Computer_Science/lambda-calculus/README.md",
@@ -186,7 +198,6 @@
     "Imgs/Pasted image 20230108155934.png",
     "Imgs/Screenshot 2024-03-07 210043.png",
     "Imgs/Pasted image 20230108154435.png",
-    "README.md",
     "Software_Foundations/README.md",
     "Software_Foundations/Chapter_1/README.md",
     "Software_Foundations/Book1/README.md",
@@ -195,9 +206,6 @@
     "Posts",
     "Data_Structures/Data.Structures.md",
     "Data_Structures/UnivespClasses/README.md",
-    "Data_Structures/README.md",
-    "Data.Structures.md",
-    "Data.md",
     "Data_Structures/UnivespClasses",
     "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
