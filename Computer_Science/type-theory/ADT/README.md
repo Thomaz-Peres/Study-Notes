@@ -1,4 +1,4 @@
-******# Algebraic Data Type
+# Algebraic Data Type
 
 Are basically types that's formed by composing other types.
 
