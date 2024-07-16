@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -154,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 206.5
+    "width": 206.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,14 +170,14 @@
   },
   "active": "9351d326c2885245",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Computer_Science/type-theory/ADT.md",
     "Computer_Science/type-theory/README.md",
     "Computer_Science/type-theory/Some tests.md",
-    "Computer_Science/type-theory/ADT.md",
     "README.md",
     "Languages/C.md",
     "2024-05-19.md",
     "Computer_Science/lambda-calculus/README.md",
-    "Untitled.md",
     "InstalingW11Again.md",
     "Computer_Science/TypeTheory/README.md",
     "DotnetThings/SomeTests/obj/3de15e0f-702f-4353-9024-b01142845c58.tmp",
