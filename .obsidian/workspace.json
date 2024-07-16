@@ -11,12 +11,8 @@
             "id": "9351d326c2885245",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer_Science/type-theory/ADT.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer_Science/type-theory/ADT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +106,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer_Science/type-theory/ADT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,9 +127,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Computer_Science/type-theory/ADT.md"
-              }
+              "state": {}
             }
           },
           {
@@ -170,8 +162,11 @@
   },
   "active": "9351d326c2885245",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Computer_Science/type-theory/ADT/teste.ts",
     "Computer_Science/type-theory/ADT.md",
+    "Computer_Science/type-theory/ADT/ADT.md",
+    "Computer_Science/type-theory/ADT",
+    "Untitled.md",
     "Computer_Science/type-theory/README.md",
     "Computer_Science/type-theory/Some tests.md",
     "README.md",
@@ -206,14 +201,11 @@
     "Languages/C#_Classes/README.md",
     "Languages/C#_Classes/aula48/Recursividade.md",
     "Posts",
-    "Data_Structures/Data.Structures.md",
-    "Data_Structures/UnivespClasses/README.md",
     "Data_Structures/UnivespClasses",
     "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
     "Rust/testes3.testes3.369a55da-cgu.3.rcgu.o",
-    "Rust/testes3.testes3.369a55da-cgu.1.rcgu.o",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Untitled 1.canvas",
