@@ -4,9 +4,6 @@ Are basically types that's formed by composing other types.
 
 We have two common classes of *ADT*, **product types** and **sum types**.
 
-
-[Reference](https://en.m.wikipedia.org/wiki/Algebraic_data_type)
-
 ### Product Type
 
 Are types which normally contain multiple values, and all values of that type has the same combination of field types.
@@ -78,3 +75,6 @@ X = Number of possibilities in the type.
 Number = Number of possibilities in a number.
 String = Number of possibilities in a string.
 Boolean = Number of possibilities in a boolean.
+
+
+[Reference](https://en.m.wikipedia.org/wiki/Algebraic_data_type
