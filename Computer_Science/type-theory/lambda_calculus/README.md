@@ -44,12 +44,12 @@ An example in C# where a functions returns other function:
 
 ```csharp
 Func<double, Func<double, double>> square_sum = x => y =>
-		Math.Pow(x, x) + Math.Pow(y, y);
+    x * x + y * y;
 
 var b = square_sum(5);
-double result = b(5);
+double result = b(2);
 Console.WriteLine("Function result: " + result);
-// Function result: 6250
+// Function result: 29
 
 // You can write the function like this too
 
@@ -57,7 +57,7 @@ Func<double, Func<double, double>> square_sum = (double n) =>
 {
   return new Func<double, double>((double x) =>
   {
-	return Math.Pow(n, n) + Math.Pow(x, x);
+	return n * n + x * x;
   });
 };
 ```
