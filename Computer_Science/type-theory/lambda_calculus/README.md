@@ -64,4 +64,12 @@ Func<double, Func<double, double>> square_sum = (double n) =>
 
 This method, know as currying, transforms a function that takes multiple arguments into a chain of function each with a single argument.
 
-[Reference](https://en.m.wikipedia.org/wiki/Lambda_calculus)
+Example:
+
+${((x,y) \mapsto x^2 + y^2)(5,2) = 5^2 + 2^2 = 29}$
+
+${((x \mapsto (y \mapsto x^2 + y^2))(5))(2) = (y \mapsto 5^2 + y^2)(2) = 5^2 + 2^2 = 29}$
+
+Similar to ${\beta- reduction}$  
+
+[Reference](https://en.m.wikipedia.org/wiki/Lambda_calculus) 
