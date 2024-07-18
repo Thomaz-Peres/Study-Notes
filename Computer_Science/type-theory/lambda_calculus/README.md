@@ -154,15 +154,21 @@ The basic lambda calculus may be used to model arithmetic, boolean, data structu
 The most common ways to define natural numbers in lambda calculus are the Church numerals, example
 
 0 := ${\lambda f. \lambda x. x}$
+
 1 := ${\lambda f. \lambda x. f \ x}$
+
 2 := ${\lambda f. \lambda x. f \ (f \ x)}$
+
 3 := ${\lambda f. \lambda x. f \ (f \ (f \ x))}$
 
 Using the alternative syntax presented above in [Notation](#notation)
 
 0 := ${\lambda f x. x}$
+
 1 := ${\lambda fx. f \ x}$
+
 2 := ${\lambda fx. f \ (f \ x)}$
+
 3 := ${\lambda fx. f \ (f \ (f \ x))}$
 
 A Church numeral is a higher-order function - it takes a single-argument function $f$, and returns another single-argument function.
@@ -172,12 +178,19 @@ The function $f$ composed with itself $n$ times. This is denoted ${f(^n)}$
 ### Standard Terms
 
 I   := ${\lambda x.x}$
+
 S  := ${\lambda x. \lambda y. \lambda x. z (y z)}$
+
 K  := ${\lambda x. \lambda y. x}$
+
 B  := ${\lambda x. \lambda y. \lambda z.x (y z)}$
+
 C  := ${\lambda x. \lambda y. \lambda z. x z y}$
+
 W := ${\lambda x. \lambda y. x y y}$
+
 ω or Δ or U := ${\lambda x. x x}$
+
 Ω := ω ω
 
 **I** is the identity function (f(x) -> x)
