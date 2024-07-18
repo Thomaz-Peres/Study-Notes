@@ -117,7 +117,7 @@ Is a function composition, can be defined as ${\lambda f. \lambda g. \lambda x.}
 $t, s$ and $r$ are lambda terms, and $x$ and $y$ are variables. The notation ${t[x := r]}$ indicates substitution of $r$ for $x$ in $t$ in a capture avoinding manner. 
 
 - ${x[x := r] = r}$; = $r$ are substituted for $x$, $x$ becomes $r$
-- $y[x := r] = y \}$ if ${\ x \neq y}$; With $r$ substituted for $x$, $y$  (which is not $x$) remains y.
+- ${y[x := r] = y \}$ if ${\ x \neq y}$; With $r$ substituted for $x$, $y$  (which is not $x$) remains y.
 - ${(ts)[x := r] = (t[x := r])(s[x += r])}$; Substitution distributes to both sides of an application
 - ${(\lambda x .t)[x := r] = \lambda x .t}$; A variable bound by an abstraction is not subject to substitution; substituting such variable leaves the abstraction unchanged
 - ${(\lambda y .t)[x := r] = \lambda y.(t[x := r])}$ if ${x \neq y}$; Substituting a variable with is not bound by abstraction proceeds in the abstraction body, provided that the abstracted variable $y$ is "fresh" for the substitution term $r$.
