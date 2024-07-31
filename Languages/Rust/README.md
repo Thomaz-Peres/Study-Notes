@@ -2956,5 +2956,77 @@ fn main() {
 We add a `use minigrep::Config` line to bring the `Config` type from the library crate into the binary crate's scope
 
 
-# Working with environment Variables
+# Closures
+
+This method use a closure:
+
+```rust
+...
+impl Inventory{
+    fn giveaway(&self, user_preference: Option<ShirtColor>) -> ShirtColor {
+        user_preference.unwrap_or_else(|| self.most_stocked())
+    }
+}
+...
+```
+
+When we call `unwrap_or_else`, it takes one argument: a closure without any arguments that returns a value `T`.
+
+If the `Option<T>` is the `Some` variant, `unwrap_or_else` return the value from whitin the `Some`.
+
+If the `Option<T>` is the `None` variant, `unwrap_or_else` calls the closure and returns the value returned by the closure.
+
+We specify the closure expression `|| self.most_stocked()` as the argument to `unwrap_or_else`
+
+This is a closure that takes no parameters (if had parameters, they would appear between the two vertical bars).
+
+The closure captures an immutable reference to the `self Inventory`. And the standard library dind't need to know about the `Inventory` ou the `ShirtColor` types we defined, or the logics.
+
+# Closure Type Inference and Annotation
+
+Type annotations are required on functions because the types are part of an explicit interface to your users.
+
+However, the closures aren't used in a exposed interface.
+
+Closures are tipically short and relevant only within a narrow context rather than in any arbitrary scenario. Within this limited context, the compiler can infer the types of parameters and the return type.
+
+Are possible add a annotation if want to increase explicitness and clarity.
+
+This is an example without adding the annotation and the return:
+
+```rust
+fn test() {
+    let closure = || {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+}
+```
+
+And the example adding the annotation and the return types:
+
+```rust
+fn test() {
+    let closure = |num: i32| -> i32 {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+}
+```
+
+And can evaluate more, like this:
+
+```rust
+fn test() {
+    let closure = || num;
+}
+
+// OR
+
+fn test() {
+    let closure = |num| num + 1;
+}
+```
 
