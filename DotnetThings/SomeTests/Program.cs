@@ -1,44 +1,39 @@
-﻿using System;
-using System.Reflection;
+﻿// using static Records;
 
-internal partial class Program
+// PersonRecord personRecord = new PersonRecord("Josiscleudo", "Cleudinho");
+// Console.WriteLine(personRecord);
+
+// var personRecord2 = personRecord with { FirstName = "Claidin" };
+// Console.WriteLine("Person record 2" + personRecord2);
+// Console.WriteLine(personRecord);
+
+
+// var (FirstName, LastName ) = personRecord;
+// Console.WriteLine($"FirstName : {FirstName}");
+// Console.WriteLine($"LastName : {LastName}");
+
+var x = new DerivedRecord2();
+var z = new BaseRecord();
+Console.WriteLine(z);
+Console.WriteLine(x);
+
+public class BaseClass
 {
-    static void PrintTypeFields(Type t)
-    {
-        FieldInfo[] fields = t.GetFields(
-            BindingFlags.Public | BindingFlags.NonPublic |
-            BindingFlags.Instance | BindingFlags.Static);
-        foreach (FieldInfo f in fields)
-        {
-            Console.WriteLine(
-                $"{f.Name} (of type {f.FieldType}): " +
-                $"private? {f.IsPrivate} / static? {f.IsStatic}");
-        }
-    }
-
-    static void Main(string[] args)
-    {
-        Type t = typeof(TestClass);
-        PrintTypeFields(t);
-    }
+    public virtual string Name => "Base";
 }
 
-public class TestClass
-{
-    // fields
-    private int _myPrivateInt;
-    private string? _myPrivateString;
-    public bool myPublicBool;
-    public float myStaticFloat;
+// Error, record not derive class, and the opposite too
+// public record DerivedRecord : BaseClass
+// {
+//     public override string Name => "Derived";
+// }
 
-    // properties
-    public int DoubleMyPrivateInt => _myPrivateInt * 2;
-    public string? MyPrivateString
-    {
-        get => _myPrivateString;
-        set
-        {
-            _myPrivateString = value;
-        }
-    }
+public record BaseRecord
+{
+    public virtual string Name => "BaseRedor";
+}
+
+public record DerivedRecord2 : BaseRecord
+{
+    public override string Name => "DerivedRecord";
 }
