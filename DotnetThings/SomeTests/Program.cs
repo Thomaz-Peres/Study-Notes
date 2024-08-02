@@ -1,39 +1,12 @@
-﻿// using static Records;
+﻿var z = new Bitwise.TesteBitwise<string>();
 
-// PersonRecord personRecord = new PersonRecord("Josiscleudo", "Cleudinho");
-// Console.WriteLine(personRecord);
-
-// var personRecord2 = personRecord with { FirstName = "Claidin" };
-// Console.WriteLine("Person record 2" + personRecord2);
-// Console.WriteLine(personRecord);
-
-
-// var (FirstName, LastName ) = personRecord;
-// Console.WriteLine($"FirstName : {FirstName}");
-// Console.WriteLine($"LastName : {LastName}");
-
-var x = new DerivedRecord2();
-var z = new BaseRecord();
-Console.WriteLine(z);
-Console.WriteLine(x);
-
-public class BaseClass
-{
-    public virtual string Name => "Base";
-}
-
-// Error, record not derive class, and the opposite too
-// public record DerivedRecord : BaseClass
-// {
-//     public override string Name => "Derived";
-// }
-
-public record BaseRecord
-{
-    public virtual string Name => "BaseRedor";
-}
-
-public record DerivedRecord2 : BaseRecord
-{
-    public override string Name => "DerivedRecord";
-}
+Console.WriteLine(z.MyProperty);
+Console.WriteLine(z.MyPropertyint);
+Console.WriteLine(z.MyPropertydynamic);
+Console.WriteLine(z.MyPropertyobject);
+Console.WriteLine(z.MyPropertystring);
+Console.WriteLine(z.MyPropertygenericWork);
+// Console.WriteLine(z.MyProperty2);
+Console.WriteLine(Bitwise.TesteBitwise2.Name2 & Bitwise.TesteBitwise2.Name);
+Console.WriteLine(Bitwise.TesteBitwise2.Name2 | Bitwise.TesteBitwise2.Name);
+Console.WriteLine(~Bitwise.TesteBitwise2.Name2);
