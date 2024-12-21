@@ -2,6 +2,10 @@ Watching the [playlist](https://www.youtube.com/playlist?list=PLjcmNukBom6--0we1
 
 # Pass all this things to english
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
 
 compilers: convert code in a language A to the computer language (translate a source program into machine language)
 
