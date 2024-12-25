@@ -8,8 +8,8 @@ public record SinglyListNode<T>
         Next = next;
     }
 
-    public T Data { get; set; }
-    public SinglyListNode<T>? Next { get; set; }
+    public T Data { get; private set; }
+    public SinglyListNode<T>? Next { get; private set; }
 }
 
 public static class SinglyListExtension
