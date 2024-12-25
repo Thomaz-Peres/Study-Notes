@@ -2,6 +2,7 @@ type List<T> = null | {
     element: T,
     next: List<T>
 }
+
 let empty = null;
 const isEmpty = <A>(list: List<A>): list is null => list === null;
 const append = <T>(list: List<T>, element: T) : List<T> => ({

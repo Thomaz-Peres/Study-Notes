@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "8102df38f802850d",
+        "id": "f69a4dc081e242b4",
         "type": "tabs",
         "children": [
           {
-            "id": "9351d326c2885245",
+            "id": "7ca97269303ab183",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Computer_Science/type-theory/lambda_calculus/README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"aliases\"]",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "86e82b6b988b5c3e",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Computer_Science/type-theory/lambda_calculus/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Computer_Science/type-theory/lambda_calculus/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Computer_Science/type-theory/lambda_calculus/README.md"
+              }
             }
           },
           {
@@ -146,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 206.5
+    "width": 206.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -158,12 +168,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9351d326c2885245",
+  "active": "7ca97269303ab183",
   "lastOpenFiles": [
+    "Computer_Science/type-theory/ADT/README.md",
+    "Computer_Science/type-theory/lambda_calculus/README.md",
+    "Computer_Science/type-theory/README.md",
+    "Computer_Science/type-theory/lambda_calculus",
+    "Computer_Science/type-theory/Lambda Calculus",
+    "Computer_Science/type-theory/ADT/teste.ts",
+    "Computer_Science/type-theory/ADT.md",
+    "Computer_Science/type-theory/ADT/ADT.md",
+    "Computer_Science/type-theory/ADT",
+    "Untitled.md",
+    "Computer_Science/type-theory/Some tests.md",
+    "README.md",
     "Languages/C.md",
     "2024-05-19.md",
     "Computer_Science/lambda-calculus/README.md",
-    "Untitled.md",
     "InstalingW11Again.md",
     "Computer_Science/TypeTheory/README.md",
     "DotnetThings/SomeTests/obj/3de15e0f-702f-4353-9024-b01142845c58.tmp",
@@ -186,24 +207,13 @@
     "Imgs/Pasted image 20230108155934.png",
     "Imgs/Screenshot 2024-03-07 210043.png",
     "Imgs/Pasted image 20230108154435.png",
-    "README.md",
     "Software_Foundations/README.md",
     "Software_Foundations/Chapter_1/README.md",
     "Software_Foundations/Book1/README.md",
     "Languages/C#_Classes/README.md",
-    "Languages/C#_Classes/aula48/Recursividade.md",
     "Posts",
-    "Data_Structures/Data.Structures.md",
-    "Data_Structures/UnivespClasses/README.md",
-    "Data_Structures/README.md",
-    "Data.Structures.md",
-    "Data.md",
     "Data_Structures/UnivespClasses",
     "Rust/testes3.testes3.369a55da-cgu.6.rcgu.o",
-    "Rust/testes3.testes3.369a55da-cgu.0.rcgu.o",
-    "Rust/testes3.testes3.369a55da-cgu.4.rcgu.o",
-    "Rust/testes3.testes3.369a55da-cgu.3.rcgu.o",
-    "Rust/testes3.testes3.369a55da-cgu.1.rcgu.o",
     "Pasted image 20230108154553.png",
     "Pasted image 20230108154608.png",
     "Untitled 1.canvas",

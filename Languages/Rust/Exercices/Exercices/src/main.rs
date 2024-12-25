@@ -1,3 +1,5 @@
+use std::{thread, time::Duration};
+
 // TODO: remove this when you're done with your implementation.
 // #![allow(unused_variables, dead_code)]
 pub fn luhn(cc_number: &str) -> bool {
@@ -35,9 +37,9 @@ pub fn luhn(cc_number: &str) -> bool {
         x /= 100;
         i += 2;
     }
-    
+
     sum = second_last_sum + last_number;
-    
+
     if sum % 10 == 0 {
         true
     } else {
@@ -87,4 +89,8 @@ fn test_invalid_cc_number() {
 fn main() {
     println!("{}", luhn(" 0 0 "));
     // test_invalid_cc_number();
+}
+
+fn test() {
+    let expensive_closure = |x| x + 1;
 }
