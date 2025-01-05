@@ -67,7 +67,7 @@ Both the stack and the heap are parts of memory available to your code to use at
 
 The **stack** stores values in the order it gets them and removes the values in the opposite order. This is referred to as last in, first out.
 
-All data stored on the stack must have a known, fixed size. 
+All data stored on the stack must have a known, fixed size.
 Data with an unknown size at compile time or a size that might change must be stored on the heap instead.
 Adding data is called pushing onto the stack, and removing data is called popping off the stack
 
@@ -689,7 +689,7 @@ We can now understand the two string types in Rust:
         println!("s2: {s2}");
         s2.push_str(s1);
         println!("s2: {s2}");
-        
+
         let s3: &str = &s2[6..];
         println!("s3: {s3}");
     }
@@ -849,6 +849,40 @@ fn main() {
     dbg_size::<Foo>();
 }
 ```
+## Struct inside Enum
+
+We can put a data directly into each enum variant.
+
+This definition of `IpAddr` enum says that bot `V4` `V6` will have associated `String` values.
+
+Example:
+
+```rust
+enum IpAddr {
+    V4(String),
+    V6(String),
+}
+
+let home = IpAddr::V4(String::from("127.0.0.1"));
+
+let loopback = IpAddr::V6(String::from("::1"));
+```
+
+Another Example:
+
+```rust
+enum IpAddr {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+let home = IpAddr::V4(127, 0, 0, 1);
+
+let loopback = IpAddr::V6(String::from("::1"));
+```
+
+This is really cool
+
 
 ## Destructing enums
 
@@ -927,7 +961,7 @@ fn main() {
 ## Associated Functions
 
 All functions defined within an `impl` block are called `associated function` because
-they're associated with the type named after tem `impl`. 
+they're associated with the type named after tem `impl`.
 
 We can define `associated functions` that don't have self as their first parameter
 (and thus are not methods) because they don't need an instance of the type to work with.
@@ -987,7 +1021,7 @@ If run with `rustc` or `cargo` and pass a single source code file, the compiler 
 that file to be a crate. Crates can contain module, and the modules may be defined in other
 files that get compiled with the crate, as we'll see in the coming sections.
 
-`Crate` can come in one of two forms: 
+`Crate` can come in one of two forms:
 
 - *Binary crate*: Is a executable we can run, by CLI or a server (has the functions `main`).
 - *Library crate*: Don't have a `main` function, and not is compile to an executable.
@@ -1077,7 +1111,7 @@ the project [restaurant](./restaurant/).
 ### Paths for referring to an item in the module tree
 
 - An *absolute path* is the full path starting from a crate root;
-- A *relative path* starts from the current module and uses `self`, `super`, or an 
+- A *relative path* starts from the current module and uses `self`, `super`, or an
 identifier ih the current module.
 
 The rust team preference in general is to specify absolute paths because it's more likely
@@ -2210,7 +2244,7 @@ This happens because the Rust compiler not understand the `string1` will be vali
 If we changed the implementation of the `longest` function to always return the first parameter rather than the longest string slice, we wouldn't need to specify a lifetime on the `y` parameter, and we can change the function to this:
 
 ```rust
-fn longest<'a>(x: &'a str, y: &str) -> &'a str { 
+fn longest<'a>(x: &'a str, y: &str) -> &'a str {
     x
 }
 ```
@@ -2690,7 +2724,7 @@ We've update `main` where we were calling `parse_config` to instead call `Config
 ### Fixing the Error Handling
 
 Recall that attempting to access the values in the `args` vector at index 1 or index 2 will cause the program to
-panif if the vector contains fewer than three items. 
+panif if the vector contains fewer than three items.
 
 Try running the program without any arguments
 
@@ -3029,4 +3063,3 @@ fn test() {
     let closure = |num| num + 1;
 }
 ```
-

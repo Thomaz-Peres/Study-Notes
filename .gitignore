@@ -352,3 +352,11 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+
+# Rust
+
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
