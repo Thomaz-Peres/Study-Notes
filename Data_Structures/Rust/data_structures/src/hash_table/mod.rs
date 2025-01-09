@@ -1,3 +1,1 @@
-mod singly_list;
-
-pub use self::singly_list::Head;
+mod hash_table;
