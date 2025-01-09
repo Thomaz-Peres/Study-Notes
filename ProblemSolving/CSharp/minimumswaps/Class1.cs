@@ -16,22 +16,33 @@ class Solution {
 
     // Complete the minimumSwaps function below.
     static int minimumSwaps(int[] arr) {
+        int j = 0, k = 1;
+        int minimum = 0;
 
-
+        foreach (var j in arr.Lenght)
+        {
+            foreach (var k in arr.Lenght)
+            {
+                int old;
+                if (arr[j] > arr[k])
+                {
+                    out old = arr[j];
+                    arr[j] = arr[k];
+                    arr[k] = old;
+                }
+            }
+            minimum++;
+        }
+        return minimum;
     }
 
     static void Main(string[] args) {
-        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
-
         int n = Convert.ToInt32(Console.ReadLine());
 
         int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp))
         ;
         int res = minimumSwaps(arr);
 
-        textWriter.WriteLine(res);
-
-        textWriter.Flush();
-        textWriter.Close();
+        Console.WriteLine(res);
     }
 }
