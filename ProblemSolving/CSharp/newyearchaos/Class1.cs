@@ -10,7 +10,8 @@
     public static void minimumBribes(List<int> q)
     {
         int bribes = 0;
-        for (int i = q.Count - 1; i >= 0; i--) {
+        for (int i = q.Count - 1; i >= 0; i--)
+        {
             var x = i + 1;
 
             if (x == q[i])
@@ -22,16 +23,15 @@
             if (x > q[i] - 1)
                 bribes++;
 
-            if (bribes >= 3) {
+            if (bribes > 3)
+            {
                 Console.WriteLine("Too chaotic");
                 return;
             }
-
-            Console.WriteLine(bribes);
         }
 
+        Console.WriteLine(bribes);
     }
-
 }
 
 class Solution
