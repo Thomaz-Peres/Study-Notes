@@ -18,10 +18,14 @@
                 continue;
 
             if (x > q[i])
+            {
                 bribes++;
+            }
 
             if (x > q[i] - 1)
+            {
                 bribes++;
+            }
 
             if (bribes > 3)
             {
