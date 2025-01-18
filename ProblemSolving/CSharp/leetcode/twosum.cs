@@ -1,7 +1,7 @@
 namespace leetcode;
 
-public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
+public static class Solution {
+    public static int[] TwoSum(int[] nums, int target) {
         var map = new Dictionary<int, int>();
         for (int i = 0; i < nums.Length; i++) {
             var x = target - nums[i];
