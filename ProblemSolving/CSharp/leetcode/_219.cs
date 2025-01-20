@@ -2,14 +2,14 @@ namespace leetcode;
 
 public static class Solution219 {
     public static bool ContainsNearbyDuplicate(int[] nums, int k) {
-        for (var i = 0; i < nums.Length - 1; i++) {
-            int j = i + 1;
-            while (j <= i + k && j < nums.Length) {
-                if (nums[i] == nums[j] && Math.Abs(i - j) <= k) {
+        var map = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++) {
+            if (map.Count != 0 && map.ContainsKey(nums[i]))
+                if (i - map[nums[i]] <= k) {
                     return true;
                 }
-                j++;
-            }
+
+            map[nums[i]] = i;
         }
 
         return false;
