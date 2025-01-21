@@ -9,7 +9,7 @@ public record SinglyListNode<T>
     }
 
     public T Data { get; private set; }
-    public SinglyListNode<T>? Next { get; private set; }
+    public SinglyListNode<T>? Next { get; set; }
 }
 
 public static class SinglyListExtension
