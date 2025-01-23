@@ -6,7 +6,7 @@ public static class Solution {
         for (int i = 0; i < nums.Length; i++) {
             var x = target - nums[i];
             if (map.ContainsKey(x))
-                return new int[] { map[x], i };
+                return [ map[x], i ];
 
             map[nums[i]] = i;
         }
