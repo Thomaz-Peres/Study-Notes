@@ -4,15 +4,31 @@ namespace leetcode;
 
 public static class Solution3 {
     public static int LengthOfLongestSubstring(string s) {
-        int sum = 0;
-        Dictionary<int, char> str = new Dictionary<int, char>();
-        for (int i = 0; i < s.Length - 1; i++) {
-            if (str.ContainsValue(s[i]))
-                return sum;
+        if (s.Length == 0)
+            return 0;
 
-            str.Add(i, s[i]);
-            sum++;
+        if (s.Length == 1)
+            return 1;
+
+        HashSet<char> uniqueChar = new();
+
+        int left = 0;
+        int right = 0;
+
+        int max = 0;
+        while (right < s.Length) {
+
+            while (uniqueChar.Contains(s[right])) {
+                uniqueChar.Remove(s[left]);
+                left++;
+            }
+
+            max = Math.Max(max, right - left + 1);
+            uniqueChar.Add(s[right]);
+            right++;
+
         }
-        return sum;
+
+        return max;
     }
 }
