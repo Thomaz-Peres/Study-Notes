@@ -18,11 +18,17 @@ public static class Solution206
         if (head == null)
             return new ListNode();
 
+        var x = new ListNode();
         if (head.next == null)
-            return head;
+            x = head;
 
+        if (head.next != null) {
 
-        head.next = ReverseListRecursive(head.next);
-        return head;
+            x = ReverseListRecursive(head.next);
+            var oldValue = head;
+            x.next = oldValue;
+        }
+
+        return x;
     }
 }
