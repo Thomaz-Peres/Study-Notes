@@ -20,12 +20,11 @@ public static class Solution206
 
         var x = new ListNode();
         if (head.next == null)
-            x = head;
+            return head;
 
         if (head.next != null) {
-
-            x = ReverseListRecursive(head.next);
             var oldValue = head;
+            x = ReverseListRecursive(head.next);
             x.next = oldValue;
         }
 
