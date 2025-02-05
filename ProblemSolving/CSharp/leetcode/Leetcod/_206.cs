@@ -13,21 +13,33 @@ public class ListNode
 
 public static class Solution206
 {
-    public static ListNode ReverseListRecursive(ListNode head)
+    public static ListNode? ReverseListRecursive(ListNode head)
     {
-        if (head == null)
-            return new ListNode();
-
-        var x = new ListNode();
-        if (head.next == null)
+        if (head == null || head.next == null)
             return head;
 
-        if (head.next != null) {
-            var oldValue = head;
-            x = ReverseListRecursive(head.next);
-            x.next = oldValue;
+        var newValue = ReverseListRecursive(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newValue;
+    }
+
+    public static ListNode? ReverseListNonRecursive(ListNode head)
+    {
+
+        ListNode? prev = null;
+        ListNode? curr = head;
+        ListNode? next = null;
+        while(curr != null)
+        {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
 
-        return x;
+        return prev;
     }
 }
