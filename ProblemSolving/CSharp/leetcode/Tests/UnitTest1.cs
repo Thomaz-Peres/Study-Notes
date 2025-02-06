@@ -23,4 +23,16 @@ public class UnitTest1
 
         Assert.Equal(JsonConvert.SerializeObject(ReversedList), JsonConvert.SerializeObject(b));
     }
+
+    [Theory]
+    [InlineData("()", true)]
+    [InlineData("()[]{}", true)]
+    [InlineData("(]", false)]
+    [InlineData("(([))", false)]
+    public void ValidParentheses(string s, bool expected)
+    {
+        var b = Solution2.IsValid(s);
+
+        Assert.Equal(expected, b);
+    }
 }
