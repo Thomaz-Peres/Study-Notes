@@ -1,25 +1,33 @@
+using System;
+
 namespace leetcode;
 
 public static class Solution2 {
     public static bool IsValid(string s) {
-        var parent = new HashSet<char>();
-        var parent2 = new Stack<char>();
+        var parent = new Stack<char>();
 
-
-        for (int i = 0; i <= s.Length - 1; i++){
-            if (s[i] == '(')
-                parent2.Push(s[i]);
-
-            if (parent2.Count > 1)
-                return false;
-
-            if (s[i] == ')')
-                parent2.Pop();
-        }
-
-        if (parent2.Any())
+        if (s.Length == 0)
             return false;
 
-        return true;
+        foreach (var item in s) {
+            if (item == '(' || item == '[' || item == '{')
+            {
+                parent.Push(item);
+                continue;
+            }
+            if (parent.Count == 0)
+                return false;
+
+            char x = parent.Pop();
+            if (item == ')' && x != '(' ||
+                item == ']' && x != '[' ||
+                item == '}' && x != '{'
+            )
+            {
+                return false;
+            }
+        }
+
+        return parent.Count == 0;
     }
 }

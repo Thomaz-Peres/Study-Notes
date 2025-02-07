@@ -29,6 +29,9 @@ public class UnitTest1
     [InlineData("()[]{}", true)]
     [InlineData("(]", false)]
     [InlineData("(([))", false)]
+    [InlineData("([)]", false)]
+    [InlineData("(])", false)]
+    [InlineData("[])", false)]
     public void ValidParentheses(string s, bool expected)
     {
         var b = Solution2.IsValid(s);
