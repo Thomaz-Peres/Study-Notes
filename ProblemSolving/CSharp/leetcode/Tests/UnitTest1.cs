@@ -40,13 +40,19 @@ public class UnitTest1
         Assert.Equal(expected, b);
     }
 
-    [Fact]
-    public void ValidMergeTwoSortedLists()
+    public static IEnumerable<object[]> SplitCountData =>
+        new List<object[]>
+        {
+            new object[] {
+                new ListNode(1, new ListNode(2, new ListNode(4))),
+                new ListNode(1, new ListNode(3, new ListNode(4)))
+            },
+        };
+
+    [Theory]
+    [MemberData(nameof(SplitCountData))]
+    public static void ValidMergeTwoSortedLists(ListNode l1, ListNode l2)
     {
-        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
-        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
-
-
         var b = Solution21.MergeTwoLists(l1, l2);
         Debug.WriteLine(JsonConvert.SerializeObject(b));
 
