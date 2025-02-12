@@ -1,4 +1,5 @@
-﻿using leetcode;
+﻿using System.Diagnostics;
+using leetcode;
 using Newtonsoft.Json;
 
 namespace tests;
@@ -47,6 +48,7 @@ public class UnitTest1
 
 
         var b = Solution21.MergeTwoLists(l1, l2);
+        Debug.WriteLine(JsonConvert.SerializeObject(b));
 
         // Assert.Equal(expected, b);
     }
