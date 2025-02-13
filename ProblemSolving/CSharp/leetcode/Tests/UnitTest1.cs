@@ -43,17 +43,21 @@ public class UnitTest1
     public static IEnumerable<object[]> SplitCountData =>
         new List<object[]>
         {
-            // new object[] {
-            //     new ListNode(1, new ListNode(2, new ListNode(4))),
-            //     new ListNode(1, new ListNode(3, new ListNode(4)))
-            // },
-            // new object[] {
-            //     new ListNode(1),
-            //     null
-            // },
+            new object[] {
+                new ListNode(1, new ListNode(2, new ListNode(4))),
+                new ListNode(1, new ListNode(3, new ListNode(4)))
+            },
+            new object[] {
+                new ListNode(1),
+                null
+            },
             new object[] {
                 new ListNode(2),
                 new ListNode(1),
+            },
+            new object[] {
+                new ListNode(-10, new ListNode(-9, new ListNode(-6, new ListNode( -4, new ListNode(1, new ListNode(9, new ListNode(9))))))),
+                new ListNode(-5, new ListNode(-3, new ListNode(0, new ListNode(7, new ListNode(8, new ListNode(8)))))),
             },
         };
 

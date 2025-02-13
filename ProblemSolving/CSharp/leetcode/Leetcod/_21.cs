@@ -10,71 +10,58 @@ public static class Solution21 {
 
         var currNew = newList;
 
-        var curr1 = list1;
-        var curr2 = list2;
-
-        // if (curr1 != null && curr1.next == null && curr2 == null)
-        // {
-        //     currNew.next = new ListNode(curr1.val);
-        //     currNew = currNew.next;
-        //     curr1 = curr1.next;
-        // }
-
-        // if (curr2 != null && curr2.next == null && curr1 == null)
-        // {
-        //     currNew.next = new ListNode(curr2.val);
-        //     currNew = currNew.next;
-        //     curr2 = curr2.next;
-        // }
-
-        while (curr1 != null && curr2 != null) {
-            if (curr1.val == curr2.val) {
-                currNew.next = new ListNode(curr1.val);
+        while (list1 != null && list2 != null) {
+            if (list1.val == list2.val) {
+                currNew.next = new ListNode(list1.val);
                 currNew = currNew.next;
 
 
-                currNew.next = curr2;
+                currNew.next = list2;
                 currNew = currNew.next;
 
-                curr1 = curr1.next;
-                curr2 = curr2.next;
+                list1 = list1.next;
+                list2 = list2.next;
 
-                // currNew.next = null;
+                currNew.next = null;
 
                 continue;
             }
 
-            if (curr1.val > curr2.val) {
-                currNew.next = curr2;
+            if (list1.val > list2.val) {
+                currNew.next = list2;
 
-                curr2 = curr2.next;
+                list2 = list2.next;
                 currNew = currNew.next;
 
-                // currNew.next = null;
+                currNew.next = null;
 
                 continue;
             }
 
-            if (curr1.val < curr2.val) {
-                currNew.next = curr1;
+            if (list1.val < list2.val) {
+                currNew.next = list1;
 
-                curr1 = curr1.next;
+                list1 = list1.next;
                 currNew = currNew.next;
 
-                // currNew.next = null;
+                currNew.next = null;
 
                 continue;
             }
         }
 
-        if (curr1 == null) {
-            currNew.next = curr2;
-            // currNew = currNew.next;
+        while (list1 != null) {
+            currNew.next = list1;
+            currNew = currNew.next;
+
+            list1 = list1.next;
         }
 
-        if (curr2 == null) {
-            currNew.next = curr1;
-            // currNew = currNew.next;
+        while (list2 != null) {
+            currNew.next = list2;
+            currNew = currNew.next;
+
+            list2 = list2.next;
         }
 
         if (newList.next != null) {
