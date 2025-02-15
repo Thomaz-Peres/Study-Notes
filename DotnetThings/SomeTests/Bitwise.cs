@@ -1,3 +1,5 @@
+namespace Bitwise;
+
 public class Bitwise
 {
     public class TesteBitwise<T>
@@ -11,7 +13,7 @@ public class Bitwise
 
         // This returns a error in compiler, but not in the LSP
         // public T MyPropertygenericNotWork { get; set; } = (T)(new { abc =  (1 << 2 ) & 4 } as  object);
-        
+
         // This give an error in compiler too, but not in the LSP
         //public T MyProperty2 { get; set; } = new { name = "2" } as dynamic | new { inteiro = 3 } as dynamic;
     }

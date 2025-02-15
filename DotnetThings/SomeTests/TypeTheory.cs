@@ -1,4 +1,6 @@
-﻿public class TypeTheory
+﻿namespace TypeTheory;
+
+public class TypeTheory
 {
     public void TypeTheoryT()
     {

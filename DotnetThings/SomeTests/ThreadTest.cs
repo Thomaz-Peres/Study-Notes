@@ -1,4 +1,6 @@
-﻿public class ThreadTest
+﻿namespace Threads;
+
+public class ThreadTest
 {
     public void Threads()
     {
