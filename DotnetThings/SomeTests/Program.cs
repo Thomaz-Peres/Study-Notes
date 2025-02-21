@@ -16,11 +16,4 @@
 // Console.WriteLine(~Bt.Bitwise.TesteBitwise2.Name2);
 
 
-using System.Text;
-
-
-StreamReader srSource = new StreamReader("async-await", Encoding.UTF8, detectEncodingFromByteOrderMarks: true);
-StreamReader srDest = new StreamReader("async-await2", Encoding.UTF8, detectEncodingFromByteOrderMarks: true);
-new AsyncAwait().CopyStreamToStream(srSource, srDest);
-srSource.Dispose();
-srDest.Dispose();
+AsyncAwait.AsyncAwait.Main(args);
