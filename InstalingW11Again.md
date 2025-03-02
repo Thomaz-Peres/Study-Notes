@@ -34,27 +34,7 @@ OH-my-posh ->
 
     $env:Path += ";C:\Users\user\AppData\Local\Programs\oh-my-posh\bin"
 
-PowerShell Profile ->
-
-```powershell
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\honukai.omp.json" | Invoke-Expression
-
-Set-Alias -Name k -Value kubectl
-Set-Alias -Name v -Value nvim
-Set-Alias -Name code -Value 'code-insiders'
-
-Set-Alias lvim 'C:\Users\name\.local\bin\lvim.ps1'
-
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
-}
-```
+[Pwsh profile](https://github.com/Thomaz-Peres/dotfiles/blob/main/powershell/Microsoft.PowerShell_profile.ps1)
 
 Git ->
 
