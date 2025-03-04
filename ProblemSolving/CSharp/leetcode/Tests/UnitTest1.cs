@@ -1,10 +1,7 @@
-﻿using System.Diagnostics;
-using leetcode;
+﻿using leetcode;
 using Newtonsoft.Json;
 
-namespace tests;
-
-public class UnitTest1
+public partial class UnitTest1
 {
     private readonly ListNode ReversedList = new ListNode(5, new ListNode(4, new ListNode(3, new ListNode(2, new ListNode(1)))));
     private readonly ListNode List = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
@@ -40,34 +37,21 @@ public class UnitTest1
         Assert.Equal(expected, b);
     }
 
-    public static IEnumerable<object[]> SplitCountData =>
-        new List<object[]>
-        {
-            new object[] {
-                new ListNode(1, new ListNode(2, new ListNode(4))),
-                new ListNode(1, new ListNode(3, new ListNode(4)))
-            },
-            new object[] {
-                new ListNode(1),
-                null
-            },
-            new object[] {
-                new ListNode(2),
-                new ListNode(1),
-            },
-            new object[] {
-                new ListNode(-10, new ListNode(-9, new ListNode(-6, new ListNode( -4, new ListNode(1, new ListNode(9, new ListNode(9))))))),
-                new ListNode(-5, new ListNode(-3, new ListNode(0, new ListNode(7, new ListNode(8, new ListNode(8)))))),
-            },
-        };
-
     [Theory]
-    [MemberData(nameof(SplitCountData))]
+    [MemberData(nameof(TwoSortedLists))]
     public static void ValidMergeTwoSortedLists(ListNode l1, ListNode l2)
     {
         var b = Solution21.MergeTwoLists(l1, l2);
-        Debug.WriteLine(JsonConvert.SerializeObject(b));
 
         // Assert.Equal(expected, b);
+    }
+
+    [Theory]
+    [MemberData(nameof(MaxProfit))]
+    public void ValidMaxProfit(int[] s, int expected)
+    {
+        var b = Solution121.MaxProfit(s);
+
+        Assert.Equal(expected, b);
     }
 }
