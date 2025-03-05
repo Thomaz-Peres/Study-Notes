@@ -54,4 +54,15 @@ public partial class UnitTest1
 
         Assert.Equal(expected, b);
     }
+
+    [Theory]
+    [InlineData("A man, a plan, a canal: Panama", true)]
+    [InlineData(" ", true)]
+    [InlineData("race a car", false)]
+    public void ValidPalindrome(string s, bool expected)
+    {
+        var b = Solution125.IsPalindrome(s);
+
+        Assert.Equal(expected, b);
+    }
 }
