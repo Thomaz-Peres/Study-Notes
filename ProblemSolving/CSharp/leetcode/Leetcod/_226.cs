@@ -2,15 +2,14 @@ using leetcode;
 
 public static class Solution226 {
     public static TreeNode? InvertTree(TreeNode root) {
-        if (root == null || root.left == null || root.right == null)
+        if (root == null)
             return root;
 
-        var newValue = InvertTree(root.left);
+        var newLeft = InvertTree(root.left);
+        var newRight = InvertTree(root.right);
 
-        var ol = root.right;
-        root.right = newValue;
-        root.left = ol;
-
+        root.right = newLeft;
+        root.left = newRight;
 
         return root;
     }

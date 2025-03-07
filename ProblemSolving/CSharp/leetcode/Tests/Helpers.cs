@@ -39,9 +39,13 @@ public partial class UnitTest1
                 new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)),  new TreeNode(7, new TreeNode(6), new TreeNode(9))),
                 new TreeNode(4, new TreeNode(7, new TreeNode(9), new TreeNode(6)),  new TreeNode(2, new TreeNode(3), new TreeNode(1)))
             },
-            // new object[] {
-            //     new TreeNode(2, new TreeNode(1),  new TreeNode(3)),
-            //     new TreeNode(2, new TreeNode(3),  new TreeNode(1))
-            // },
+            new object[] {
+                new TreeNode(2, new TreeNode(1),  new TreeNode(3)),
+                new TreeNode(2, new TreeNode(3),  new TreeNode(1))
+            },
+            new object[] {
+                new TreeNode(1, new TreeNode(2), null),
+                new TreeNode(1, null,  new TreeNode(2))
+            },
         };
 }
