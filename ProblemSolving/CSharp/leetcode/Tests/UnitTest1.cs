@@ -65,4 +65,15 @@ public partial class UnitTest1
 
         Assert.Equal(expected, b);
     }
+
+    [Theory]
+    [MemberData(nameof(InvertTree))]
+    public void ValidInvertTrete(TreeNode root, TreeNode expected)
+    {
+        var result = Solution226.InvertTree(root);
+
+        var b = JsonConvert.SerializeObject(result);
+
+        Assert.Equal(JsonConvert.SerializeObject(expected), b);
+    }
 }

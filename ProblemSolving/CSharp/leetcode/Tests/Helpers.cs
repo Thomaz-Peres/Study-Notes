@@ -11,7 +11,7 @@ public partial class UnitTest1
             },
             new object[] {
                 new ListNode(1),
-                null
+                null! // ??
             },
             new object[] {
                 new ListNode(2),
@@ -30,5 +30,18 @@ public partial class UnitTest1
                 new int[] { 7,1,5,3,6,4 },
                 5,
             },
+        };
+
+    public static IEnumerable<object[]> InvertTree =>
+        new List<object[]>
+        {
+            new object[] {
+                new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)),  new TreeNode(7, new TreeNode(6), new TreeNode(9))),
+                new TreeNode(4, new TreeNode(7, new TreeNode(9), new TreeNode(6)),  new TreeNode(2, new TreeNode(3), new TreeNode(1)))
+            },
+            // new object[] {
+            //     new TreeNode(2, new TreeNode(1),  new TreeNode(3)),
+            //     new TreeNode(2, new TreeNode(3),  new TreeNode(1))
+            // },
         };
 }
