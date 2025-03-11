@@ -76,4 +76,15 @@ public partial class UnitTest1
 
         Assert.Equal(JsonConvert.SerializeObject(expected), b);
     }
+
+    [Theory]
+    [InlineData("anagram", "nagaram", true)]
+    [InlineData("rat", "car", false)]
+    [InlineData("a", "a", true)]
+    public void ValidAnagram(string s, string t, bool expected)
+    {
+        var b = Solution224.IsAnagram(s, t);
+
+        Assert.Equal(expected, b);
+    }
 }
