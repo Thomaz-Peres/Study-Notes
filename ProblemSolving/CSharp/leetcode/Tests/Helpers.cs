@@ -48,4 +48,14 @@ public partial class UnitTest1
                 new TreeNode(1, null,  new TreeNode(2))
             },
         };
+
+    public static IEnumerable<object[]> BinarySearch =>
+        new List<object[]>
+        {
+            new object[] {
+                new int[] { -1,0,3,5,9,12 },
+                2,
+                -1
+            },
+        };
 }

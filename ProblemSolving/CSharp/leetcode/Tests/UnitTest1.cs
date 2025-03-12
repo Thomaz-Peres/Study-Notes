@@ -87,4 +87,13 @@ public partial class UnitTest1
 
         Assert.Equal(expected, b);
     }
+
+    [Theory]
+    [MemberData(nameof(BinarySearch))]
+    public void ValidBinarySearch(int[] nums, int t, int expected)
+    {
+        var b = Solution704.Search(nums, t);
+
+        Assert.Equal(expected, b);
+    }
 }
