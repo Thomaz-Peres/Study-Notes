@@ -58,4 +58,14 @@ public partial class UnitTest1
                 -1
             },
         };
+
+    public static IEnumerable<object[]> FloodFill =>
+        new List<object[]>
+        {
+            new object[] {
+                new int[] [[1,1,1],[1,1,0],[1,0,1]],
+                2,
+                -1
+            },
+        };
 }
