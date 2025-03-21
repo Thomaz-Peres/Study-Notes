@@ -6,8 +6,10 @@ namespace AsyncAwait;
 
 public static class AsyncAwait
 {
+    // this is terribly inefficient and is only being done in the name of study
     public static void Main(string[] args)
     {
+        // If the OS is able to satisfy the operation synchronously, will complete synchronously.
         using Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         listener.Bind(new IPEndPoint(IPAddress.Loopback, 0));
         listener.Listen();
