@@ -49,7 +49,7 @@ namespace AsyncAwait
 
 namespace System2
 {
-    public class AsyncAwaitSuccess
+    class AsyncAwaitSuccess
     {
         public void Main(string arg)
         {
