@@ -2,6 +2,8 @@
 using System.Net;
 using System.Net.Sockets;
 
+// This is how the async was in .NET Framework, known as the Begin/End patterr, otherwise known as the ÌAsyncResult pattern.
+
 namespace AsyncAwait
 {
     public static class AsyncAwaitFail
@@ -49,7 +51,7 @@ namespace AsyncAwait
 
 
 
-namespace System3
+namespace Async
 {
     class AsyncAwaitFail2
     {
@@ -80,15 +82,15 @@ namespace System3
         }
     }
 
-    class Handler
+    public class Handler
     {
         public int DoStuff(string arg);
 
-        public IAsyncResult BeginDoStuff(string arg, AsyncCallback callback, object? state);
-        public int EndDoStuff(IAsyncResult asyncResult);
+        public IAsyncResultt BeginDoStuff(string arg, AsyncCallback callback, object? state);
+        public int EndDoStuff(IAsyncResultt asyncResult);
     }
 
-    interface IAsyncResult
+    public interface IAsyncResultt
     {
         object? AsyncState { get; }
         WaitHandle AsyncWaitHandle { get; }
@@ -96,5 +98,5 @@ namespace System3
         bool CompletedSynchronously { get; }
     }
 
-    delegate void AsyncCallback(IAsyncResult ar);
+    delegate void AsyncCallback(IAsyncResultt ar);
 }

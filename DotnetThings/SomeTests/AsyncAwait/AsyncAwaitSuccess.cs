@@ -1,6 +1,7 @@
 // Force an stack overflow
 using System.Net;
 using System.Net.Sockets;
+using Async;
 
 namespace AsyncAwait
 {
@@ -85,24 +86,4 @@ namespace System2
             }
         }
     }
-
-
-    // Sim, codigo duplicado mesmo, outro dia eu vejo
-    class Handler
-    {
-        public int DoStuff(string arg);
-
-        public IAsyncResult BeginDoStuff(string arg, AsyncCallback callback, object? state);
-        public int EndDoStuff(IAsyncResult asyncResult);
-    }
-
-    interface IAsyncResult
-    {
-        object? AsyncState { get; }
-        WaitHandle AsyncWaitHandle { get; }
-        bool IsCompleted { get; }
-        bool CompletedSynchronously { get; }
-    }
-
-    delegate void AsyncCallback(IAsyncResult ar);
 }
