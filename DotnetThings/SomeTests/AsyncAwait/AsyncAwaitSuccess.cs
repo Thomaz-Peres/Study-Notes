@@ -1,11 +1,10 @@
 // Force an stack overflow
 using System.Net;
 using System.Net.Sockets;
-using Async;
 
 namespace AsyncAwait
 {
-    public static class AsyncAwaitSuccess
+    public class AsyncAwaitSuccess
     {
         // this is terribly inefficient and is only being done in the name of study
         public static void Main(string[] args)
@@ -46,24 +45,21 @@ namespace AsyncAwait
             mres.Wait();
         }
     }
-}
 
-namespace System2
-{
-    class AsyncAwaitSuccess
+    public class AsyncAwaitSuccess2
     {
         public void Main(string arg)
         {
-            var handler = new Handler();
+            var handler = new Handlerr();
             try
             {
-                IAsyncResult ar = handler.BeginDoStuff(arg, iar =>
+                IAsyncResultt ar = handler.BeginDoStuff(arg, iar =>
                 {
                     if (!iar.CompletedSynchronously)
                     {
                         try
                         {
-                            Handler handler = (Handler)iar.AsyncState!;
+                            Handlerr handler = (Handlerr)iar.AsyncState!;
                             int i = handler.EndDoStuff(iar);
                             Use(i);
                         }

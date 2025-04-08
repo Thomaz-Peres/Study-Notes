@@ -2,6 +2,7 @@ using Async;
 
 public class CopyStream
 {
+    // Even with all of that gobbledygook, it's still not a great implementation.
     public IAsyncResult BeginCopyStreamToStream(
         Stream source, Stream destination,
         System.AsyncCallback callback, object state)
@@ -94,6 +95,7 @@ public class CopyStream
         private bool _completed;
         private int _completedSynchronously;
         private ManualResetEvent? _event;
+        // Here the exception is being store raw rather than as an ExceptionDispathInfo that would enable augmenting its call stack when propagated.
         private Exception? _error;
 
         public MyAsyncResult(object? state) => AsyncState = state;

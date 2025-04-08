@@ -6,7 +6,7 @@ using System.Net.Sockets;
 
 namespace AsyncAwait
 {
-    public static class AsyncAwaitFail
+    public class AsyncAwaitFail
     {
         // this is terribly inefficient and is only being done in the name of study
         public static void Main(string[] args)
@@ -47,12 +47,7 @@ namespace AsyncAwait
             mres.Wait();
         }
     }
-}
 
-
-
-namespace Async
-{
     class AsyncAwaitFail2
     {
         public void Main(string arg)
@@ -81,22 +76,4 @@ namespace Async
             }
         }
     }
-
-    public class Handler
-    {
-        public int DoStuff(string arg);
-
-        public IAsyncResultt BeginDoStuff(string arg, AsyncCallback callback, object? state);
-        public int EndDoStuff(IAsyncResultt asyncResult);
-    }
-
-    public interface IAsyncResultt
-    {
-        object? AsyncState { get; }
-        WaitHandle AsyncWaitHandle { get; }
-        bool IsCompleted { get; }
-        bool CompletedSynchronously { get; }
-    }
-
-    delegate void AsyncCallback(IAsyncResultt ar);
 }

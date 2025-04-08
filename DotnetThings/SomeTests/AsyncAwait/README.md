@@ -21,3 +21,13 @@ Such a buffer might exist behind whatever asynchronous abstraction you're using,
 
 - `CompletedSynchronously` never changes (or if it does, it's a nasty bug waiting to happen).
     - it's  used to communicate between the caller of the Begin method and the `AsyncCallback` which of tem is resposible for performing any continuation work.
+
+
+_________________________________________________________________________________
+
+
+# Event-Based Asynchronous Pattern (EAP)
+
+A different pattern for handling asynchronous operation one primarily intended for doing so in the context of client application.
+
+The EAP, also came as a pair of member (at least, possibly more), this time a method to initiate the asynchronous operation and an event ot listem for its completion.
