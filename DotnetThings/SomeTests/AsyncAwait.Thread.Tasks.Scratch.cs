@@ -1,9 +1,29 @@
 
-Console.WriteLine("Hello, ");
-MyTask.Delay(2000).ContinueWith(() =>
+MyTask.Iterate(PrintAsync().Wait());
+
+static System.Collections.IEnumerable<MyTask> PrintAsync()
 {
-    Console.WriteLine("World");
-}).Wait();
+    for (int i = 0; ; i++)
+    {
+        yield return MyTask.Delay(1000);
+        Console.WriteLine(i);
+    }
+}
+
+// Console.WriteLine("Hello, ");
+// MyTask.Delay(2000).ContinueWith(() =>
+// {
+//     Console.WriteLine("World");
+//     return MyTask.Delay(2000).ContinueWith(() =>
+//     {
+//         Console.WriteLine(" And Thomaz");
+//         return MyTask.Delay(2000).ContinueWith(() =>
+//         {
+//             Console.WriteLine(" How Are you ?");
+//         });
+//     });
+
+// }).Wait();
 
 // AsyncLocal<int> myValue = new();
 // List<MyTask> tasks = new();
@@ -116,6 +136,50 @@ class MyTask
         return t;
     }
 
+    public MyTask ContinueWith(Func<MyTask> action)
+    {
+        MyTask t = new();
+
+        Action callback = () =>
+        {
+            try
+            {
+                MyTask next = action();
+                next.ContinueWith(() =>
+                {
+                    if (next._exception is not null)
+                    {
+                        t.SetException(next._exception);
+                    }
+                    else
+                    {
+                        t.SetResult();
+                    }
+                });
+            }
+            catch (System.Exception e)
+            {
+                t.SetException(e);
+                return;
+            }
+        };
+
+        lock (this)
+        {
+            if (_completed)
+            {
+                MyThreadPool.QueueUserWorkItem(callback);
+            }
+            else
+            {
+                _continuation = callback;
+                _context = ExecutionContext.Capture();
+            }
+        }
+
+        return t;
+    }
+
     public static MyTask Run(Action action)
     {
         MyTask t = new();
@@ -175,6 +239,37 @@ class MyTask
 
         // And this, allow that thread to do something else while that's happening
         new Timer(_ => t.SetResult()).Change(timeout, -1);
+        return t;
+    }
+
+    public static MyTask Iterate(System.Collections.IEnumerable<MyTask> tasks)
+    {
+        MyTask t = new();
+
+        IEnumerator<MyTask> e = tasks.GetEnumerator();
+
+        void MoveNext()
+        {
+            try
+            {
+                if (e.MoveNext())
+                {
+                    MyTask next = e.Current;
+                    next.ContinueWith(MoveNext);
+                    return;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                t.SetException(ex);
+                return;
+            }
+
+            t.SetResult();
+        }
+
+        MoveNext();
+
         return t;
     }
 }
