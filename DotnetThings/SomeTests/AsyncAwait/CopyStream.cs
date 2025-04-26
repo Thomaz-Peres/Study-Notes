@@ -1,177 +1,175 @@
-using Async;
-
 public class CopyStream
 {
-    // Even with all of that gobbledygook, it's still not a great implementation.
-    public IAsyncResult BeginCopyStreamToStream(
-        Stream source, Stream destination,
-        System.AsyncCallback callback, object state)
-    {
-        var ar = new MyAsyncResult(state);
-        var buffer = new byte[0x1000];
+   // Even with all of that gobbledygook, it's still not a great implementation.
+   public IAsyncResult BeginCopyStreamToStream(
+       Stream source, Stream destination,
+       System.AsyncCallback callback, object state)
+   {
+       var ar = new MyAsyncResult(state);
+       var buffer = new byte[0x1000];
 
-        Action<IAsyncResult?> readWriteLoop = null!;
-        readWriteLoop = iar =>
-        {
-            try
-            {
-                for (bool isRead = iar == null; ; isRead = !isRead)
-                {
-                    if (isRead)
-                    {
-                        iar = source.BeginRead(buffer, 0, buffer.Length, static readResult =>
-                        {
-                            if (!readResult.CompletedSynchronously)
-                            {
-                                ((Action<IAsyncResult?>)readResult.AsyncState!)(readResult);
-                            }
-                        }, readWriteLoop);
+       Action<IAsyncResult?> readWriteLoop = null!;
+       readWriteLoop = iar =>
+       {
+           try
+           {
+               for (bool isRead = iar == null; ; isRead = !isRead)
+               {
+                   if (isRead)
+                   {
+                       iar = source.BeginRead(buffer, 0, buffer.Length, static readResult =>
+                       {
+                           if (!readResult.CompletedSynchronously)
+                           {
+                               ((Action<IAsyncResult?>)readResult.AsyncState!)(readResult);
+                           }
+                       }, readWriteLoop);
 
-                        if (!iar.CompletedSynchronously)
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        int numRead = source.EndRead(iar!);
-                        if (numRead == 0)
-                        {
-                            ar.Complete(null);
-                            callback?.Invoke(ar);
-                            return;
-                        }
+                       if (!iar.CompletedSynchronously)
+                       {
+                           return;
+                       }
+                   }
+                   else
+                   {
+                       int numRead = source.EndRead(iar!);
+                       if (numRead == 0)
+                       {
+                           ar.Complete(null);
+                           callback?.Invoke(ar);
+                           return;
+                       }
 
-                        iar = destination.BeginWrite(buffer, 0, numRead, writeResult =>
-                        {
-                            if (!writeResult.CompletedSynchronously)
-                            {
-                                try
-                                {
-                                    destination.EndWrite(writeResult);
-                                    readWriteLoop(null);
-                                }
-                                catch (Exception e2)
-                                {
-                                    ar.Complete(e2);
-                                    callback?.Invoke(ar);
-                                }
-                            }
-                        }, null);
+                       iar = destination.BeginWrite(buffer, 0, numRead, writeResult =>
+                       {
+                           if (!writeResult.CompletedSynchronously)
+                           {
+                               try
+                               {
+                                   destination.EndWrite(writeResult);
+                                   readWriteLoop(null);
+                               }
+                               catch (Exception e2)
+                               {
+                                   ar.Complete(e2);
+                                   callback?.Invoke(ar);
+                               }
+                           }
+                       }, null);
 
-                        if (!iar.CompletedSynchronously)
-                        {
-                            return;
-                        }
+                       if (!iar.CompletedSynchronously)
+                       {
+                           return;
+                       }
 
-                        destination.EndWrite(iar);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                ar.Complete(e);
-                callback?.Invoke(ar);
-            }
-        };
+                       destination.EndWrite(iar);
+                   }
+               }
+           }
+           catch (Exception e)
+           {
+               ar.Complete(e);
+               callback?.Invoke(ar);
+           }
+       };
 
-        readWriteLoop(null);
+       readWriteLoop(null);
 
-        return ar;
-    }
+       return ar;
+   }
 
-    public void EndCopyStreamToStream(IAsyncResult asyncResult)
-    {
-        if (asyncResult is not MyAsyncResult ar)
-        {
-            throw new ArgumentException(null, nameof(asyncResult));
-        }
+   public void EndCopyStreamToStream(IAsyncResult asyncResult)
+   {
+       if (asyncResult is not MyAsyncResult ar)
+       {
+           throw new ArgumentException(null, nameof(asyncResult));
+       }
 
-        ar.Wait();
-    }
+       ar.Wait();
+   }
 
-    private sealed class MyAsyncResult : IAsyncResult
-    {
-        private bool _completed;
-        private int _completedSynchronously;
-        private ManualResetEvent? _event;
-        // Here the exception is being store raw rather than as an ExceptionDispathInfo that would enable augmenting its call stack when propagated.
-        private Exception? _error;
+   private sealed class MyAsyncResult : IAsyncResult
+   {
+       private bool _completed;
+       private int _completedSynchronously;
+       private ManualResetEvent? _event;
+       // Here the exception is being store raw rather than as an ExceptionDispathInfo that would enable augmenting its call stack when propagated.
+       private Exception? _error;
 
-        public MyAsyncResult(object? state) => AsyncState = state;
+       public MyAsyncResult(object? state) => AsyncState = state;
 
-        public object? AsyncState { get; }
+       public object? AsyncState { get; }
 
-        public void Complete(Exception? error)
-        {
-            lock (this)
-            {
-                _completed = true;
-                _error = error;
-                _event?.Set();
-            }
-        }
+       public void Complete(Exception? error)
+       {
+           lock (this)
+           {
+               _completed = true;
+               _error = error;
+               _event?.Set();
+           }
+       }
 
-        public void Wait()
-        {
-            WaitHandle? h = null;
-            lock (this)
-            {
-                if (_completed)
-                {
-                    if (_error is not null)
-                    {
-                        throw _error;
-                    }
-                    return;
-                }
+       public void Wait()
+       {
+           WaitHandle? h = null;
+           lock (this)
+           {
+               if (_completed)
+               {
+                   if (_error is not null)
+                   {
+                       throw _error;
+                   }
+                   return;
+               }
 
-                h = _event ??= new ManualResetEvent(false);
-            }
+               h = _event ??= new ManualResetEvent(false);
+           }
 
-            h.WaitOne();
-            if (_error is not null)
-            {
-                throw _error;
-            }
-        }
+           h.WaitOne();
+           if (_error is not null)
+           {
+               throw _error;
+           }
+       }
 
-        public WaitHandle AsyncWaitHandle
-        {
-            get
-            {
-                lock (this)
-                {
-                    return _event ??= new ManualResetEvent(_completed);
-                }
-            }
-        }
+       public WaitHandle AsyncWaitHandle
+       {
+           get
+           {
+               lock (this)
+               {
+                   return _event ??= new ManualResetEvent(_completed);
+               }
+           }
+       }
 
-        public bool CompletedSynchronously
-        {
-            get
-            {
-                lock (this)
-                {
-                    if (_completedSynchronously == 0)
-                    {
-                        _completedSynchronously = _completed ? 1 : -1;
-                    }
+       public bool CompletedSynchronously
+       {
+           get
+           {
+               lock (this)
+               {
+                   if (_completedSynchronously == 0)
+                   {
+                       _completedSynchronously = _completed ? 1 : -1;
+                   }
 
-                    return _completedSynchronously == 1;
-                }
-            }
-        }
+                   return _completedSynchronously == 1;
+               }
+           }
+       }
 
-        public bool IsCompleted
-        {
-            get
-            {
-                lock (this)
-                {
-                    return _completed;
-                }
-            }
-        }
-    }
+       public bool IsCompleted
+       {
+           get
+           {
+               lock (this)
+               {
+                   return _completed;
+               }
+           }
+       }
+   }
 }

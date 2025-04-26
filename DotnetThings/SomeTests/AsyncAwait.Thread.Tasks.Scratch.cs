@@ -1,7 +1,12 @@
+// To Work should put this into program
 
-MyTask.Iterate(PrintAsync().Wait());
+using System.Runtime.CompilerServices;
 
-static System.Collections.IEnumerable<MyTask> PrintAsync()
+
+// Simulating await
+MyTask.Iterate(PrintAsync()).Wait();
+
+static IEnumerable<MyTask> PrintAsync()
 {
     for (int i = 0; ; i++)
     {
@@ -9,6 +14,20 @@ static System.Collections.IEnumerable<MyTask> PrintAsync()
         Console.WriteLine(i);
     }
 }
+
+
+// Using await 
+PrintAsync2().Wait();
+
+static async Task PrintAsync2()
+{
+    for (int i = 0; ; i++)
+    {
+        await MyTask.Delay(1000);
+        Console.WriteLine(i);
+    }
+}
+
 
 // Console.WriteLine("Hello, ");
 // MyTask.Delay(2000).ContinueWith(() =>
@@ -45,6 +64,19 @@ class MyTask
     private Exception? _exception;
     private Action? _continuation;
     private ExecutionContext? _context;
+
+    public struct Awaiter(MyTask t) : INotifyCompletion
+    {
+        public Awaiter GetAwaiter() => this;
+
+        public bool IsCompleted => t.IsCompleted;
+
+        public void OnCompleted(Action continuation) => t.ContinueWith(continuation);
+
+        public void GetResult() => t.Wait();
+    }
+
+    public Awaiter GetAwaiter() => new(this);
 
     public bool IsCompleted
     {
@@ -242,7 +274,9 @@ class MyTask
         return t;
     }
 
-    public static MyTask Iterate(System.Collections.IEnumerable<MyTask> tasks)
+    // This little helper is basically what the compiler generates for async await
+    // In the C# compiler, the logic to support implementing Iterators and the logic to support implementing async methods it's like 90% the same
+    public static MyTask Iterate(IEnumerable<MyTask> tasks)
     {
         MyTask t = new();
 
@@ -294,7 +328,7 @@ static class MyThreadPool
                 while (true)
                 {
                     (Action workItem, ExecutionContext? context) = s_workItems.Take();
-                    if  (context is null)
+                    if (context is null)
                     {
                         workItem();
                     }
