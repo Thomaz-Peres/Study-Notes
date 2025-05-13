@@ -43,3 +43,16 @@ However, it did add one notable advance that the APM pattern didn't factor in at
 > SynchronizationContext is a abstraction for a general scheduler. The most used method is `Post`, which queues a work item to whatever scheduler is represented by that context.
 
 > The base implementation of `SynchronizationContext`, for example, just represents a ThreadPool.
+
+
+# Avoid using Task.Result and Task.Wait
+
+> this is reading this (https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md)
+
+Using `Task.Result` or `Task.Wait ` to block waiting on an asynchronous operation to complete is MUCH worse than calling a truly synchronous API to block.
+
+This phenomenon is dubbed "Sync over async". Here is what happens at a very high level:
+
+- An asnchronous operation kicked off.
+- The calling thread is blocked waiting for that operation to complete.
+- When the asynchronous operation completes, it unblocks the code waiting on that operation. This takes a place on another thread.
