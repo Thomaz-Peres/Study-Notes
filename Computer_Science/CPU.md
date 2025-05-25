@@ -11,6 +11,10 @@ The assembly program would have `ADD VA, 22`, and the assembler would translate 
 
 > The assembly would translate their human-readable assembly into the 1s and 0s that the computer could understand.
 
+A register is a dedicated location on a CPU for storage. Any operation that a CPU does must be done within its registers. A CPU typically only has a few registers, so long-term data is held in memory instead.
+
+Operations often involve loading data from memory into registers, operarting on those registers, and then storing the result back into memory.
+
 
 ## Emulator
 
@@ -20,3 +24,5 @@ An emulator reads the original machine code instructions that were assembled for
 When an emulator reads the instruction `C622`, it would emulate the behavior of the Game Boy by doing something like this:
 
 ``` registers[0xA] += 0x22```
+
+When emulating more advanced machines you also have to emulate other components like the graphics processor and the sound chip.
