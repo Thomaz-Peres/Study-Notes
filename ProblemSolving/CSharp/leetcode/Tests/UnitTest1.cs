@@ -1,5 +1,6 @@
-﻿using leetcode;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+
+namespace leetcode.Tests;
 
 public partial class UnitTest1
 {
@@ -117,4 +118,15 @@ public partial class UnitTest1
 
         Assert.Equal(expected, b);
     }
+
+    // [Theory]
+    // [InlineData("babad", "bab")]
+    // [InlineData("cbbd", "none")]
+    // [InlineData("hellosannasmith", "sannas")]
+    // public void ValidPalindromeSubstring(string x, string expected)
+    // {
+    //     var b = Solution5.LongestPalindromeSubstring(x);
+
+    //     Assert.Equal(expected, b);
+    // }
 }
