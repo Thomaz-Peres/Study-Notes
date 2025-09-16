@@ -1,3 +1,11 @@
+This is a decimal representation
+
+![Decimal representation](image.png)
+
+The same happens for binary and hexadecimal systems, but on the place of 10 we use 2 and 16 respectively.
+
+![Binary and hexadecimal representation](image-1.png)
+
 # Hexadecimal notation.
 
 0: 0000 = 0
@@ -57,6 +65,8 @@ Binary      = 0b01000001
 
 Hexadecimal = 0x41 | $41 | #41 | x41
 
+
+-------------------------------------------------------------------------------
 
 # Some examples printing and showing the bits of a file.
 

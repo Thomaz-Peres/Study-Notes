@@ -6,10 +6,10 @@
 
 ### Bitwise direita e esquerda
 
-- bitwise para a esquerda DOBRA o valor 
-- bitwise para a direita divide pela METADE o valor 
+- bitwise para a esquerda DOBRA o valor
+- bitwise para a direita divide pela METADE o valor
 
-### EXEMPLOS desdobramento para a esquerda 
+### EXEMPLOS desdobramento para a esquerda
 
 BITS         | VALOR
 ------------ | -----
@@ -39,8 +39,8 @@ BITS         | VALOR
 ### Explicando para mim
 
 -. PARA A ESQUERDA EU TIRO 1 ZERO DO COMEÇO E ADICIONO 1 NO FINAL
--.. isso se for para <<1
--... se eu quiser dobrar <<2, eu tiro dois zeros e adiciono no final
+-.. isso se for para << 1
+-... se eu quiser dobrar << 2, eu tiro dois zeros e adiciono no final
 
 BITS         | VALOR
 ------------ | -----
