@@ -1,4 +1,4 @@
-using leetcode;
+namespace leetcode.Tests;
 
 public partial class UnitTest1
 {

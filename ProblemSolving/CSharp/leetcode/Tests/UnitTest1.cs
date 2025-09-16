@@ -1,5 +1,6 @@
-﻿using leetcode;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+
+namespace leetcode.Tests;
 
 public partial class UnitTest1
 {
@@ -100,9 +101,32 @@ public partial class UnitTest1
     [Fact]
     public void ValidFloodFill()
     {
-        int[][] imagem = [[1,1,1],[1,1,0],[1,0,1]];
+        int[][] imagem = [[1, 1, 1], [1, 1, 0], [1, 0, 1]];
         var b = Solution733.FloodFill(imagem, 1, 1, 2);
 
         // Assert.Equal(expected, b);
     }
+
+    [Theory]
+    [InlineData(121, true)]
+    [InlineData(-121, false)]
+    [InlineData(123, false)]
+    [InlineData(1000021, false)]
+    public void ValidPalindromeNumber(int x, bool expected)
+    {
+        var b = Solution9.IsPalindromeNumber(x);
+
+        Assert.Equal(expected, b);
+    }
+
+    // [Theory]
+    // [InlineData("babad", "bab")]
+    // [InlineData("cbbd", "none")]
+    // [InlineData("hellosannasmith", "sannas")]
+    // public void ValidPalindromeSubstring(string x, string expected)
+    // {
+    //     var b = Solution5.LongestPalindromeSubstring(x);
+
+    //     Assert.Equal(expected, b);
+    // }
 }
